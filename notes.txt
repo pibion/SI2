@@ -1,0 +1,24 @@
+25 SSE and SSI grants in total are anticipated.  Up to 19 SSE awards and 10 SSI awards are allowed each year.
+
+What are the deadlines for SSE and SSI proposals?  Possibly June, but I'm looking at the dates for 2015!  Is this award still around?
+
+software infrastructure (SSE, SSI) solicitation:
+http://www.nsf.gov/pubs/2014/nsf14520/nsf14520.htm
+
+software infrastructure for sustained innovation program summary:
+http://www.nsf.gov/funding/pgm_summ.jsp?pims_id=504865
+
+physics-division contact for Software Infrastructure grants:
+http://www.nsf.gov/staff/staff_bio.jsp?lan=bmihaila&org=NSF&from_org=NSF
+SI2Queries@nsf.gov
+
+A list of SSE/SSI grant awardees: 
+https://sites.google.com/site/softwarecyberinfrastructure/software/software
+http://www.nsf.gov/awardsearch/showAward?AWD_ID=1339757 (partial-file FTP!)
+
+NSF software vision statement(s): 
+http://www.nsf.gov/pubs/2012/nsf12113/nsf12113.pdf
+http://www.nsf.gov/funding/pgm_summ.jsp?pims_id=504817
+
+
+
