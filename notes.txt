@@ -15,6 +15,7 @@ SI2Queries@nsf.gov
 A list of SSE/SSI grant awardees: 
 https://sites.google.com/site/softwarecyberinfrastructure/software/software
 http://www.nsf.gov/awardsearch/showAward?AWD_ID=1339757 (partial-file FTP!)
+http://www.nsf.gov/awardsearch/simpleSearchResult?queryText=SI2&ActiveAwards=true
 
 NSF software vision statement(s): 
 http://www.nsf.gov/pubs/2012/nsf12113/nsf12113.pdf
