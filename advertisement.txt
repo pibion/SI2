@@ -1,0 +1,69 @@
+\documentclass[]{report}   % list options between brackets
+\usepackage{parskip}
+
+% type user-defined commands here
+
+\begin{document}
+
+\title{\TeX\ and \LaTeX}   % type title between braces
+\author{Tom Scavo}         % type author(s) between braces
+\date{October 27, 1995}    % type date between braces
+% \maketitle
+
+%\begin{abstract}
+%  A brief introduction to \TeX\ and \LaTeX
+%\end{abstract}
+
+\section*{The problem}     % section 1.1
+
+Experimental physics research only moves once good data is on disk.  And DAQ software is not only time consuming, but often entirely custom.  If I build an useful trigger-rate display tool, you can't use it - your data format is different.  
+
+Even within an institution, a working DAQ can be alarmingly fragile.  A smooth experiment sometimes depends on access to a single, DAQ-knowledgeable person.  Don't panic, but he's on vacation!  
+
+
+\section*{The idea}     % section 1.1
+The NSF offers a ``Software Infrastructure for Sustained Innovation - SSE \& SSI'' grant
+(http://www.nsf.gov/pubs/2016/nsf16532/nsf16532.htm).  Work on specific software is most appropriate to the SSE grant, which typically awards \$500K over three years and is due in the spring.  SSI grants generally have a broader scope and typically award \$1M over five years; SSI grants are due in the fall.
+
+I'm interested in writing a grant to (1) define standards for data acquisition and (2) develop and test one to two tools that use those standards.  
+
+I think this proposal is strongest as a joint effort from two groups that use different data acquisition software - such as Midas and the MSU DAQ.
+
+If funded, I imagine using the funds to support two postdocs over three years - one at a CDMS (Midas) institution, and the other at an MSU DAQ institution.  The work I'd hope to accomplish by the end of the grant would be
+\begin{itemize}
+ \item develop and publish a core set of DAQ standards (e.g., data format specification)
+ \item develop, test, and publish at least one tool based on these standards that works with both Midas and the MSU DAQ (e.g., an event builder) 
+ \item be able to evaluate if standards work merits further funding through an NSF SSI or SI2 grant
+\end{itemize}
+
+
+\section*{The odds}     % section 1.1
+The success rate for "Software Infrastructure" proposals - both SSE and SSI - is about 20\%. SSE grants run for three years, and typically
+provide \$500K in total. SSI grants run for five years, and typically provide \$1M
+in total.
+ 
+These software grants generally support work that benefits
+an entire field; it's rare that work restricted to a single collaboration recieves
+funding. To get a sense of what projects are typically funded, see
+https://sites.google.com/site/softwarecyberinfrastructure/software/software and
+http://www.nsf.gov/awardsearch/simpleSearchResult?queryText=SI2\&ActiveAwards=true.
+ 
+I think we may be able to make a competitive proposal - and have a greater chance of true impact - by focusing on the development of standards and collaborating across DAQ groups.
+
+ 
+\section*{Worth it?}     % section 1.1
+The money is there for the taking, but this is collaborative work at its hardest.  Succeeding will require not only that those on the project work together, but also that other physicists participate in tedious discussions about standards and be willing to disrupt their working DAQ to test out new, buggy components.
+
+And who says standards are even possible?  Medium- and low-energy physics demands an impressive breadth from its data acquisition, and it will be challenging to develop ssufficiently flexible standards that are still meaningful.
+
+Finally, this project can only hope to produce usable software after several years of work.  Effective standards rely on broad adoption, and maintaining genuine community involvement will be difficult when the payoff is not now, but ten years of widespread standards adoption from now.
+
+Painfully difficult, you say?  Sign me up.  Anyone else?  Anyone?
+
+\section*{Get in touch}
+If you're interested in talking about this proposal, or have ideas to make it less difficult and more likely to be successful, please get in touch!
+
+You can reach Amy Roberts at amy.l.roberts@usd.edu.
+
+
+\end{document}
