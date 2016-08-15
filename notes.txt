@@ -1,6 +1,17 @@
-25 SSE and SSI grants in total are anticipated.  Up to 19 SSE awards and 10 SSI awards are allowed each year.
+The NSF offers a ``Software Infrastructure for Sustained Innovation - SSE \& SSI'' grant
+(\url{http://www.nsf.gov/pubs/2016/nsf16532/nsf16532.htm}).  Work on specific software is most appropriate to the SSE grant, which typically awards \$500K over three years and is due in the spring.  SSI grants have a broader scope and typically award \$1M over five years; SSI grants are due in the fall.
 
-What are the deadlines for SSE and SSI proposals?  Possibly June, but I'm looking at the dates for 2015!  Is this award still around?
+
+The NSF awards about 25 SSE and SSI grants, in total, each year.  Up to 19 SSE awards and 10 SSI awards are allowed each year.
+
+The success rate for ``Software Infrastructure'' proposals - both SSE and SSI - is about 20\%. 
+ 
+These software grants generally support work that benefits
+an entire field; it's rare that work focused on a single collaboration recieves
+funding. To get a sense of typically-funded projects, see
+\url{https://sites.google.com/site/softwarecyberinfrastructure/software/software} and
+\url{http://www.nsf.gov/awardsearch/simpleSearchResult?queryText=SI2&ActiveAwards=true}.
+ 
 
 software infrastructure (SSE, SSI) solicitation:
 http://www.nsf.gov/pubs/2014/nsf14520/nsf14520.htm
