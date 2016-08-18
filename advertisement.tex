@@ -22,7 +22,7 @@
 
 \section*{The problem}     % section 1.1
 
-Experimental physics research only moves once good data is on disk.  And DAQ software is not only time consuming, but often entirely custom.  I might spend a month building a useful trigger-rate display tool, but you can't use it - your data format is different.  
+Experimental physics research needs good data on disk.  And DAQ software is both time consuming and, often, entirely custom.  I might spend a month building a useful trigger-rate display tool, but you can't use it - your data format is different.  
 
 Even within an institution, a working DAQ can be alarmingly fragile.  A smooth experiment sometimes depends on access to a single, DAQ-knowledgeable person.  Don't panic, but he's on vacation!  
 
@@ -33,47 +33,75 @@ The NSF offers a ``Software Infrastructure for Sustained Innovation - SSE \& SSI
 
 I'm interested in writing a grant to (1) define standards for data acquisition and (2) develop and test one to two tools that use those standards.  
 
-I think this proposal is strongest as a joint effort from two groups that use different data acquisition software - such as Midas and the MSU DAQ.
+I think this proposal is strongest as a joint effort from two groups that use different data acquisition software - such as Midas and the NSCL DAQ, used at Michigan State.
 
 If funded, I imagine supporting two postdocs over three years - one at a CDMS (Midas) institution, and the other at an MSU DAQ institution.  The work I'd hope to accomplish by the end of the grant would be
 \begin{itemize}
- \item develop and publish a core set of DAQ standards (a streaming data format, a file format, and a set of HTTP APIs that allow users to control the DAQ)
- \item develop, test, and publish at least one tool based on these standards that works with both Midas and the MSU DAQ (e.g., an event builder) 
+ \item develop and publish a core set of DAQ standards
+ \begin{itemize}
+   \item develop a descriptor language and protocol for streaming data - or adopt an existing one, such as protobuf
+   \item \emph{possibly} develop a set of HTTP APIs that allow users to control the DAQ
+ \end{itemize}
+
+ \item develop, test, and publish at least one tool based on these standards that works with both Midas and the NSCL DAQ 
+ \begin{itemize}
+   \item an event builder
+   \item \emph{possibly} a scheduler
+ \end{itemize}
+
  \item be able to evaluate if standards work merits further funding through an NSF SSI or SI2 grant
 \end{itemize}
 
+% a google search for "application layer data protocol" was fruitful
+% protobuf, a language to define binary data that has bindings to many programming languages
+% note that there are javascript bindings for protobuf - and the W3C has a standard for "TextEncoder" and "TextDecoder"
+% https://developers.google.com/protocol-buffers/docs/overview
 
 \section*{The benefits}
-The MSU DAQ is in heavy use at the Notre Dame Nuclear Lab and will be a primary DAQ at the upcoming FRIB installation at MSU.  But at Notre Dame, integration with other data acquisition software - LabView controls, for example - is sometimes necessary; at FRIB, users will arrive with a wide array of hardware and software and need to "plug in" to their existing infrastructure.  Standards development would help the long-term software maintenance at Notre Dame and extend the reach of software tools developed at Notre Dame.   
+The proposed work would at minimum result in an event builder, which is required for the completion of the CDMS project.  A performant event builder would also be a significant boon to the beam-based nuclear physics community, as they move increasingly towards digitized readouts.  
 
-The upcoming SuperCDMS-SNOLAB experiment will use the Midas DAQ.  While the CDMS installation is not a "user facility", there is interest in putting EURECA crystals into the cryostat; CDMS will face DAQ interoperability issues, as well.  More immediately, this work will result in an event builder, which is required for the completion of the CDMS project.  And compared to a custom event builder, a standards-compliant event builder may reduce maintenace costs during operation.
+%And compared to a custom event builder, a standards-compliant event builder may reduce maintenace costs during operation.
+
+%Ideally, a core of successful standards extends the reach of locally-developed software tools and reclaims some of the community's time lost to re-solving common DAQ issues.  
+Ideally, successful standards extend locally-developed software tools to the entire community. Practically, community-wide standards adoption demands significant time and effort. 
+
+This grant provides some initial manpower: roughly one full-time-equivalent postdoc apiece for CDMS and our NSCL DAQ partner, for three years.  I would expect grant work to split approximately equally between standards work and concrete tool development.
+
+% The upcoming SuperCDMS-SNOLAB experiment will use the Midas DAQ.  While the CDMS installation is not a "user facility", there is interest in putting EURECA crystals into the cryostat; CDMS will face DAQ interoperability issues, as well.  More immediately, this work will result in an event builder, which is required for the completion of the CDMS project.  And compared to a custom event builder, a standards-compliant event builder may reduce maintenace costs during operation.
+
+% The NSCL DAQ will be a primary DAQ at the upcoming FRIB installation at MSU and is in heavy use at the Notre Dame Nuclear Lab.  But at Notre Dame, integration with other data acquisition software - LabView controls, for example - is sometimes necessary; at FRIB, users will arrive with a wide array of hardware and software and need to "plug in" to their existing infrastructure.  Standards development would help the long-term software maintenance at Notre Dame and extend the reach of software tools developed at Notre Dame.   
+
 
 
 \section*{The odds}     % section 1.1
 The success rate for ``Software Infrastructure'' proposals - both SSE and SSI - is about 20\%. SSE grants run for three years, and typically
 provide \$500K in total. SSI grants run for five years, and typically provide \$1M
-in total.
+in total.  The S2I2 institute grant provides more, longer-term funding but is not a good fit for this limited-scope proposal.
  
-These software grants generally support work that benefits
-an entire field; it's rare that work focused on a single collaboration recieves
-funding. To get a sense of typically-funded projects, see
+These software grants generally support work that impacts
+an entire field; work benefitting a single collaboration rarely recieves
+funding. %But don't take my word for it!  
+I think that our Midas-based group working with an NSCL DAQ partner to explore DAQ standards would be competitive.
+
+Abstracts of funded projects are available at
 \url{https://sites.google.com/site/softwarecyberinfrastructure/software/software} and
 \url{http://www.nsf.gov/awardsearch/simpleSearchResult?queryText=SI2&ActiveAwards=true}.
  
-I think we may be able to make a competitive proposal - and have a greater chance of true impact - by focusing on the development of standards and collaborating across DAQ groups.
 
  
 \section*{Worth it?}     % section 1.1
 The money is there for the taking, but this is collaborative work at its hardest.  
 
-Testing the standards-based tools will require active collaboration with experimental facilities.  And nuclear physics demands an impressive breadth from its data acquisition - the standards must be flexible as well as clear and useable.
+Nuclear physics demands an impressive breadth from its data acquisition - the standards must be flexible as well as clear and usable.
 
-The full benefits of this project - community-wide maintenace of DAQ tooling - require years of work.  Maintaining genuine community involvement will be difficult when the payoff is not immediate.
+The full benefits of this project - shareable DAQ tooling - will require years of work.  Meanwhile, building and maintaining community involvement will be critical to broader success.
+%The full benefits of this project - community-wide maintenace of DAQ tooling - will require years of work.  Maintaining community involvement will be difficult when the payoff is not immediate.
 
-Funding could provide the manpower we need for this work.  Let's build a set of standards for data acquisition, and let the entire community help us get good data on disk.
+The software infrastructure grants are here to provide muscle.  Let's build a set of standards for data acquisition, and work together %let the entire community help us 
+to get good data on disk.
 
 \section*{Get in touch}
-If you're interested in talking about this proposal, or have ideas to make it more likely to be successful, please get in touch!
+This proposal is in beta.  If you have thoughts, suggestions, or edits of any kind, please get in touch!
 
 You can reach Amy Roberts at amy.l.roberts@usd.edu.
 
