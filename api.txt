@@ -1,0 +1,49 @@
+//////////////////////////////////////////////////////////////////
+// A public API 
+// that gives users a way to access DAQ data
+// and also send data back to the DAQ
+//////////////////////////////////////////////////////////////////
+initDataFormat(string filename) 
+
+bool requestEventFragment(void* event, EventType typeOfEvent)
+time_t eventFragmentLookaheadTime(EventType typeOfEvent)
+EventType eventFragmentLookaheadType()
+bool submitEvent(void* event, size_t nBytes, EventType typeOfEvent)
+
+
+//////////////////////////////////////////////////////////////////
+// example: CDMS event builder
+//////////////////////////////////////////////////////////////////
+For CDMS, the data from each detector will be independent.  Sometimes, a physics event will trigger readouts in multiple detectors.  These need to be packaged into a single event.  
+
+// get events till you're done
+// how do you know done?
+// get events within a user-defined event window
+time window_ms = 200
+
+// initialize an event structure
+// perhaps initDataFormat could make some helper methods available here
+
+bool success = requestEventFragment(event, PHONON)
+assert(success, true)
+
+time_t start = event->time()
+while(eventFragmentLookaheadTime(PHONON) < start + window_ms && eventFragmentLookaheadType() != 'BARRIER')
+   requestEventFragment(event, PHONON)
+
+   if (tests on newEvent, nextFragment) 
+      // if this detector hasn't shown up yet, add its data
+      // thanks to initDataFormat(), can access event fragment data
+      // with methods like data->time() and data->phononPulse()
+   end
+end
+
+
+//////////////////////////////////////////////////////////////////
+// questions that might (or might not) influence the API
+//////////////////////////////////////////////////////////////////
+Question: what happens if the event builder doesn't consume events fast enough?  Drop events on the ground?  What does this imply for deadtime, and how does the user know about it?
+Question: event fragments should only be consumed once, right?
+Question: what happens if event submission fails?  What does this imply for deadtime, and how does the user know about it?
+Question: does the ordering of the eventFragments need to match the ordering of the events written to disk?
+Question: if you have event fragments A, B, C, D, E, how do you make independent event builders consume consecutive events?  Or do you strike the requirement that fragments only be consumed once and do some git-type resolution when event builders have consumed an overlapping set of fragments?
