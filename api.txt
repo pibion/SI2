@@ -3,13 +3,69 @@
 // that gives users a way to access DAQ data
 // and also send data back to the DAQ
 //////////////////////////////////////////////////////////////////
-initDataFormat(string filename) 
+Programming Distributed Computing Systems - Carlos Varela
+Distributed Algorithms for Message-Passing Systems - Michel Raynal
+Distributed Algorthms - Wan Fokkink
+The Temporal Logic of Reactive and Concurrent Systems - Manna, Pnueli
+Algebraic Theory of Processes - Mathew Hennessey
+Engineering a Safer World - Nancy Leveson
+
+void initDataFormat(string typename, string filename) 
+subscription = subscribe(Publisher)
+
+public interface Subscription {
+    public void request(long n);
+    public void cancel();
+}
+
+* user knows when events are lost
+* user knows about publisher errors
+  - from reactiveX: the ability for the producer to signal to the consumer that an error has occurred (an Iterable throws an exception if an error takes place during iteration; an Observable calls its observer’s onError method)
+  - yeah something needs to have an onError method
+* user can access how much delay exists between subscription and publisher
+  - emit an event with a timestamp? and ... do what when you receive it?
+  - instead of void, do long request(long n) ... know how many upstream events there are!!!  Or maybe Result request(long n)?
 
 bool requestEventFragment(void* event, EventType typeOfEvent)
 time_t eventFragmentLookaheadTime(EventType typeOfEvent)
 EventType eventFragmentLookaheadType()
 bool submitEvent(void* event, size_t nBytes, EventType typeOfEvent)
 
+>binary and text (for example, into JavaScript apps it may be valuable to support text/JSON whereas interprocess Java/C/Go/etc would benefit from binary)
+
+Be very careful with this distinction, and, in fact, I think you want a regular content type mechanism instead. One of the things WebSockets got horribly wrong is this arbitrary separation of text and binary frames with no additional metadata. I would stick to just saying data and allowing the request to negotiate the format of that data.
+
+I agree with @JakeWharton about treating content as simply data and figuring out what to do with it based on the negotiated Content-Type. There's no benefit IMO to designating some payloads String and others SomethingElse[]. The need to do charset decoding in many situations means one must rely on the full power of the Content-Type.
+
+I don't just main the simple type and subtype, either. I mean the full capability with x-custom+json and quality factors, etc...
+
+Hi all,
+
+Over the past year I've had a lot of discussions with Roland and other people that have created the reactive streams spec about how Play should use reactive streams.  I think most people (including myself) have a bit of a misconception about what reactive streams is meant to be when they first approach it, so preempting the many questions that are going to arise when people see what we're doing, I wanted to explain our approach to how Play will use reactive streams.
+
+Reactive streams is not an end user API for doing streaming.  It's a bridging API.  Given two asynchronous streaming APIs, reactive streams is a bridging API that they can both implement, such that data can be streamed between the two streaming technologies.  The actual reactive streams APIs are incredibly minimal and low level, and provide little that is useful to end users.  Reactive streams for example doesn't provide high level methods to transform or filter data, it doesn't provide abstract flow control mechanisms, it doesn't provide ways to create stream graphs, to split or merge streams.  These are all provided by the APIs of libraries that implement reactive streams.  If you have a reactive streams stream, and you want to do any of these high level functions on it, the first thing you need to do is convert it to an instance of your choice of streaming API.  For example, reactive streams has a Publisher interface, if you wanted to transform the data its publishing, and you were using Akka streams, the first thing you would do is turn it to an Akka streams Source.  Then you can apply Akka streams Flows to do transforms to it.
+
+So as a technology that wants to provide (not implement) a streaming API for end users to use, such as Play with request/response body streaming, reactive streams is an inappropriate choice.  Rather, such a technology should choose a high level streaming API.  To that technology, reactive streams is the means by which its choice of streaming API can integrate with other streaming APIs, making it interoperable with other technologies that made a different choice of streaming API.  That is, reactive streams isn't about saying let's all use the same streaming API, it's about saying let's make sure what whatever streaming API is in use, we can still interoperate.
+
+So, for Play, we need to select a reactive streams implementation for our APIs, not reactive streams itself.  Given Play's association with Typesafe and Akka, Akka streams is the obvious candidate, but it's worth considering Akka streams on its own merits, and why we would choose it over other APIs.  Here are some reasons that make Akka streams a good choice for Play:
+
+* Akka streams provide both a Java API and a Scala API, meaning that we can use the same streaming API for Java and Scala, which will make things much easier to implement and document in Play.
+* Play is moving to an Akka HTTP backend, which itself uses Akka streams.  By selecting Akka streams for Play, it means there will be no need to bridge this onto the API used by Akka HTTP, and this will both simplify Play's implementation, as well as likely provide better performance.
+* Play already has tight integration with Akka, Akka streams should make this integration even tighter, making it even more natural to use Akka and actors in Play.
+* Akka streams provides a very nice functional API that is in line with the types of APIs that we like to provide in Play.
+
+In the coming months we'll be moving Play's codebase to use Akka streams, and there will be plenty of discussions here about it, so stay tuned.
+
+Cheers,
+
+James
+
+-- 
+James Roper
+Software Engineer
+
+Typesafe – Build reactive apps!
+Twitter: @jroper
 
 //////////////////////////////////////////////////////////////////
 // example: CDMS event builder
