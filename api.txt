@@ -13,6 +13,13 @@ Engineering a Safer World - Nancy Leveson
 void initDataFormat(string typename, string filename) 
 subscription = subscribe(Publisher)
 
+public interface Subscriber<T> {
+    public void onSubscribe(Subscription s);
+    public void onNext(T t);
+    public void onError(Throwable t);
+    public void onComplete();
+}
+
 public interface Subscription {
     public void request(long n);
     public void cancel();
