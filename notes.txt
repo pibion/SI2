@@ -36,4 +36,9 @@ http://www.nsf.gov/funding/pgm_summ.jsp?pims_id=504817
 
 Fermilab event-processing framework, art: http://art.fnal.gov/
 
+Some interesting notes on data-intensive applications:
+*https://www.confluent.io/blog/using-logs-to-build-a-solid-data-infrastructure-or-why-dual-writes-are-a-bad-idea/
+* https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
+* http://dataintensive.net/
+
 
