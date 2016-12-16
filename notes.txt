@@ -41,4 +41,5 @@ Some interesting notes on data-intensive applications:
 * https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
 * http://dataintensive.net/
 
-
+Connecting different programs:
+* http://www.swig.org/
