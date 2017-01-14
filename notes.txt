@@ -43,3 +43,6 @@ Some interesting notes on data-intensive applications:
 
 Connecting different programs:
 * http://www.swig.org/
+
+FPGAs provide users with an API that gaurantees data synchronicity!
+https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/manual/mnl_avalon_spec.pdf
