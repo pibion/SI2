@@ -46,3 +46,6 @@ Connecting different programs:
 
 FPGAs provide users with an API that gaurantees data synchronicity!
 https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/manual/mnl_avalon_spec.pdf
+
+BONSAI is an event-processing framework developed by neuroscientists for combining heterogenous streams of data:
+http://journal.frontiersin.org/article/10.3389/fninf.2015.00007/full
