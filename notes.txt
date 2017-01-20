@@ -49,3 +49,5 @@ https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/manua
 
 BONSAI is an event-processing framework developed by neuroscientists for combining heterogenous streams of data:
 http://journal.frontiersin.org/article/10.3389/fninf.2015.00007/full
+
+mosh is a latency-friendly remote-terminal protocol.  The "State Syncrhonization Protocol" they use might be relevant for us!  https://mosh.org/#techinfo
