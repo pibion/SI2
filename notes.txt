@@ -60,3 +60,5 @@ BONSAI is an event-processing framework developed by neuroscientists for combini
 http://journal.frontiersin.org/article/10.3389/fninf.2015.00007/full
 
 mosh is a latency-friendly remote-terminal protocol.  The "State Syncrhonization Protocol" they use might be relevant for us!  https://mosh.org/#techinfo
+
+Apache Thrift allows communication between programs written in different languages using an Interface Definition Layer (IDL) written by the programmer.  Supports quite a few languages, including C++, Python, and Rust.
