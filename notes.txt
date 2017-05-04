@@ -64,3 +64,5 @@ mosh is a latency-friendly remote-terminal protocol.  The "State Syncrhonization
 Apache Thrift allows communication between programs written in different languages using an Interface Definition Layer (IDL) written by the programmer.  Supports quite a few languages, including C++, Python, and Rust.
 
 Would the University of Washington Interactive Data Lab be interested in working with us?  https://idl.cs.washington.edu/
+
+And of course there's the Stanford Infolab, whose interesting projects include Trio (data provenance, http://infolab.stanford.edu/trio/) and Weld (Rust-backed data-processing DSL, http://dawn.cs.stanford.edu/blog/weld.html)
