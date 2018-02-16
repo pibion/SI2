@@ -1,3 +1,44 @@
+The CDS&E program seems to focus more on large data sets that already exist, but some of the programs within CCF (like the Cyberinfrastructure for Sustained Scientific Innovation and possibly the Software and Hardware Foundations) look like such a project might be in scope.
+
+BIGDATA: https://www.nsf.gov/pubs/2018/nsf18539/nsf18539.htm
+CSSI: https://www.nsf.gov/funding/pgm_summ.jsp?pims_id=505505
+CISE: https://www.nsf.gov/dir/index.jsp?org=CISE
+
+==> don't focus too much on computation.  need to get my science funded.
+==> want to write "core program" proposals on science
+==> funding streams for computational tools come and go
+==> stand alone, be unique and recognizable
+==> not having science grants won't hurt my chances with CSSI/etc applications
+
+==> NSF has 2 month support for PI.
+==> some communities have multiple sources of funding e.g. materials science
+
+==> Dark matter is listed as HEP
+==> NSF careful about funding the same person twice, work together with DOE.  Should talk to program officers about what they usually do about this.
+==> At the end of the day what's important is to have a productive career and be happy :) 
+
+==> core programs *do* support software development
+==> LHC requires software
+==> if a community would benefit from a particular tool, Office of Infrastructure is the place to go.  OIC works with domain (physics) to fund.  Expects best practices, documentation, outreach to make people aware of the tool.
+==> OIC works *across* NSF programs 
+==> Equivalent of OSCA at DOE
+
+==> webinar, doing it again in a couple days
+==> cities and scientists: need to connect to community so people know what we're doing so they keep funding us
+==> evaluation criteria: 1. intellectual merit, 2. broader impacts 
+==> avoid jargon
+==> *have to* make the science case.  physics would be co-funding!  if this doesn't get funded, what happens?
+==> panels have to rank proposals.  make sure people know why your proposal is critical.
+==> CSSI has "solicitation-specific review criteria", listed in solicitation
+==> if it's relevant to CDMS then get a letter that says they'll work with me.  two-liner on standard letterhead is all that's needed.
+
+==> see if the solicitation requires you to specify which track I'm applying to.  Look for "CSSI-HDR" or "CSSI-SI2".
+==> can look in the funded projects database and see if it was a DIBBS fund (data) or SI2 fund (software)
+==> boundaries are pretty porous.
+
+==> used to have "elements", SSE, these were the small ones.  These are internal categories.
+
+
 The NSF offers a ``Software Infrastructure for Sustained Innovation - SSE \& SSI'' grant
 (\url{http://www.nsf.gov/pubs/2016/nsf16532/nsf16532.htm}).  Work on specific software is most appropriate to the SSE grant, which typically awards \$500K over three years and is due in the spring.  SSI grants have a broader scope and typically award \$1M over five years; SSI grants are due in the fall.
 
