@@ -42,6 +42,15 @@ CISE: https://www.nsf.gov/dir/index.jsp?org=CISE
 The NSF offers a ``Software Infrastructure for Sustained Innovation - SSE \& SSI'' grant
 (\url{http://www.nsf.gov/pubs/2016/nsf16532/nsf16532.htm}).  Work on specific software is most appropriate to the SSE grant, which typically awards \$500K over three years and is due in the spring.  SSI grants have a broader scope and typically award \$1M over five years; SSI grants are due in the fall.
 
+Full Proposal Deadline(s) (due by 5 p.m. proposer's local time):
+     April 26, 2016 
+      SSE Proposals
+     September 20, 2016 
+      SSI Proposals
+     February 21, 2017 
+      SSE Proposals
+     September 19, 2017 
+      SSI Proposals
 
 The NSF awards about 25 SSE and SSI grants, in total, each year.  Up to 19 SSE awards and 10 SSI awards are allowed each year.
 
@@ -85,5 +94,20 @@ Some interesting notes on data-intensive applications:
 Connecting different programs:
 * http://www.swig.org/
 
+Other software coalitions in physics:
+* LArSoft (http://larsoft.org/larsoft-workshop-report-august-2016/) "develops and supports a shared base of physics software across Liquid Argon (LAr) Time Projection Chamber (TPC) experiments"
+* HSF (http://hepsoftwarefoundation.org/) "facilitates coordination and common efforts in high energy physics (HEP) software and computing internationally"
+
 FPGAs provide users with an API that gaurantees data synchronicity!
 https://www.altera.com/content/dam/altera-www/global/en_US/pdfs/literature/manual/mnl_avalon_spec.pdf
+
+BONSAI is an event-processing framework developed by neuroscientists for combining heterogenous streams of data:
+http://journal.frontiersin.org/article/10.3389/fninf.2015.00007/full
+
+mosh is a latency-friendly remote-terminal protocol.  The "State Syncrhonization Protocol" they use might be relevant for us!  https://mosh.org/#techinfo
+
+Apache Thrift allows communication between programs written in different languages using an Interface Definition Layer (IDL) written by the programmer.  Supports quite a few languages, including C++, Python, and Rust.
+
+Would the University of Washington Interactive Data Lab be interested in working with us?  https://idl.cs.washington.edu/
+
+And of course there's the Stanford Infolab, whose interesting projects include Trio (data provenance, http://infolab.stanford.edu/trio/) and Weld (Rust-backed data-processing DSL, http://dawn.cs.stanford.edu/blog/weld.html)
