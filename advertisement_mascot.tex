@@ -29,8 +29,8 @@ Even within an institution, a working DAQ can be alarmingly fragile.  A smooth e
 
 
 \section*{The idea}     % section 1.1
-The NSF offers a ``Software Infrastructure for Sustained Innovation - SSE \& SSI'' grant
-(\url{http://www.nsf.gov/pubs/2016/nsf16532/nsf16532.htm}).  Work on specific software is most appropriate to the SSE grant, which typically awards \$500K over three years and is due in February.  SSI grants have a broader scope and typically award \$1M over five years; SSI grants are due each September.
+The NSF offers a ``CSSI'' grant
+(\url{http://www.nsf.gov/pubs/2016/nsf16532/nsf16532.htm}).  The work proposed here is most appropriate to the software category, which features small-scale and medium-scale awards.  The small-scale grant awards \$500K over three years and is due in mid-April.  The medium-scale grants have a broader scope and typically award \$1M over five years and are due in September (?).
 
 I'm interested in writing a grant to (1) define standards for data acquisition and (2) develop and test one to two tools that use those standards.  
 
@@ -40,17 +40,19 @@ If funded, I imagine supporting two postdocs over three years - one at a CDMS (M
 \begin{itemize}
  \item develop and publish a core set of DAQ standards
  \begin{itemize}
-   \item develop a descriptor language and protocol for streaming data - or adopt an existing one, such as protobuf
+   \item develop a binary-data descriptor language - or adopt an existing one, such as kaitai-struct or DFDL
+   \item develop a protocol for streaming data - or adopt an existing one, such as protobuf
    \item \emph{possibly} develop a set of HTTP APIs that allow users to control the DAQ
  \end{itemize}
 
  \item develop, test, and publish at least one tool based on these standards that works with both Midas and the NSCLDAQ 
  \begin{itemize}
+   \item a tool that, given your binary data and a text file describing your data format, will package your data into ROOT or HDF5 files
    \item an event builder
-   \item \emph{possibly} a scheduler
+   %\item \emph{possibly} a scheduler
  \end{itemize}
 
- \item be able to evaluate if standards work merits further funding through an NSF SSI or S2I2 grant
+ %\item be able to evaluate if standards work merits further funding through an NSF SSI or S2I2 grant
 \end{itemize}
 
 % a google search for "application layer data protocol" was fruitful
@@ -68,9 +70,9 @@ This grant provides some initial manpower: roughly one full-time-equivalent post
 
 
 \section*{The odds}     % section 1.1
-The success rate for ``Software Infrastructure'' proposals - both SSE and SSI - is about 20\%. SSE grants run for three years, and typically
-provide \$500K in total. SSI grants run for five years, and typically provide \$1M
-in total.  The S2I2 institute grant provides more, longer-term funding but is not a good fit for this limited-scope proposal.
+The success rate for the precursor to the CSSI grant, ``Software Infrastructure'' proposals - both small and medium-scale - was about 20\%. Small-scale grants run for three years, and typically
+provide \$500K in total. Medium-scale grants run for five years, and typically provide \$1M
+in total.  An institute grant provides more, longer-term funding but is not a good fit for this limited-scope proposal.
  
 These software grants generally support work that impacts
 an entire field; work benefiting a single collaboration rarely receives
@@ -96,7 +98,7 @@ to get good data on disk.
 \section*{Get in touch}
 This proposal is in beta.  If you have thoughts, suggestions, or edits of any kind, please get in touch!
 
-You can reach Amy Roberts at amy.l.roberts@usd.edu.
+You can reach Amy Roberts at amy.roberts@ucdenver.edu.
 
 \vspace*{\fill}
 {
