@@ -111,3 +111,5 @@ Apache Thrift allows communication between programs written in different languag
 Would the University of Washington Interactive Data Lab be interested in working with us?  https://idl.cs.washington.edu/
 
 And of course there's the Stanford Infolab, whose interesting projects include Trio (data provenance, http://infolab.stanford.edu/trio/) and Weld (Rust-backed data-processing DSL, http://dawn.cs.stanford.edu/blog/weld.html)
+
+Paper on electrophysiology data and open-source software, hardware, and DAQ (!) efforts https://www.sciencedirect.com/science/article/pii/S0959438814002268?via%3Dihub
