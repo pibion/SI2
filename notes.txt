@@ -94,6 +94,9 @@ Some interesting notes on data-intensive applications:
 Connecting different programs:
 * http://www.swig.org/
 
+These guys are an organization that's working on a shared data science infrastructure:
+* https://ursalabs.org/tech/
+
 Other software coalitions in physics:
 * LArSoft (http://larsoft.org/larsoft-workshop-report-august-2016/) "develops and supports a shared base of physics software across Liquid Argon (LAr) Time Projection Chamber (TPC) experiments"
 * HSF (http://hepsoftwarefoundation.org/) "facilitates coordination and common efforts in high energy physics (HEP) software and computing internationally"
