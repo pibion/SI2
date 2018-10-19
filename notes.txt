@@ -115,3 +115,7 @@ And of course there's the Stanford Infolab, whose interesting projects include T
 Paper on electrophysiology data and open-source software, hardware, and DAQ (!) efforts https://www.sciencedirect.com/science/article/pii/S0959438814002268?via%3Dihub
 
 BESA is a software suite that operates on a wide range of neuroscience formats (but only MEF v2).  Would they be interested in this data formatting tool?  http://www.besa.de/products/overview/
+
+reana, a platform for reproducible analyses.
+=> uses the Common Workflow Language (!)
+=> which is an open standard, for which openstand.org apparently has guidelines (!)
