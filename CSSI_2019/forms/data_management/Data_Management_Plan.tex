@@ -14,13 +14,6 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 
-\def\ni{\noindent}
-\def\ss{\smallskip}
-\def\ms{\medskip}
-\def\bs{\bigskip}
-\def\eg{{\it e.g.}}
-\def\ie{{\it i.e.}}
-
 \usepackage{titlesec}% http://ctan.org/pkg/titlesec
 \titleformat{\section}%
   [hang]% <shape>
@@ -59,7 +52,15 @@
 
 \subsection{Expected Data}
 
-Describe the types of data, samples, physical collections, software, or other material to be produced in the course of the project.
+The proposed work will result in several software products, specifically
+
+\begin{itemize}
+    \item A new kaitai target for the awkward array data structure
+    \item An additional release of the XIA python-based analysis library
+    \item A prototype release of an analysis library for the Super Cryogenic Dark Matter Search data
+\end{itemize}
+
+The proposed work will not generate new data.  Instead, this work will use data already collected.  Small, example datafiles may be prepared for inclusion with the software as test cases.
 
 \subsection{Data Format}
 
