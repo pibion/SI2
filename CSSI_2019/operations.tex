@@ -1,0 +1,127 @@
+% !TEX root = NSF_SuperCDMS_SNOLAB_OPS.tex
+\section{Pre-Operations and Commissioning Tasks}
+\label{sec:operations}
+
+The \SuperCDMS collaboration has had two decades of experience in operating underground dark matter experiments at Stanford and Soudan. The `lessons learned' from this experience are being applied as we develop our pre-operations, commissioning, and operations models for the \scs experiment. In this section, we discuss the main activities that will be conducted during this three-year proposal. These follow from the objectives listed in Section~\ref{sec:overview}, and are organized in a work breakdown structure as follows: 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\multicolumn{2}{l}{\WBS Descriptions}\\\hline
+1.1 & Calibration of Si and Ge \scs Detectors\\
+1.2 & Performance Optimization of \scs Detectors \\
+1.3 & Early \scs Science\\
+1.4 & \scs Commissioning\\
+1.5 & Education and Public Outreach\\
+%\hline
+\end{tabular}
+\caption{Work Breakdown Structure for this proposal, based on the objectives laid out in Section~\ref{sec:overview}.}
+\end{table}
+
+The first two activities in the \WBS are measurements essential to the scientific output of the \scs experiment. The third activity provides the potential for early world-leading low-mass dark matter results, which will not only have the potential for discovery, but provide training and publications for our young scientists in the collaboration. This proposal's fourth activity is the commissioning of the \scs experiment, clearing the final hurdle for operations to begin. The final activity is the education and public outreach component of the Broader Impacts of this proposal.
+The following sub-sections detail the work to be done in each of these activities.
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Calibration is big so goes in its own file:
+\input{calibration}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Detector Performance Characterization and Background Studies (\WBS 1.2)}
+
+\MP{
+\begin{itemize}
+	\item Nuclear Recoil Ionization Yield Measurement
+    \item testing optical photon calibration techniques
+    \item Charge Leakage Studies
+    	\begin{itemize}
+        	\item optimize pre-bias voltage
+            \item optimize LED/blackbody frequency for A+,D- 
+            \item optimize bias voltage
+        \end{itemize}
+    \item Electronic Recoil / Nuclear Recoil Discrimination
+    	\begin{itemize}
+        	\item Quantization / Statistical subtraction in HV 
+            \item Standard ER/NR in iZIP
+        \end{itemize}
+    \item Fiducialization Metrics 
+    \item (@ Berkeley) noise studies with small TES chips
+\end{itemize}
+}
+
+The \MP{Nuclear Recoil / Electron Recoil?} discrimination power and general behavior of \scs detectors under low-background conditions cannot be tested in regular detector test facilities due to the high rate of cosmic ray induced interactions in the detectors. A large focus of this proposal is to make such measurements at \nexus and \cute. 
+
+\MP{why not discuss charge leakage optimization specifically?}
+
+\subsubsection{Detector Characterization with NEXUS}
+
+Although the nuclear recoil energy calibration (described in detail in section~\ref{sec:calibration}) will be the main focus at \nexus, having pre-production detectors at the site will also allow early detector characterization. The  ability to kinematically reconstruct nuclear recoil energies, as well as the flexiblity to place and remove gamma sources, will faciliate studies that impact the analysis and interpretation of the \scs data. 
+
+\MP{these are all really important ... they should have similar size at the nuclear recoil ionization yield work if possible}
+These include position dependence and specific detector Monte-Carlo tuning studies (see Section~\ref{sec:dmc}), voltage bias scan studies, and other studies such as measuring single electron-hole pair production using optical fibers. 
+The goal of the optical fiber studies will be to directly measure the separation between integer numbers of electron hole pairs near the threshold of HV detectors as a means to confirm the electron recoil energy scale near threshold.  The optical fiber setup also allows for studies of charge collection, which could inform operating procedures for the main experiment. These measurements will take place during Year 2 of this proposal, at the end of each detector's calibration measurement. 
+
+\subsubsection{Background Studies and Precommissioning with CUTE}
+\label{sec:CUTE}
+
+A primary goal in the design of the \cute facility is to test the capability of the \SuperCDMS HV and iZIP detectors to distinguish surface from bulk events (fiducialization). The discrimination power between electron and nuclear recoils of the \SuperCDMS iZIP detectors can also be studied in detail. Additionally, functionality and early commissioning checks of a tower can be performed before it is deployed within the main \SuperCDMS cryostat.  Functionality checks would verify that electrical and thermal connections in the tower are functioning properly after shipment to \SNOLAB. Early commissioning checks include optimization of voltage bias and neutralization studies.  These tests are best performed in a low-background installation such as \cute because breakdown voltage and optimal neutralization conditions have previously been found to  correlate with event rate.
+
+Recent measurements of detectors used for \SuperCDMS \Soudan have shown that the noise in the signal region increases linearly with the applied bias voltage. Such behavior would limit the sensitivity of the new \SuperCDMS HV detectors that are designed for operation with up to 100~V bias. The origin of this excess noise is not yet fully understood. Possible explanations include infrared leakage and injection of charges through the contacts. Low-angle Compton scattering has been identified as alternative explanation; this would also explain why the observed noise level appears to be the same in different test facilities with no, or only moderate, shielding.
+
+\MP{where did this theory come from? ... why would there be a huge number (1e5Hz) of single e/h pair comptons?}
+
+We will test this hypothesis and understand the behavior of the new \SuperCDMS HV detectors in \cute's low background environment.
+
+As shown in the schedule (Figure~\ref{fig:ops-schedule}) we expect to install in \cute one of the two pre-production towers at the beginning of calendar 2018 after the tests planned by the \scs Project are finished. This tower is intended to have two pre-production HV detectors and one pre-production iZIP.
+
+After 2 months of commissioning and basic checks of performance, we plan a 9-month testing program to study:
+\begin{compactitem}
+\item  Fiducialization and surface rejection in HV detectors.
+\item  Nuclear recoil discrimination of iZIP detectors.   
+\end{compactitem}
+
+\subsubsection{Detector Monte-Carlo Validation}
+\label{sec:dmc}
+
+The \SuperCDMS collaboration is currently in the process of building a \geant based detector Monte-Carlo that incorporates low-temperature ionization and phonon physical processes governing the behavior of electrons, holes, and phonons in the \SuperCDMS detectors. The physical processes being added to \geant include:
+\begin{compactitem}
+\item A microscopic model of inter-valley scattering for charge charge carriers in the crystal.
+\item Luke-Neganov phonon emission based on the charge carrier mean free path in a varying electric field.
+\item A continuous process of phonon impurity scattering.
+\item The creation and tracking of quasiparticles in the the Al superconducting films that at part of the phonon sensors.
+\item Differential equation based models of the FET (ionization sensor readout) and TES (phonon sensor readout) responses.
+\end{compactitem}
+
+Data from the \tunl and \nexus campaigns will consist of a set of nuclear recoil events with well defined kinematics.  Additionally, the data obtained  from the precommissioning calibration at \cute will provide a large set of events from gamma and neutron calibration sources taken in a low background environment. 
+These data sets will provide a comprehensive collection of events for comparing against Monte-Carlo simulations. The data will be made available to members of the \SuperCDMS collaboration who are working on detector Monte-Carlo and simulation activities and are validating the performance of the detector Monte-Carlo, and refining it in preparation for the \scs experiment. %Funding for such work, however, is not part of this proposal.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Early \scs Science (\WBS 1.3)}
+
+One of the attractive features of the plan we propose for \cute is that it not only will give us the opportunity to exercise our detectors in a low background environment but that it might allow us to get early science results.
+While the characterization of the pre-production detectors described in \ref{sec:cute} is taking place in calendar 2018, the \scs Project is scheduled to complete the first production HV tower.  We are proposing to install this first tower in \cute at the beginning of 2019 (Figure~\ref{fig:ops-schedule}). This tower would have 6 HV detectors, with a mix of Germanium and Silicon.  
+Our first goals will be to:
+\begin{compactitem}
+\item  Assess the performance of these detectors in a realistic environment (voltage limits, leakage current, background level)
+\item  Develop biasing schemes for the HV detectors
+\item  Learn what small detector or cold hardware modifications we could include in the second HV tower, being produced in 2019, to optimize its performance
+\item Exercise our data acquisition system, optimize our reconstruction software and begin to develop the algorithms for science analysis
+\end{compactitem}
+
+Achievement of these goals would be very beneficial to the subsequent commissioning of the \scs experiment. If all goes well, there is a reasonable prospect for doing early science with the HV tower in \cute, which is the main justification for  installing the additional lead shield that we propose to acquire in this award. Current simulations indicate that we could decrease the gamma background from 30 events/kg/keV/day to about 2 events/kg/keV/day with the additional lead shielding. In that case, a six-month HV tower run at \cute, with a baseline phonon resolution of 10 eV r.m.s. and 100 V bias (\scs goal) and the projected $^3$H and $^{32}$Si levels for \scs, might give a spin independent sensitivity as much as 4 orders of magnitude better than the current best limit \cite{2012EPJC...72.1971A} at a dark matter mass of 2 GeV/c$^2$ with Germanium, roughly a year before our first results from the \scs experiment will become available. 
+%The improvement could be as large as a factor 2000 at 1 GeV/c$^2$  with our Silicon detectors. This would be only 20 times worse than the first result that we should obtain at \scs for Germanium with optimal interval method \cite{Yellin:2002xd} and about a factor six times worse for Silicon, if the $^32$Si is at the level indicated by DAMIC for a bulk contamination.  
+
+Of course, \scs will then go on to produce much better sensitivity and reach to even lower mass. The two iZIP towers that will be included in the first \scs payload will provide an independent measurement of the background, which should yield an additional factor of 5 in sensitivity over the no-background-subtraction projections in~\cite{SuperCDMSSensitvitiy:2016arXiv}. Moreover, the second HV tower planned for the first \scs payload will have benefited from the experience of the first tower at \cute and is likely to perform better. In the long run, the \scs set up is designed to allow us to reach the neutrino floor, well beyond what will ever be possible at \cute.
+Still, the potential sensitivity of a run of the first HV tower at \cute is an exciting science opportunity and will provide theses for our graduate students and interesting publications to further the career of our younger scientists.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\scs Commissioning (\WBS 1.4) }
+
+The \scs Project will include acceptance tests of all parts of the experimental apparatus at the surface. The Project objective is to complete the  installation of all equipment underground at \SNOLAB, although the Project threshold does not require this. \scs Operations will pick up any remaining installation tasks, then commission the experiment and transition to operations. We expect this period to occupy approximately the last six months of this proposal's performance period.
+
+The commissioning period will be a mix of installation and testing of subsystems, followed by system testing and data runs that exercise the full experiment. System experts will be responsible for testing and documenting their equipment, with work coordinated by an on-site commissioning czar. The initial focus will be on the cryogenics system, since a successful cool down of the experiment to base temperature is required before detector tower commissioning is possible. In parallel, the readout electronics, data acquisition/trigger and software chain can be exercised. Once base temperature has been established, the focus will shift to commissioning the detector towers, using gamma and neutron sources for calibration. iZIP and HV detector towers will be studied in parallel, and the electronic noise and vibration environment will be characterized. 
+
+As system commissioning matures, the operations manager and operations team will begin to take overnight data runs and examine the data along with the commissioning czar and system experts, to find any subtle problems. The data quality monitoring system will be commissioned, as well as the data pipeline and processing systems. Towards the end of commissioning period, we will be running most of the time, with scheduled down times to fix any problems that have been identified. During this period, the operations documentation needs to be finalized.  
+
+NSF-funded scientists will play key roles in commissioning, with a special focus on areas covered by this proposal, especially detector performance and  calibration.  Data from pre-operations studies will be extremely useful in making sure that commissioning is smooth and that the experiment can begin taking dark matter search data as quickly as possible.

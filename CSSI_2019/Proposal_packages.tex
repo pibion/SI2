@@ -1,0 +1,186 @@
+% !TEX root = NSF_SuperCDMS_SNOLAB_OPS.tex
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+%%% PACKAGES
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+%%% PDF related packages
+%\usepackage{lineno}
+%\linenumbers
+\usepackage{ifpdf} 
+\ifpdf % PDF-specific preamble
+\usepackage[pdftex,margin=1in]{geometry} % Use the showframe option to draw a ``margin'' box
+%\usepackage{showframe}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{xcolor} % color or xcolor?
+\usepackage[pdftex,colorlinks,urlcolor=blue,linkcolor=blue,citecolor=red,pdfstartview=FitH]{hyperref} %turn this on for clickable PDF files:
+%%\pdfinfo{
+%%    /Title  (SuperCDMS Base Funding Proposal)
+%%    /Author (Tarek Saab)
+%%    /Keywords(Saab,Tarek,SuperCDMS)}
+\tolerance=600 %\hypersetup{pdfpagemode=UseThumbs}
+
+\else % preamble for LaTeX
+
+\usepackage[dvips]{geometry}
+\usepackage[dvips]{color}
+\usepackage[dvips,backref]{hyperref}
+\fi
+
+\usepackage[final]{pdfpages} %%% Allows you to include pdf files
+
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
+
+%%% Mathematical symbols, figures, floats, etc ...
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{xspace} %\xspace saves the user from having to type \? or {} after most occurrences of a macro name in text.
+\usepackage{isotope} 
+%\renewcommand{\isotopestyle}{\sf} 
+
+%\usepackage{subfigure} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{wrapfig}
+%\usepackage{booktabs} % for much better looking tables
+%\usepackage{multirow}
+%\usepackage{array} % for better arrays (eg matrices) in maths
+
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
+
+%%% Misc
+%\usepackage[light]{draftcopy}
+
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
+
+%%% Appearance
+
+\usepackage{setspace}
+\setstretch{1.0}
+
+
+%%%%%%Call currvita to define the cv environment
+%\usepackage[ManyBibs,NoDate]{currvita}
+%
+%%Define sans serif fonts for headings
+%\renewcommand*{\cvheadingfont}{\Large\bfseries\sffamily}
+%%\renewcommand*{\cvlistheadingfont}{\large\bfseries\sffamily}
+%\renewcommand*{\cvlistheadingfont}{\large\sffamily}
+
+%%\usepackage{bibunits}
+%%\usepackage[english]{babel}
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+%%%%%% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% Pick your font:
+%\usepackage{times}
+%\usepackage{charter}
+%\usepackage{helvet}
+%\usepackage{palatino}
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr}
+\usepackage[small,compact]{titlesec}
+\pagestyle{fancyplain}
+\lhead{}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+% See the ``Article customize'' template for come common customizations
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage[small,compact]{titlesec}   %%%% title sec doesn't play nice with sectsty, i.e. it overrides the all sections font setting. (it it is placed after)
+
+%%\usepackage{sectsty}
+%%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+
+%% chapters, sections, and subsections will have numbers but not subsubsections or below depending on the numerical value
+\setcounter{secnumdepth}{3}
+
+
+%----- Heidi's section macros (From Tali's NU template)
+%\newcommand{\mysection}[1]{{\vskip 0 pt \noindent \bf \Large #1\\ \vskip -17 pt }}
+\newcommand{\mysection}[1]{{\vskip 0 pt \noindent \bf \large #1\\ \vskip -15 pt }}
+\newcommand{\mysubsection}[1]{{\noindent\bf\large #1 \\\vskip -15 pt}}
+\newcommand{\mysubsubsection}[1]{{\noindent\bf\em #1}}
+
+% Setting the inter-paragraphs and indent spacing.
+\parskip 0 pt
+\parindent 20 pt
+
+%--------------------
+
+
+%%%% ToC APPEARANCE
+%\usepackage[none]{tocbibind} % Put the bibliography in the ToC, ... not with the ``none'' options selected.
+
+%%% Can't get this to work with subfigure. Must find out why ???
+%\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+%\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+%\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% Float captions and making captions tighter
+\usepackage[font={small,sf},labelfont=bf]{caption} % Manipulate caption fonts, make captions smaller, etc...
+\renewcommand\floatpagefraction{.8}
+\renewcommand\topfraction{.8}
+\renewcommand\bottomfraction{.8}
+\renewcommand\textfraction{.2}
+% and to pack the captions a bit tighter
+\floatsep = 10pt  		%separation between floats
+%\intextsep=-2pt		%space above and below in-text floats
+\abovecaptionskip = 5pt 	%space above caption
+\belowcaptionskip = 5pt	%space below caption
+\dbltextfloatsep = 0pt 	%space between figure at top of column and text
+
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
+
+%%% If you feel like playing with page layout sizes:
+%%\textwidth = 6.5 in
+%%\textheight = 8.5 in
+%%\textheight = 11 in
+%%\addtolength\headsep{0in}
+%%%\headsep = 0.5in
+%%\addtolength\textheight{-2in}
+%%%\addtolength\textheight{-\footskip}
+%%\addtolength\textheight{-\headsep}
+%%\oddsidemargin =  0.0 in
+
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
+
+%%Define line for front page / appendices
+\newcommand{\Line}[0]{
+\vspace{-20pt}    %%% this value depends on using the \allsectionsfont{\sffamily\mdseries\upshape}  in sectsty.
+\rule{0pt}{0pt}\hrule\rule{0pt}{0pt}
+%\vspace{-6pt}
+}
+
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
+
+\newcommand{\SkipSection}[2]{
+	\ifnum #1 = 1
+		% do nothing
+	\else 
+		% pass on the second argument as is
+		#2
+	\fi
+}
+
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
