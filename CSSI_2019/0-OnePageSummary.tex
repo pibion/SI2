@@ -7,29 +7,26 @@
 {\large{\bf Elements: Improving tools based on data-description standards for gigabyte-scale data sets}}
 \end{center}
 
-{\bf Overview:} The long-term goal of the \scs collaboration is to improve the understanding of dark matter by answering the following questions: what are its constituents, what are their particle and astrophysical properties, and how do they relate to the Standard Model? In pursuit of this goal, this proposal has four objectives:  
-(1) Perform necessary calibration and performance measurements of \scs detectors to maximize the science return from the experiment.
-(2) Commission and operate the \scs experiment.
-(3) Measure a dark matter signal or place world-leading limits for the dark matter--nucleon cross section at masses below 10~\gev.
-(4) Train the next generation of scientists through research and outreach activities, and teach secondary students and the public about dark matter science. 
+{\bf Overview:} The long-term goal of this work is to build and create community buy-in for a set of tools for the nuclear physics community to access binary data.  The intent is to address one piece of a common software need in the community that is repeatedly solved in isolation and that costs the entire community unnecessary time and limits access to data and science. In pursuit of this goal, this proposal has four objectives:  
+(1) Define a data-description language that allows scientists to describe any binary data format.
+(2) Improve existing software that automatically builds a convenient data-access library for any user-described data so that it works well with gigabyte-scale datasets.
+(3) Build community and support adoption of these community tools.
+(4) Increase access to analysis of original scientific data sets for undergraduate students, graduate students and postdocs, early career researchers, and scientists whose labs do not have access to dedicated software support. 
 These objectives will be met as follows:
 
-%\comment{Possible rewording for here and the overview page: (3) Train the next generation of scientists to be teacher scholars through engaging them in teaching secondary students and the public about dark matter science. - Joel}
+{\it (1) Defining a data-description standard:} The PI will use two already-existing standards that both have broad user support, DFDL and Kaitai-Struct.  Kaitai-Struct will be used and where necessary further defined as the software created around this standard is better-suited to the needs of data analysis.
 
-{\it Experiment Characterization and Optimization:} In order to maximize the science output of \scs, detailed understanding of the response of detectors to potential signals and backgrounds is required. Measurements at two underground facilities (\nexus at Fermilab and \cute at SNOLAB) will characterize and calibrate pre-production \scs detectors and the first production \scs towers, with supporting measurements from small devices at university test facilities. Resulting data will allow energy scale calibration, measurements of background levels, understanding of the detailed phonon and electron physics of the detectors, 
-development of improved background-rejection techniques,
-and optimization of \scs operational parameters. 
-These data may provide a dark matter search with world-leading sensitivity. 
+{\it (2) Improving standards-based analysis software:} Scientists who wish to generate a convenient library that allows them to read custom-format data can already do so using the existing Kaitai software.  However, this software has poor performance in python for files larger than a gigabyte and this significantly limits the usefulness of this software to the nuclear physics community, particularly as data acquisition systems move to storing digitized pulses rather than pre-processed data.  The PI proposes to create another Kaitai target that allows scientists to auto-generate a library that targets the awkward-array interface built and maintained by the IRIS-HEP collaboration.  This data structure is designed to give rapid data-analysis access to the high energy physics community and is routinely tested on data sets that exceed several hundred gigabytes.
 
-{\it Commissioning and Operation of \scs:} This proposal will fund the NSF-portion of commissioning the \scs experiment and the 
-first year of science operations and analysis, resulting in a dark matter search with world-leading sensitivity.
+{\it (3) Building community:} The PI proposes to hold yearly workshops to bring together developers and scientists for training, user feedback, and software development.  In addition, the PI has requested funds for graduate and undergraduate stipends and travel awards to foster community participation.
 
+{\it (4) Increasing Access:} Many students who have the interest and ability to participate in science analysis are blocked by a lack of training in scientific computing.  The often-complex scientific computing ecosystem is poorly represented in most physics curriculum and even computer science courses do not usually prepare students for the variety of systems they need to navigate to do typical data analysis.  The PI requests funding for undergraduate students to develop and test documentation and training materials for fundamental scientific computing concepts and skills in addition to testing the documentation for the standards-based analysis tools.
 
-{\it Training and Outreach:} The activities in this proposal provide fertile ground for training of postdoctoral researchers and graduate students from the \SuperCDMS collaboration, and opportunities to share the excitement of science with the general public.
+\textbf{Intellectual merit}: This grant supports the science effort of a dark matter experiment, the SuperCDMS experiment, and the broader nuclear physics community that is in need of software support.  At present this includes scientists working on the origin of the elements in the universe, fundamental symmetry testing, and detector testing for improved threat detection.
 
-\textbf{Intellectual merit}: This grant supports an experiment that will address one of the most fundamental problems of modern science, the nature of dark matter, in a way complementary to the Large Hadron Collider and indirect detection experiments. The \scs experiment will achieve world-leading sensitivity for dark matter  masses less than 10~\gev.
+\textbf{Broader impacts}: The PI proposes this work because it would be immediately useful to her dark matter work and because software supported by an entire community that can provide easy access to any data format would meet an increasingly-urgent need of communities dealing with gigabyte-scale data.
 
-\textbf{Broader impacts}: The \scs experiment will have a broad impact which extends beyond the search for dark matter. The experiment's phonon-mediated detectors have applications in cosmology, astronomy and industry. This effort will contribute opportunities for training of undergraduate and graduate students and postdoctoral researchers.
+Focusing previously-isolated software efforts on a community solution offers the benefit of software that is well-tested and well-documented and with a community that can provide support for its users.
 
-SuperCDMS will engage in education and outreach at local institutions and will coordinate our outreach at Soudan, SNOLAB, and SURF to increase the broader impact with focus on secondary education. The grant will support participating in SNOLAB-hosted Teacher Workshops, modifying and providing middle school dark matter education modules to U.S. educators, and maintaining SuperCDMS-related outreach materials for SNOLAB, Soudan, and SURF. Existing alliances will enable outreach to Sudbury First Nations communities. This effort will also support post-graduate education by providing speakers for Colegio de F\'{i}sica Fundamental e Interdiciplinaria de las \'{A}mericas summer school in Puerto Rico.
+With materials available to help students and new researchers learn the basic skills required for science analysis, students can begin participating in true science research at much earlier stages, with less reliance on patient, local expertise being available at their institution.  Right now, real science analysis is at best painfully accessible to a narrow set of students.  With a small set of community standards and tools, we can broaden science access to a much wider group of individuals and increase the time expert scientists can spend on actual science.
 
