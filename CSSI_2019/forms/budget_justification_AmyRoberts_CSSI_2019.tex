@@ -1,5 +1,8 @@
 \documentclass[11pt,oneside]{memoir}
 
+\usepackage{tabularx}
+\usepackage{booktabs}
+
 \textwidth 6.5in
 \textheight 9in
 \topmargin -0.50in
@@ -27,6 +30,9 @@
 \def\bs{\bigskip}
 \def\eg{{\it e.g.}}
 \def\ie{{\it i.e.}}
+
+
+\newcommand{\cheading}[2]{\textbf{#1\hfill #2}}
 
 \newcommand{\RnD}{{\small R\&D}}
 \newcommand{\ZIP}{{\small ZIP}}
@@ -60,7 +66,7 @@
 
 \section*{A. Senior Personnel}
 
-\subsection*{A1. Principal Investigator (Amy Roberts)}
+\subsection*{A1. Principal Investigator (Amy Roberts):}
 
 Assistant Professor Amy Roberts at CU Denver will serve as the Principle Investigator (PI) on this project.  She will commit one summer month per year and and an additional 10\% time in the academic year two, requested as a course release. Her responsibilities will include reaching out to researchers and facilitating their adoption of the tools, working with the community to determine the focus of the software development, and guiding and mentoring the staff and students.  In addition, she will supervise one master's student from the Integrated Sciences program.
 
@@ -69,6 +75,33 @@ The PI has broad experience with data acquisition for medium-scale physics exper
 Her mentoring in this area provides students and staff with data acquisition skills that are critical for the field but difficult to obtain.  Her expertise with data acquisition, data analysis, and cross-system integration ensure that the SNOLAB data will be science-ready.
 
 One summer month for Roberts is requested in each year of this proposal. Costs for Years 2 and 3 include 3\% annual COL increases. 
+
+%\cheading{test}{test}
+%\begin{center}
+    \begin{tabularx}{\textwidth}{ XXXXX } 
+        \toprule
+        & 8/15/2018 \newline -~7/15/2019 
+        & 7/15/2019 \newline-~7/14/2020 
+        & 7/15/2020 \newline-~7/14/2021 
+        & 7/15/2021 \newline-~10/30/2022 \\
+        \midrule
+        \addlinespace[1ex]
+        \multicolumn{5}{l}{{{\bfseries SuperCDMS SNOLAB (NSF 1809769)}}}\\ 
+        Summer Salary& 0.5 & 0.5 & 0.5 & \textbf{--}\\
+        Course Buyout & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--}\\ 
+        \addlinespace[1ex]
+        \multicolumn{5}{l}{{{\bfseries SuperCDMS Collaborative Proposal (Pending, NSF ???)}}}\\
+        Summer Salary& 0.5 & 0.5 & 0.5 & \textbf{--} \\ 
+        Course Buyout& 0.9 & 0.9 & 0.9 & \textbf{--} \\ 
+        \addlinespace[1ex]
+        \multicolumn{5}{l}{{{\bfseries Current Proposal (Pending, NSF 19-548)}}}\\
+        Summer Salary& \textbf{--} & 0.5 & 0.5 & 0.5\\
+        Course Buyout & \textbf{--} & \textbf{--} & \textbf{--} & 0.9\\
+        \midrule
+        Total (months) & 1.9 & 2.4 & 2.4 & 1.4\\
+        \bottomrule
+      \end{tabularx}
+   %\end{center}
 
 Two summer months for Huber are requested in each year of this proposal. In addition, 0.9 academic month support during the academic year (AY) is requested for an academic course release in each year of this proposal. The total support requested for Huber, at 2.9 months (0.9 academic month + 2 summer months) per year, is above the NSF 2-month guideline. This support level is justified due to a combination of CU Denver's standard teaching load of four courses per AY and, more critically, CU Denver Physics having neither a Master's nor a Ph.D. program in Physics. Thus, additional oversight of the large undergraduate component ($\sim$8 undergraduates at all times) is required during the AY. Costs for Years 2 and 3 include 3\% annual cost of living (COL) increases. 
 
