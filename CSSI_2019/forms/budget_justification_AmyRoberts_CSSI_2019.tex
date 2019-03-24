@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt,oneside]{memoir}
 
 \textwidth 6.5in
 \textheight 9in
@@ -11,6 +11,15 @@
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
+
+\setaftersubsecskip{-1em}
+
+\makepagestyle{bodystyle}
+%\makeevenhead{bodystyle}{\bfseries\thepage}{}{\scshape
+%\MakeLowercase{\leftmark}}
+%\makeoddhead{bodystyle}{\scshape\MakeLowercase{\rightmark}}{}{\bfseries\thepage}
+\makeevenfoot{bodystyle}{}{}{\bfseries\thepage}
+\makeoddfoot{bodystyle}{}{}{\bfseries\thepage}
 
 \def\ni{\noindent}
 \def\ss{\smallskip}
@@ -35,21 +44,19 @@
 \newcommand{\SQUID}{{\small SQUID}}
 \newcommand{\SQUIDs}{{\small SQUID\,s}}
 
-
-%\pagestyle{myheadings}%empty}%
-%\markright{Budget Justification [\today]}
-
+%% no more than five pages!
 \begin{document}
-%\onecolumn
+\mainmatter
+\pagestyle{bodystyle}
 
-\centerline{\bf Budget Justification}
+\centerline{Budget Justification}
 \centerline{Elements: Improving tools based on data-description standards for gigabyte-scale data sets}
 \centerline{PI: Amy Roberts}
 
-%{\bf Budget Years:}
-%{\bf Year 1}:\ 11/1/2019 -- 10/30/2020~~~~~
-%{\bf Year 2}:\ 11/1/2020 -- 10/30/2021~~~~~
-%{\bf Year 3}:\ 11/1/2020 -- 10/30/2022
+%{ Budget Years:}
+%{ Year 1}:\ 11/1/2019 -- 10/30/2020~~~~~
+%{ Year 2}:\ 11/1/2020 -- 10/30/2021~~~~~
+%{ Year 3}:\ 11/1/2020 -- 10/30/2022
 
 \section*{A. Senior Personnel}
 
@@ -59,62 +66,80 @@ Assistant Professor Amy Roberts at CU Denver will serve as the Principle Investi
 
 The PI has broad experience with data acquisition for medium-scale physics experiments.  She has been a member of the \CDMS\ collaboration since 2014 and has been heavily involved in data acquisition and data quality for the upcoming SNOLAB experiment.  
 %She leads a group comprising a Research Technician (to be hired in the upcoming year) and one or more undergraduate research assistants.  
-Her mentoring in this area provides students and staff with high-level data acquisition skills that are critical for the field but difficult to obtain.  Her expertise with data acquisition, data quality monitoring, and data analysis and skills with cross-system integration ensure that the SNOLAB data will be science-ready.
+Her mentoring in this area provides students and staff with data acquisition skills that are critical for the field but difficult to obtain.  Her expertise with data acquisition, data analysis, and cross-system integration ensure that the SNOLAB data will be science-ready.
 
 One summer month for Roberts is requested in each year of this proposal. Costs for Years 2 and 3 include 3\% annual COL increases. 
 
 Two summer months for Huber are requested in each year of this proposal. In addition, 0.9 academic month support during the academic year (AY) is requested for an academic course release in each year of this proposal. The total support requested for Huber, at 2.9 months (0.9 academic month + 2 summer months) per year, is above the NSF 2-month guideline. This support level is justified due to a combination of CU Denver's standard teaching load of four courses per AY and, more critically, CU Denver Physics having neither a Master's nor a Ph.D. program in Physics. Thus, additional oversight of the large undergraduate component ($\sim$8 undergraduates at all times) is required during the AY. Costs for Years 2 and 3 include 3\% annual cost of living (COL) increases. 
 
-\section*{\bf B. Other Personnel}
+\section*{B. Other Personnel}
 
-\subsection*{B2. Scientific Programmer: Nikki Ramirez}
+\subsection*{B1. Scientific Programmer (Nikki Ramirez):}
 
-Bruce Hines will serve as the Senior Engineer for the CU Denver group on this project. He is already hired and has demonstrated excellent qualification for the tasks at hand through past performance on the NSF SNOLAB Project grant. 
+The scientific programmer will work in collaboration with the PI and develop software, software documentation, and work closely with scientists and students in the group to identify issues and solutions for analysis of large data sets with the software.
 
-Mr. Hines holds a B.S. in Physics and an M.S. in Electrical Engineering and has been a member of the CDMS collaboration since 2005.  He is an experienced design, test, and measurement engineer specializing in all aspects of superconducting electronics, including cryogenics and room temperature electronics. He is a fully qualified machinist and participates in design and fabrication of SQUID test cryostats. As part of the SuperCDMS SNOLAB Project, Mr. Hines supervises students evaluating SQUID arrays and works closely with Fermilab personnel on the room-temperature Detector Control and Readout Card (DCRC). He is the L2 manager of the Readout Wiring and Electronics subsystem.
-
-We request support for Mr. Hines at 4.2 calendar months in Year 1 and at 3.6 calendar months in Years 2 and 3, respectively. Mr. Hines will support commissioning tasks of the room-temperature readout systems at \CUTE, \NEXUS, and \SNOLAB, and will provide operations support of the room-temperature readout systems at \SNOLAB. Costs for Years 2 and 3 include 3\% annual  COL increases. 
+The PI requests support for Ms. Ramirez at 9.6 calendar months in each of the three years of this work. Costs for Years 2 and 3 include 3\% annual  cost-of-living increases. 
 %, at a Year 1 base 1.0 FTE salary of \$57,591
 
-\ss \ni 3.  Technical Support (Research Technician): 
+\subsection{B2.  Post Doctoral Scholars:}
 
-Roberts requests 2 calendar months support annually for a Research Technician to contribute to the \SNOLAB\ data acquisition system. The  technician will be responsible for ensuring properly functioning data acquisition systems at the \CUTE\ and \NEXUS\ facilities. Costs for Years 2 and 3 include 3\% annual  COL increases. 
-
-%technician will be recruited at a 1.0 FTE salary of \$35,000.  On this grant, the
-
-\ss \ni 3.  Post Doctoral Scholars (Research Associates): 
-
-Villano requests 6 calendar months support in Years 2 and 3 for a full-time Postdoctoral Research Associate to contribute to the neutron-capture energy calibrations. The postdoc will be responsible for leading neutron-capture calibration efforts at the \NEXUS\ facility.  Salary is escalated according to the NIH postdoctoral rate scale in Year 3.
+No postdoctoral researchers are requested as part of this funding request.
+%Salary is escalated according to the NIH postdoctoral rate scale in Year 3.
 
 %The postdoc will be recruited at a 1.0 FTE salary of \$47,484 beginning in the second year of the grant.  
 
-%\ni 3. Graduate Students: 
-%
-%One Master's level student from Electrical Engineering will be employed to assist with design, test, measurement, and programming of both room-temperature and superconducting electronics. This student may also perform some machine shop duties, and will participate fully in the scientific life of the group.  Wages are based on \$13/hour in Year~1 with projected 3\% annual COL increases thereafter. The student will work half-time during the academic year and full-time during the summer. 
-%
-%\ss
-\ss \ni 3. Undergraduate Students: Huber requests academic year and summer support for two undergraduate students that will be employed as research assistants to assist other members of the group with a variety of tasks, particularly investigation into SQUID sensitivity to ambient magnetic fields and characterization of SQUID 1/f noise. They will also help design, build and operate hardware components, and participate fully in the scientific activities of the group. Wages are based on \$12.50/hour. The total effort will be 5.5 academic months and 4.2 summer months annually.
+\subsection{B3. Graduate Student (TBH):} 
 
-% and optimization of SQUID design
+One Master's level student from the Integrated Sciences program with a focus on Computer Science will be employed to assist with development of the software, testing of documentation, and development of example analyses relevant to the nuclear physics community.  This student may also provide computational-skill support to other students in the group and will participate fully in the scientific life of the group.  Wages are based on \$18/hour in Year~1 with projected 3\% annual cost-of-living increases thereafter. Although this rate is low compared to the typical internship rates available to computer science master's students, the PI has had success recruiting excellent students at this wage because (1) it is a livable wage for most students and (2) the work experience in the PI's lab offers significantly more variety, autonomy, and responsibility than typical corporate internships.  The student will work half-time during the academic year and full-time during the summer. 
 
-\section*{C. Fringe Benefits:} 
+\subsection{B4. Undergraduate Students (SA-IV, \$18.00/hr):}
+
+The PI requests funding for an undergraduate researcher at \$18.00/hr working part-time during the semester and full-time during the summer.  
+
+The PI is currently employing one undergraduate, Joshua Elsarboukh, at this level. He is the primary contributor to efforts within SuperCDMS to make our previously-difficult analysis environment available to collaboration members through a one-click web interface.  In Year 1 of the proposal he will be the main contributor to using the standards-based tools to recreate standard SuperCDMS analyses.  Josh is expected to graduate in Year 2 of this work and we are already training the students who will eventually take his place.  The primary responsibilities of the new hire in Year 3 may shift according to the interests and goals of the student.
+
+Salary at this level is unusual for undergraduate students but is warranted per the CU Denver guidelines for student hiring, which state that students who are performing independent work should be classified as Student Assistants level IV.  Funding students at a competitive wage is particularly critical at CU Denver, where most students work part- or full-time.  In addition, this funding request is for students who have considerable computational skill and can work independently - and these students are often close to graduation and frequently have exhausted the limit on federal financial aid.  The PI requests funds at this level to ensure that students are compensated fairly for their substantial contributions to this work and to ensure that this research opportunity is accessible to all qualified students. 
+
+\subsection{B5. Undergraduate Students (SA-III, \$12.50/hr):}
+
+The PI requests academic year and summer support for two undergraduate students at \$12.50/hr that will be employed as research assistants to assist other members of the group primarily with testing of documentation and creation of new documentation where needed.  Wages are based on \$12.50/hour. The total effort will be 5.5 academic months and 4.2 summer months annually.
+
+%Salaries are based on (INSERT DATE) actual salaries and are projected to include a 3~\% annual cost-of-living adjustment effective each year.
+
+\section*{C. Fringe Benefits} 
 
 Fringe benefits are charged as direct costs on all salaries and wages. The rate is 27\% for faculty, 28\% for professional research staff (with 12-month appointments), 19\% for postdocs, 1\% for enrolled students (AY) and 2\% for un-enrolled students (summer).
 
-\section*{D. Equipment:}
-The following equipment (nonexpendable tangible personal property having a useful life of more than one year, and an acquisition cost of \$5,000 or more per unit )is requested in support of this project:
+\section*{D. Equipment}
+The following equipment (nonexpendable tangible personal property having a useful life of more than one year, and an acquisition cost of \$5,000 or more per unit) is requested in support of this project:
+
+\subsection{D1. Dell PowerEdge Server:}  A PowerEdge server is requested to increase capacity at the Stanford Linear Accelerator web-accessible analysis environment.  This analysis environment significantly improves the PI's group's ability to develop, deploy, and test analysis software across the SuperCDMS collaboration.  Interest and use has been growing rapidly and an additional server will ensure that this environment remains stable and available for increased demand.
 
 
-\section*{E. Travel: }
+\section*{E. Travel}
 
-\ms
-\ni 1. Domestic:  Domestic conferences, \SuperCDMS\ collaboration meetings, and travel for other collaborative research efforts are integral to disseminating the activities of the PI and Co-PIs and supporting the \SuperCDMS\ SNOLAB effort. The total estimated amount of \$71,350 is broken down as follows. \$26,000 is requested to allow the PI, Co-PIs, and scientific and technical staff to attend two collaboration meetings per year at \$1,000 per person per meeting. \$4,350 is requested for inter-institutional travel at three trips at \$1,450 per trip. \$19,500 is requested to allow the PI, Co-PIs, and scientific staff to attend ten domestic conferences at \$1,950 per conference over the award period. \$21,500 is requested to allow the PI, Co-PIs, and scientific staff to cover ten shifts at the NEXUS facility at \$2,150 per shift over the award period.
+\subsection{E1. Domestic:}
+The PI requests a travel budget of \$18,976 (\$4,744/year) is requested for the PI and either a student or the scientific programmer to attend one (1) annual 3-day conference in years 1-3 to disseminate project results and engage with the community served by the software. Major conferences may include the Low Energy Community Meeting and the IEEE Data Acquisition Conference. We estimate that conferences will be held at similar venues as previously held conferences such as [PROVIDE EXAMPLE CITIES FOR CONFERENCE LOCATION]. The amount includes airfare, meals/lodging, ground transportation, and registration fees, if applicable. Estimated breakdown of costs are as follows:.
+
+%\begin{center}
+    \begin{tabular}{ llllll } 
+     Trips & Days & & PI(s) & Student(s) & \\
+     \hline
+     1 & 3 & & 1 & 1 &  \\ 
+     Airfare & Meals & Hotel & Transit & Conf. Reg. PI & Conf. Reg. Student\\ 
+     \hline
+     \$500 & \$70 & \$150 & \$200 & \$300 & \$200 \\ 
+   \end{tabular}
+%\end{center}
+    
+    
+
+\subsection{E2. Foreign:}
+No funds for foreign travel are requested.  While there are some relevant international conferences, the PI believes that focusing efforts on the domestic science community provides an compelling and cost-effective scope for this proposal.  International scientists interested in collaborating can be supported through teleconferencing.
+% Mention ZOOM in facilities and equipment!
 
 
-\ss
-\ni 2. Foreign: Major international conferences on dark matter and low-temperature detectors are held regularly, both annually and bi-annually. Funds are requested to allow the PI, Co-PIs, and technical staff to present and disseminate their activities and findings at these significant venues. Additionally, all CU Denver collaboration members cover ``shifts'' at \CUTE\ and \SuperCDMS\ \SNOLAB\ (Canada). The total estimated amount of \$46,010 is broken down as follows. \$21,930 is requested for the PI, Co-PIs, and scientific staff to attend six international conferences over the period of the award at \$3,655 per trip. \$3,290 is requested for the technical staff cover one shift at the \CUTE\ facility. \$20,790 is requested for all CU Denver collaboration members to cover 11 shifts at the \SNOLAB\ facility at \$1,890 per trip over the period of the award.
-
-\section*{F. Participant Support Costs:} 
+\section*{F. Participant Support Costs} 
 Participant support costs are not subject to MTDC.
 
 \subsection*{F1. Stipends:}
@@ -127,30 +152,35 @@ Participant support costs are not subject to MTDC.
 
 \section*{G. Other Direct Costs (Included in MTDC):}
 \subsection*{G1. Materials and Supplies:}
-We request \$4,500 to purchase, in Year 1, a magnetometer to calibrate Helmholtz coils to be used for \SQUID\ ambient field sensitivity measurements. We request \$7,000 annually to provide liquid helium for performing work on \SQUID\ sensitivity to ambient magnetic fields in existing \SuperCDMS\ \SNOLAB\ \SQUIDs. We estimate costs for general lab supplies, equipment maintenance, and materials at \$1,500 annually. We request \$1,500 in each year for new computers, to gradually phase out aging computers used for instrument control, data collection and analysis, and computational modeling.  All estimates are based on historical usage; the total is \$14,000 in Year 1 and \$10,000 in Years 2 and 3. 
+We request \$2,000 to purchase, in Year 1, an additional workstation for software development and testing. We request \$4,000 in years 2 and 3 to either purchase additional workstations or to replace aging laptops.  Money for laptops for research purposes is included in this budget request because (1) development of this software, while often requiring modest system resources, can sometimes involve significant computation - for example, when testing analysis of a large data set for speed or when testing an installation in a virtual machine.  In addition, (2) many students in the lab live a significant distance from campus and a durable, reliable laptop significantly increases the time commuter students are able to spend doing research.
 
-\subsection*{G2. Publication Costs/Documentation/Dissemination:}
-%and characterization of 1/f noise 
+\subsection*{G2. Publication Costs/Documentation/Dissemination}
+No funds are requested for dissemination of research.  Hosting the software and community forum through github, gitlab, and discourse is free for academic and open-source use and provide functionality that has allowed many other open source projects to thrive; the PI expects these resources to be adequate for this project as well.  Free, long-term archiving of the software and documentation is available through Zenodo and free hosting of paper preprints is available through arXiv and figshare.  Thus the PI evaluates that funds for additional publication costs are not required for the success of this project.
 
 \subsection*{G3. Consultant Services:}
+No consultant services are planned for the proposed work and no funds are requested.
 
 \subsection*{G4. Computer Services:}
+No funds are requested for computer services.  While computers in the PI's lab are managed by CU Denver Information Technology, that cost is built into the overhead.
 
 \subsection*{G5. Subawards:}
+The proposed work has no subawards.
 
 \subsection*{G6. Other:}
 
-\ss \ni 5. Computer Software: A finite-element computational package (COMSOL) will be used to calculate the interaction between the field coils for sensitivity measurements and the magnetic shielding; the annual service/maintenance contract is approximately \$1,000.
+A professional vector-graphics program (Adobe Illustrator) is used by students in the lab for creating compelling and shareable documentation.  While free vector-graphics programs exist (Inkscape), Illustrator is supported on a wider array of devices and is widely used in industry.  An annual license for three students is approximately \$600.
 
 %Annual service and maintenance costs on existing software are approximately \$1,000/year. 
 
-\section*{\bf G. Other Direct Costs (not included in MTDC):}
+\section*{G. Other Direct Costs (not included in MTDC)}
 %
-\subsection*{G1. Permanent Equipment:}
-Villano requires equipment for the proposed neutron-capture activities. Specifically, an array of 24 NaI(Tl) gamma detectors has been acquired by CU~Denver for use as the coincident detectors. However, this array requires HV supply photomultiplier bases for each of the detectors, and a digitizer to read them out. The photomultipler bases and digitizer are quoted at \$15,480 total (from Advanced Measurement Technology Inc.) and \$9,998.92 (from CAEN Technologies Inc.), respectively.    
+%\subsection*{G1. Permanent Equipment:}
+%Villano requires equipment for the proposed neutron-capture activities. Specifically, an array of 24 NaI(Tl) gamma detectors has been acquired by CU~Denver for use as the coincident detectors. However, this array requires HV supply photomultiplier bases for each of the detectors, and a digitizer to read them out. The photomultipler bases and digitizer are quoted at \$15,480 total (from Advanced Measurement Technology Inc.) and \$9,998.92 (from CAEN Technologies Inc.), respectively.  
+
+\subsection{G1. Graduate tuition:}
 
 
-\section*{H. Indirect costs: } 
+\section*{H. Indirect costs} 
 
 Using DHHS negotiated rates, indirect costs are calculated based on a rate of 55.5\%, applied to a base of Modified Total Direct Costs. 
 
