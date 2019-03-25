@@ -1,7 +1,11 @@
 \documentclass[11pt,oneside]{memoir}
 
 \usepackage{tabularx}
-\usepackage{booktabs}
+\usepackage{booktabs,caption}
+\usepackage[hidelinks]{hyperref}
+\usepackage{refstyle}
+\newref{sec}{name=Section~,
+             names=Sections~}
 
 \textwidth 6.5in
 \textheight 9in
@@ -34,6 +38,7 @@
 
 \newcommand{\cheading}[2]{\textbf{#1\hfill #2}}
 
+%\newcommand{\sec}{Section}
 \newcommand{\RnD}{{\small R\&D}}
 \newcommand{\ZIP}{{\small ZIP}}
 \newcommand{\TES}{{\small TES}}
@@ -55,9 +60,11 @@
 \mainmatter
 \pagestyle{bodystyle}
 
-\centerline{Budget Justification}
-\centerline{Elements: Improving tools based on data-description standards for gigabyte-scale data sets}
+\begin{center}
+\textbf{{\Large Budget Justification}} \\
+\textbf{{Elements: Improving tools based on data-description standards \\ for gigabyte-scale data sets}}
 \centerline{PI: Amy Roberts}
+\end{center}
 
 %{ Budget Years:}
 %{ Year 1}:\ 11/1/2019 -- 10/30/2020~~~~~
@@ -68,13 +75,18 @@
 
 \subsection*{A1. Principal Investigator (Amy Roberts):}
 
-Assistant Professor Amy Roberts at CU Denver will serve as the Principle Investigator (PI) on this project.  She will commit one summer month per year and and an additional 10\% time in the academic year two, requested as a course release. Her responsibilities will include reaching out to researchers and facilitating their adoption of the tools, working with the community to determine the focus of the software development, and guiding and mentoring the staff and students.  In addition, she will supervise one master's student from the Integrated Sciences program.
+Assistant Professor Amy Roberts at CU Denver will serve as the Principle Investigator (PI) on this project.  She will commit half a summer month per year and and an additional 10\% time in year 3, requested as a course release. Costs for years 2 and 3 include 3\% annual cost-of-living increases. Her responsibilities will include reaching out to researchers and facilitating their adoption of the tools, working with the community to determine the focus of the software development, and guiding and mentoring the staff and students.  In addition, she will supervise one master's student from the Integrated Sciences program.
 
-The PI has broad experience with data acquisition for medium-scale physics experiments.  She has been a member of the \CDMS\ collaboration since 2014 and has been heavily involved in data acquisition and data quality for the upcoming SNOLAB experiment.  
-%She leads a group comprising a Research Technician (to be hired in the upcoming year) and one or more undergraduate research assistants.  
-Her mentoring in this area provides students and staff with data acquisition skills that are critical for the field but difficult to obtain.  Her expertise with data acquisition, data analysis, and cross-system integration ensure that the SNOLAB data will be science-ready.
+%The PI has broad experience with data acquisition for medium-scale physics experiments.  She has been a member of the \CDMS\ collaboration since 2014 and has been heavily involved in data acquisition and data quality for the upcoming SNOLAB experiment.  
+%Her mentoring in this area provides students and staff with data analysis and acquisition skills that are critical for the field but difficult to obtain.  
+%Her expertise with data acquisition, data analysis, and cross-system integration ensure that the SNOLAB data will be science-ready.
 
-One summer month for Roberts is requested in each year of this proposal. Costs for Years 2 and 3 include 3\% annual COL increases. 
+The PI is requesting support in excess of two months from the NSF in years 1 and 2 of this proposal.  The PI has received half a month of summer salary from the SuperCDMS Collaborative proposal and has requested half a month of summer salary and course buyouts in the pending SuperCDMS Operations proposal.  If both the SuperCDMS operations proposal and this current propsal are fully-funded, the PI would receive 2.4 months of salary support from the NSF from 7/15/2019 to 7/14/2021.  
+
+This support level is justified because (1) CU Denver's standard teaching load is four courses per academic year and (2) CU Denver Physics has neither a Master's nor a Ph.D. program in Physics. Although the PI does have access to Master's students from the Integrated Sciences program, the lack of an advanced degree in physics means that students lack the pool of experienced-student expertise that Ph.D.-granting institutions enjoy. Thus, additional oversight of the group ($\sim$1 scientific programmer, $\sim$1 master's student, $\sim$4 undergraduates) is required during the academic year.  
+
+\begin{minipage}{\linewidth}
+    \centering
 
 %\cheading{test}{test}
 %\begin{center}
@@ -101,29 +113,35 @@ One summer month for Roberts is requested in each year of this proposal. Costs f
         Total (months) & 1.9 & 2.4 & 2.4 & 1.4\\
         \bottomrule
       \end{tabularx}
+      \captionof*{table}{Table 1.  Reqeusted salary support from all received and pending NSF grant applications, in months.  Note that ``year 1'' in this text refers to the suggested start date of this proposal, 11/1/2019.} \label{tab:title} 
    %\end{center}
+\end{minipage}
 
-Two summer months for Huber are requested in each year of this proposal. In addition, 0.9 academic month support during the academic year (AY) is requested for an academic course release in each year of this proposal. The total support requested for Huber, at 2.9 months (0.9 academic month + 2 summer months) per year, is above the NSF 2-month guideline. This support level is justified due to a combination of CU Denver's standard teaching load of four courses per AY and, more critically, CU Denver Physics having neither a Master's nor a Ph.D. program in Physics. Thus, additional oversight of the large undergraduate component ($\sim$8 undergraduates at all times) is required during the AY. Costs for Years 2 and 3 include 3\% annual cost of living (COL) increases. 
 
 \section*{B. Other Personnel}
 
 \subsection*{B1. Scientific Programmer (Nikki Ramirez):}
+The PI requests support for a scientific programmer, Ms. Ramirez, at 9.6 calendar months in each of the three years of this work with an annual salary of \$43,000. Costs for years 2 and 3 include 3\% annual  cost-of-living increases.  This salary is commensurate with starting salaries for computer science majors in the Denver area.
 
-The scientific programmer will work in collaboration with the PI and develop software, software documentation, and work closely with scientists and students in the group to identify issues and solutions for analysis of large data sets with the software.
+Ms. Ramirez has recently joined the PI's group as a Student Researcher Level IV and will be graduating with a B.S. in Computer Science and a minor in Creative Writing in May of 2019.  Her programming expertise, together with her extensive experience writing and editing a wide variety of writing, are particularly valuable to the work proposed because community adoption will require readable documentation.
 
-The PI requests support for Ms. Ramirez at 9.6 calendar months in each of the three years of this work. Costs for Years 2 and 3 include 3\% annual  cost-of-living increases. 
+The scientific programmer will work in collaboration with the PI and develop software, software documentation, and work closely with scientists and students in the group to identify issues and solutions for analysis of large data sets with the software.  In addition, the scientific programmer will help coordinate the yearly workshop proposed as a part of this work.
+
 %, at a Year 1 base 1.0 FTE salary of \$57,591
 
 \subsection{B2.  Post Doctoral Scholars:}
 
-No postdoctoral researchers are requested as part of this funding request.
+No funds for postdoctoral researchers are requested.
 %Salary is escalated according to the NIH postdoctoral rate scale in Year 3.
 
 %The postdoc will be recruited at a 1.0 FTE salary of \$47,484 beginning in the second year of the grant.  
 
-\subsection{B3. Graduate Student (TBH):} 
+\subsection[B3]{B3. Graduate Student (TBH):} 
+%\seclabel{sec:masters-student-salary}
+\label{sec:masters-student-salary}
+One Master's level student from the Integrated Sciences program with a focus on Computer Science will be employed to assist with development of the software, testing of documentation, and development of example analyses relevant to the nuclear physics community.  This student may also provide computational-skill support to other students in the group and will participate fully in the scientific life of the group.  
 
-One Master's level student from the Integrated Sciences program with a focus on Computer Science will be employed to assist with development of the software, testing of documentation, and development of example analyses relevant to the nuclear physics community.  This student may also provide computational-skill support to other students in the group and will participate fully in the scientific life of the group.  Wages are based on \$18/hour in Year~1 with projected 3\% annual cost-of-living increases thereafter. Although this rate is low compared to the typical internship rates available to computer science master's students, the PI has had success recruiting excellent students at this wage because (1) it is a livable wage for most students and (2) the work experience in the PI's lab offers significantly more variety, autonomy, and responsibility than typical corporate internships.  The student will work half-time during the academic year and full-time during the summer. 
+Wages are based on \$18/hour in Year~1 with projected 3\% annual cost-of-living increases thereafter. Although this rate is low compared to the typical internship rates available to computer science master's students, the PI has had success recruiting excellent students at this wage because (1) it is a livable wage for most students and (2) the work experience in the PI's lab offers significantly more variety, autonomy, and responsibility than typical corporate internships.  The student will work half-time during the academic year and full-time during the summer. 
 
 \subsection{B4. Undergraduate Students (SA-IV, \$18.00/hr):}
 
@@ -131,11 +149,13 @@ The PI requests funding for an undergraduate researcher at \$18.00/hr working pa
 
 The PI is currently employing one undergraduate, Joshua Elsarboukh, at this level. He is the primary contributor to efforts within SuperCDMS to make our previously-difficult analysis environment available to collaboration members through a one-click web interface.  In Year 1 of the proposal he will be the main contributor to using the standards-based tools to recreate standard SuperCDMS analyses.  Josh is expected to graduate in Year 2 of this work and we are already training the students who will eventually take his place.  The primary responsibilities of the new hire in Year 3 may shift according to the interests and goals of the student.
 
-Salary at this level is unusual for undergraduate students but is warranted per the CU Denver guidelines for student hiring, which state that students who are performing independent work should be classified as Student Assistants level IV.  Funding students at a competitive wage is particularly critical at CU Denver, where most students work part- or full-time.  In addition, this funding request is for students who have considerable computational skill and can work independently - and these students are often close to graduation and frequently have exhausted the limit on federal financial aid.  The PI requests funds at this level to ensure that students are compensated fairly for their substantial contributions to this work and to ensure that this research opportunity is accessible to all qualified students. 
+Salary at this level is unusual for undergraduate students but is warranted per the CU Denver guidelines for student hiring, which state that students who are performing independent work should be classified as Student Assistants level IV.  Funding students at a competitive wage is particularly critical at CU Denver, where most students work part- or full-time.  In addition, this funding request is for students who have considerable computational skill and can work independently - and these students are often close to graduation and frequently have exhausted the limit on federal financial aid.  The PI requests funds at this level to ensure that this research opportunity is accessible to all qualified students and to ensure that it is possible to recruit qualified students for this work. 
 
 \subsection{B5. Undergraduate Students (SA-III, \$12.50/hr):}
 
-The PI requests academic year and summer support for two undergraduate students at \$12.50/hr that will be employed as research assistants to assist other members of the group primarily with testing of documentation and creation of new documentation where needed.  Wages are based on \$12.50/hour. The total effort will be 5.5 academic months and 4.2 summer months annually.
+The PI requests academic year and summer support for two undergraduate students at \$12.50/hr that totals ?? (?? annually).
+
+These students will be employed as research assistants to assist other members of the group with testing of documentation and creation of new documentation where needed.  Depending on their interests and skills, students may be assigned to be the shepherd for a particular analysis and/or to help organize the proposed workshops.  The PI expects students to work 10 hours/week during the semester and 30 hours/week during the summer months.
 
 %Salaries are based on (INSERT DATE) actual salaries and are projected to include a 3~\% annual cost-of-living adjustment effective each year.
 
@@ -146,25 +166,40 @@ Fringe benefits are charged as direct costs on all salaries and wages. The rate 
 \section*{D. Equipment}
 The following equipment (nonexpendable tangible personal property having a useful life of more than one year, and an acquisition cost of \$5,000 or more per unit) is requested in support of this project:
 
-\subsection{D1. Dell PowerEdge Server:}  A PowerEdge server is requested to increase capacity at the Stanford Linear Accelerator web-accessible analysis environment.  This analysis environment significantly improves the PI's group's ability to develop, deploy, and test analysis software across the SuperCDMS collaboration.  Interest and use has been growing rapidly and an additional server will ensure that this environment remains stable and available for increased demand.
+\subsection{D1. Dell PowerEdge Server:}  A PowerEdge server costing \$12,204 (see attached quote) is requested to increase capacity at the Stanford Linear Accelerator (SLAC) web-accessible analysis environment.  This particular server is requested because it is identical to servers already in the SLAC pool configured for this purpose and will require minimal personnel overhead to install.
+
+This server will support the web-accessible analysis environment, which significantly improves the PI's group's ability to develop, deploy, and test analysis software across the SuperCDMS collaboration.  Interest and use has been growing rapidly and an additional server will ensure that this environment remains stable and available for increased demand.
 
 
 \section*{E. Travel}
 
 \subsection{E1. Domestic:}
-The PI requests a travel budget of \$18,976 (\$4,744/year) is requested for the PI and either a student or the scientific programmer to attend one (1) annual 3-day conference in years 1-3 to disseminate project results and engage with the community served by the software. Major conferences may include the Low Energy Community Meeting and the IEEE Data Acquisition Conference. We estimate that conferences will be held at similar venues as previously held conferences such as [PROVIDE EXAMPLE CITIES FOR CONFERENCE LOCATION]. The amount includes airfare, meals/lodging, ground transportation, and registration fees, if applicable. Estimated breakdown of costs are as follows:.
+The PI requests a travel budget of \$9,660 (\$3,220/year) is requested for the PI and either a student or the scientific programmer to attend one (1) annual 3-day conference in years 1-3 to disseminate project results and engage with the community served by the software. The PI requests travel funds for herself and a student because (1) networking with other PIs and industry representatives is critical to the overall development of this community project and (2) students attending conferences gives them a deeper understanding of community needs and their place in the community and builds the community's trust in them.
 
-%\begin{center}
+The PI anticipates attending the yearly Low Energy Community Meeting, typically held at Argonne National Lab, IL, Notre Dame, IN, or Lansing, MI. 
+
+The PI expects that there may be a year where another conference or workshop may be particularly fruitful to attend, such as the International Conference on Computing in High Energy and Nuclear Physics (CHEP) or the Scientific Computing with Python conference (SciPy). The amount includes airfare, meals/lodging, ground transportation, and registration fees. Estimated breakdown of costs are as follows:
+
+%% heterogeneous DAQs
+%https://ieeexplore.ieee.org/document/8204037
+
+\begin{minipage}{\linewidth}
+    \centering
+    %\begin{center}
     \begin{tabular}{ llllll } 
+    \toprule
      Trips & Days & & PI(s) & Student(s) & \\
-     \hline
+     \midrule
      1 & 3 & & 1 & 1 &  \\ 
+     \addlinespace[1ex]
      Airfare & Meals & Hotel & Transit & Conf. Reg. PI & Conf. Reg. Student\\ 
-     \hline
+     \midrule
      \$500 & \$70 & \$150 & \$200 & \$300 & \$200 \\ 
+     \bottomrule
    \end{tabular}
 %\end{center}
-    
+    \captionof*{table}{Table 2.  Itemized domestic travel costs.} \label{tab:title} 
+\end{minipage}
     
 
 \subsection{E2. Foreign:}
@@ -172,16 +207,21 @@ No funds for foreign travel are requested.  While there are some relevant intern
 % Mention ZOOM in facilities and equipment!
 
 
-\section*{F. Participant Support Costs} 
-Participant support costs are not subject to MTDC.
+\section*{F. Participant Support Costs (20 Participants)} 
+Participant support costs are not subject to MTDC.  Because fostering and strengthening community adoption and feedback is critical to the success of the proposed work, the PI plans to recruit up to 20 early-career scientists, late-career scientists, and industry representatives to participate in a yearly 4-day workshop focused on teaching scientists about the tools and using community feedback for rapid development of needed features.  To make the workshop accessible and economical, remote participation will be fully supported; as many as 10 participants are expected to be remote.
 
-\subsection*{F1. Stipends:}
+\subsection{F0. Scholarships:}
+The PI requests \$7,000 for scholarships to support early-career researchers and provide additional funding for care-giving scientists who wish to attend but need to travel with their dependent.  These funds may also be used to offset costs for invited scientists.  Scholarship applicants must write a brief description of their use of the funds.
 
-\subsection*{F2. Travel:}
+\subsection*{F1. Stipends:}  
+No funds explicitly allocated to stipends are requested.
 
-\subsection*{F3. Subsistence:}
+\subsection*{F2. Travel:} 
+No funds explicitly allocated to travel are requested.
 
-\subsection*{F4. Other:}
+\subsection*{F3. Subsistence:}  The PI requests \$2,000 for lunches.  Additional food will be paid for through registration fees.
+
+\subsection*{F4. Other:}  The PI requests \$1,000 for the rental of audio-visual equipment and university production services.
 
 \section*{G. Other Direct Costs (Included in MTDC):}
 \subsection*{G1. Materials and Supplies:}
@@ -211,7 +251,11 @@ A professional vector-graphics program (Adobe Illustrator) is used by students i
 %Villano requires equipment for the proposed neutron-capture activities. Specifically, an array of 24 NaI(Tl) gamma detectors has been acquired by CU~Denver for use as the coincident detectors. However, this array requires HV supply photomultiplier bases for each of the detectors, and a digitizer to read them out. The photomultipler bases and digitizer are quoted at \$15,480 total (from Advanced Measurement Technology Inc.) and \$9,998.92 (from CAEN Technologies Inc.), respectively.  
 
 \subsection{G1. Graduate tuition:}
+The PI requests a total of \$41,407 to pay for the tuition and student fees for a master's student in the Integrated Sciences program for three years.  This amount includes the cost of student health care and the PI considers this support, together with the student assistantship in 
+%\secref{sec:masters-student-salary}~\hyperref[sec:masters-student-salary]{B3}
+\hyperref[sec:masters-student-salary]{Section B3}, to be adequate to attract and retain a talented student.
 
+The PI requests full support of a master's student because she believes this support is essential to ensuring that this research opportunity remains equally accessible to students from all socio-economic backgrounds.  CU Denver has the privilege of serving many non-traditional students, first-generation students, and under-represented students.  These students often need financial support to be able to participate in the scientific community.
 
 \section*{H. Indirect costs} 
 
@@ -223,9 +267,6 @@ Using DHHS negotiated rates, indirect costs are calculated based on a rate of 55
 %	The PI's oversight of the activities will be conducted as part of the normal research component of his academic year salary. In addition, one month of summer salary for the PI is required for additional focused effort during the summer. A full-time Postdoctoral Research Associate is required to conduct the majority of the research year-round. Benefits are included as direct costs.
 %	The manpower model in this proposal shifts the bulk of responsibility and task allocation from the PI & many undergraduates to the Postdoctoral Research Associate and Technician. This model has not been attempted at UCDHSC before, but there is a new dedication in the administration to support research activities at a higher level. Moreover, this manpower plan will keep the project running on schedule while continuing the undergraduate research involvement that is the signature of UCDHSC.
 
-%Travel:
-%	In order to assist collaborators and test facilities in the proper operation and optimization of SQUIDs, substantial funds for travel are required. Note that most collaboration conferences are held by phone, so the remaining travel represents necessary R&D activities.
-%	In addition, funds are requested for the PI & PD to travel to one conference to disseminate the results of the work.
 
 %Cost sharing:
 %	Cost sharing is not required by program guidelines.
