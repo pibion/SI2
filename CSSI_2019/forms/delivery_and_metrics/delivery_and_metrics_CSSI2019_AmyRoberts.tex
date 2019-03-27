@@ -1,6 +1,6 @@
 
-\documentclass[11pt]{article}
-\input{../../Proposal_packages}
+\documentclass[11pt,oneside]{memoir}
+%\input{../../Proposal_packages}
 \usepackage[hang,flushmargin]{footmisc} 
 
 \usepackage{color}
@@ -13,6 +13,7 @@
 %\renewcommand{\bottomfraction}{0.5}
 %\renewcommand{\textfraction}{0.1}
 
+
 \newcommand{\fbseries}{\unskip\setBold\aftergroup\unsetBold\aftergroup\ignorespaces}
 \makeatletter
 \newcommand{\setBoldness}[1]{\def\fake@bold{#1}}
@@ -21,17 +22,14 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 
-\usepackage{titlesec}% http://ctan.org/pkg/titlesec
-\titleformat{\section}%
-  [hang]% <shape>
-  {\normalfont\bfseries\Large}% <format>
-  {}% <label>
-  {0pt}% <sep>
-  {}% <before code>
+\setaftersubsecskip{-1em}
 
-\titlelabel{\thetitle.\quad}
-\renewcommand{\thesection}{}% Remove section references...
-\renewcommand{\thesubsection}{\arabic{subsection}}%... from subsections
+\makepagestyle{bodystyle}
+%\makeevenhead{bodystyle}{\bfseries\thepage}{}{\scshape
+%\MakeLowercase{\leftmark}}
+%\makeoddhead{bodystyle}{\scshape\MakeLowercase{\rightmark}}{}{\bfseries\thepage}
+\makeevenfoot{bodystyle}{}{}{\bfseries\thepage}
+\makeoddfoot{bodystyle}{}{}{\bfseries\thepage}
 
 \newcommand{\RnD}{{\small R\&D}}
 \newcommand{\TES}{{\small TES}}
@@ -51,13 +49,20 @@
 %\markright{Budget Justification [\today]}
 
 \begin{document}
+\mainmatter
+\pagestyle{bodystyle}
 %\onecolumn
 %\pagenumbering{arabic}
 %\setcounter{page}{25}
 
-\section*{Data Management Plan}
+\section*{Delivery Mechanism and Community Usage Metrics}
+\subsection*{Elements: Improving tools based on data-description standards for gigabyte-scale data sets}
+\hspace{1cm}
+\newline
+PI: Amy Roberts
+%% two page limit
 
-\subsection{Expected Data}
+\subsection{Deliverables}
 
 The proposed work will result in several software and documentation products, specifically
 
@@ -71,7 +76,7 @@ The proposed work will result in several software and documentation products, sp
 
 The proposed work will not generate new data.  Instead, this work will use already-collected data.  Small, example data files may be prepared for inclusion with the software as test cases.
 
-\subsection{Data Format}
+\subsection{Metrics}
 The software source code and documentation will be stored in ASCII text files.  
 
 Small data files meant to allow testing of the software will be stored in their original, custom binary formats.  The descriptions of these formats will be stored in ASCII text files following the Katai Struct data description standard.
