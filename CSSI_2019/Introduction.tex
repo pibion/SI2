@@ -7,6 +7,12 @@ The PI proposes improvement and community building for a common set of tools to 
 
 In nuclear physics, in neuroscience, in remote sensing applications, custom data formats are commonplace both for existing and newly-recording datasets.  This fractures the software ecosystem.  Even though the nuclear physics community performs largely similar analyses on largely similar datasets, groups typically develop their software locally.  Poor documentation of these isolated code bases can have real, negative impact on science progress. 
  
+%The Data Access Project seeks to build a common set of tools to make it easier for scientists to access custom-format, binary data.
+
+%In many science applications, data is stored in a binary format to make its size manageable - and custom, binary data formats are commonplace both for existing and newly-recording datasets.  This fractures the software ecosystem:  even if a community performs largely similar analyses on largely similar datasets, the custom format leads groups to develop their own, local software. 
+
+%The Data Access Project seeks to increase awareness and adoption of existing data-description languages and to build tools that - given a format description - provide easy access to the information in a data set.
+
 \textbf{S has a data set that would be valuable to include in an analysis} that combines different types of carbon scattering data.  Because the data was taken with a polarized beam, it would provide a valuable constraint to her global fit.  But she can't include it because the only code that can read the data won't compile on her machine.  She's not familiar enough with Fortran to fix it and the original author died a few years ago.  She can write a paper without the data, but the science is much less interesting. 
  
 \textbf{P would like to add an additional detector to his setup} -- this would allow him to set a stronger limit on a reaction rate that effects how stars create heavy elements.  A colleague offered to lend him a digitizer to instrument his extra detector, but the data acquisition code he has is for CAEN instruments and the loaner digitizer is from XIA.  After burning a weekend trying and failing to adapt his code to handle the XIA data, he decides to try the experiment without the extra detector.  It won't be as useful without angular information but it might give a reasonable constraint on the integrated cross section.

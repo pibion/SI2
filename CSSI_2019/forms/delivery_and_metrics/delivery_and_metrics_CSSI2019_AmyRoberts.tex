@@ -2,6 +2,8 @@
 \documentclass[11pt,oneside]{memoir}
 %\input{../../Proposal_packages}
 \usepackage[hang,flushmargin]{footmisc} 
+\usepackage{tabularx}
+\usepackage{booktabs,caption}
 
 \usepackage{color}
 \textwidth 6.5in
@@ -22,7 +24,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 
-\setaftersubsecskip{-1em}
+\setaftersubsecskip{0.4em}
 
 \makepagestyle{bodystyle}
 %\makeevenhead{bodystyle}{\bfseries\thepage}{}{\scshape
@@ -51,18 +53,69 @@
 \begin{document}
 \mainmatter
 \pagestyle{bodystyle}
-%\onecolumn
-%\pagenumbering{arabic}
-%\setcounter{page}{25}
 
 \section*{Delivery Mechanism and Community Usage Metrics}
 \subsection*{Elements: Improving tools based on data-description standards for gigabyte-scale data sets}
-\hspace{1cm}
-\newline
+%\hspace{1cm}
+%\newline
 PI: Amy Roberts
 %% two page limit
 
 \subsection{Deliverables}
+The long-term goal of this work is to increase the accessibility of science analysis for both active researchers and science students.  There are three deliverables associated with this work:
+
+\begin{enumerate}
+  \item Foster the awareness and adoption of existing data-description languages 
+  \item Improve existing data-access tools based on the Katai Struct description language to be a viable tool for gigabyte-scale data analysis
+  \item Build an active community of users and developers for standards-based science software
+\end{enumerate}
+
+\begin{minipage}{\linewidth}
+  \centering
+
+%\cheading{test}{test}
+%\begin{center}
+  \begin{tabularx}{\textwidth}{ XXX } 
+      \toprule
+      Deliverable 
+      & Mechanism
+      & Metric\\
+      \midrule
+      \addlinespace[1ex]
+      \multicolumn{3}{l}{{{\bfseries Foster the awareness and adoption of existing data-description languages}}}\\ 
+      A paper describing data-description standards that gives use cases for Kaitai Struct and DFDL
+      & Open Access Journal, Conference presentation
+      & Citations\\
+      
+      \addlinespace[1ex]
+      Development of community standards
+      & Research Data Alliance
+      & Creation of a working group, whitepaper \\
+
+      \addlinespace[1ex]
+      Work with scientific data-sharing platforms and make them aware of data-description standards
+      & Figshare, Open Science Framework
+      & Support materials added to help scientists add description files to their projects\\
+
+      \midrule
+      \addlinespace[1ex]
+      \multicolumn{3}{>{\hsize=\dimexpr 3\hsize+3\tabcolsep+\arrayrulewidth}X}{{{\bfseries Improve existing data-access tools based on the Katai Struct description language to be a viable tool for gigabyte-scale data analysis}}}\\ 
+
+      Add Katai Struct target for awkward-array
+      & Github, Gitlab, Zenodo
+      & citations of software by science-result papers\\
+
+      \addlinespace[1ex]
+      
+      \bottomrule
+    \end{tabularx}
+    \captionof*{table}{Table 1.  Reqeusted salary support from all received and pending NSF grant applications, in months.  Note that ``year 1'' in this text refers to the suggested start date of this proposal, 11/1/2019.} \label{tab:title} 
+ %\end{center}
+\end{minipage}
+
+
+
+
 
 The proposed work will result in several software and documentation products, specifically
 
