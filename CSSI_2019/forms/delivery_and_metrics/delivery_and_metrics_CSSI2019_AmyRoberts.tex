@@ -70,6 +70,37 @@ The long-term goal of this work is to increase the accessibility of science anal
   \item Build an active community of users and developers for standards-based science software
 \end{enumerate}
 
+\subsubsection*{Year 1}
+\begin{itemize}
+  \item A whitepaper is published describing data description languages and giving use-cases
+  \item The Open Science Framework and Figshare are contacted.  We find out if they're interested and if so, get a contact person.
+  \item Between 15 and 20 scientists register for the Data Access workshop.  These scientists are expected to predominantly come from the nuclear physics community.  The PI expects all attendees to register after specific invitation.
+  \item Between 5 and 10 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
+  \item An initial release of the improved software and the XIA library is made.  Both have basic testing coverage, are tested automatically upon commit, and have initial guidelines for contribution.
+  \item An initial release of the skills documentation has been made.  Inexperienced students who try to follow the analysis tutorial are able to find answers to some of their questions but most are expected to be unable to complete the tutorial without expert assistance
+  \item A roadmap for improvements to the core library and plans for additional, useful libraries is published and updated post the workshop
+\end{itemize}
+
+\subsubsection*{Year 2}
+\begin{itemize}
+  \item Between 15 and 20 scientists register for the Data Access workshop.  Some diversity of discipline is expected, although most are expected to predominantly come from the nuclear physics community.  The PI expects one or two attendees to find out and register for the conference from someone outside the group and for most to register after specific invitation.
+  \item Between 5 and 10 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
+  \item An initial release of the highest-priority helper code is made.  It has basic testing coverage, are tested automatically upon commit, and have initial guidelines for contribution.
+  \item The highest-priority improvements for the core library are released.  The contribution guidelines and instructions are well-tested.  There has been at least one request for an improvement or feature from the community that has been either fixed by my team or another contributor.
+  \item The most common failings of the skills documentation have been addressed.  Inexperienced students who try to follow the analysis tutorial get stuck on these issues less frequently.  Most are expected to be unable to complete the tutorial without expert assistance
+  \item The roadmap discussion has more participants than in year 1
+\end{itemize}
+
+\subsubsection*{Year 3}
+\begin{itemize}
+  \item Between 15 and 25 scientists register for the Data Access workshop.  Some diversity of discipline is expected, although most are expected to predominantly come from the nuclear physics community.  The PI expects at least three attendees to find out and register for the conference from someone outside the group and for most to register after specific invitation.
+  \item Between 5 and 10 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
+  \item The highest-priority helper code is close to stable.  The contribution guidelines and instructions are well-tested.  There has been at least one request for an improvement or feature from the community that has been either fixed by my team or another contributor.
+  \item The highest-priority improvements identified on the road map for the core library are released.  The contribution guidelines and instructions are well-tested.  There has been at least one request for an improvement or feature from the community that has been either fixed by my team or another contributor.
+  \item The basic-skills documentation has resources or recommends resources that address most of the questions that arise when inexperienced students try to follow the analysis tutorial.  Most students need some help but all are able to make a plot based on data
+  \item The roadmap discussion has more participants than in year 2
+\end{itemize}
+
 \begin{minipage}{\linewidth}
   \centering
 
@@ -106,7 +137,43 @@ The long-term goal of this work is to increase the accessibility of science anal
       & citations of software by science-result papers\\
 
       \addlinespace[1ex]
-      
+      Create or improve existing tools that use the Katai Struct format for use in scientific analysis
+      & Github, Gitlab, Zenodo
+      & increasing downloads\\
+
+      \addlinespace[1ex]
+      Build a library for XIA data based on the common-access code
+      & Github, Gitlab, Zenodo
+      & citations of software by science-result papers\\
+
+      \addlinespace[1ex]
+      Prototype an analysis library for SuperCDMS based on the common-access code
+      & CDMS will consider releasing this code if it becomes the basis for ongoing analysis
+      & improvements to the common-access code and associated libraries such as awkward-array based on analysis experience\\
+
+      \midrule
+      \addlinespace[1ex]
+      \multicolumn{3}{>{\hsize=\dimexpr 3\hsize+3\tabcolsep+\arrayrulewidth}X}{{{\bfseries Build an active community of users and developers for standards-based science software}}}\\ 
+
+      Hold a yearly workshop for community learning and development
+      & Meeting materials and selected recordings (??) will be archived on the Open Science Framework
+      & Increasing numbers of attendees who are not specifically solicited by the group\\
+
+      \addlinespace[1ex]
+      Publish materials with clear and complete instructions for contributing to the project
+      & released as part of the code base on github, gitlab, Zenodo
+      & increase in who contributes commits to the code\\
+
+      \addlinespace[1ex]
+      Build testing into all released code to allow easier contributions from new developers
+      & released as part of the code base on github, gitlab, Zenodo
+      & increase in who contributes commits to the code\\
+
+      \addlinespace[1ex]
+      Maintain an issues forum and a discussion forum for the project
+      & issues forum available on gitlab for each project; Discourse provides forum hosting for open-source projects
+      & an increase in questions directed at my team and an increase in discussion between new participants\\
+
       \bottomrule
     \end{tabularx}
     \captionof*{table}{Table 1.  Reqeusted salary support from all received and pending NSF grant applications, in months.  Note that ``year 1'' in this text refers to the suggested start date of this proposal, 11/1/2019.} \label{tab:title} 
@@ -127,16 +194,13 @@ The proposed work will result in several software and documentation products, sp
     \item A project website that summarizes and links to the above software and that provides educational resources for fundamental concepts in scientific computing.
 \end{itemize}
 
-The proposed work will not generate new data.  Instead, this work will use already-collected data.  Small, example data files may be prepared for inclusion with the software as test cases.
+Small, example data files may be prepared for inclusion with the software as test cases.
 
 \subsection{Metrics}
-The software source code and documentation will be stored in ASCII text files.  
 
 Small data files meant to allow testing of the software will be stored in their original, custom binary formats.  The descriptions of these formats will be stored in ASCII text files following the Katai Struct data description standard.
 
 The point of the software developed under this work is to provide easy access to data stored in non-standard formats; documentation for the use of this software will be heavily tested.
-
-%Describe the format in which the data or products are stored (e.g., hardcopy notebook and/or instrument outputs, ASCII, html, jpeg, or other formats). Where data are stored in unusual or not generally accessible formats, explain how the data may be converted to a more accessible format or otherwise made available to interested parties.  You may also comment on the current or anticipated need for interested parties outside of your laboratory to access your primary data.
 
 \subsection{Access to Data and Data Sharing Practices and Policies}
 The software created by this project will be publicly available for download from a cloud-based repository host such as github or gitlab.  Additionally, all software products will be registered, archived, and available for download on Zenodo.
@@ -155,22 +219,6 @@ Copyleft open-source licenses (GPL, BSD) allow others to re-use the software but
 
 The PI feels that permissive open-source licenses align best with the goal of broad adoption.  Because this work will only be sustainable and impactful with the broadest possible community adoption, permissive open-source licenses will be preferred wherever possible.  The PI does not anticipate spending NSF resources on closed-source software.
 
-%\begin{itemize}
-%    \item New Katai target: MIT license
-%    \item XIA python-based analysis library: MIT license
-    %\item Analysis library for the Super Cryogenic Dark Matter Search data: still under discussion but likely Apache v3
-%    \item Support libraries, if newly developed in the PI's lab: MIT license
-%    \item Support libraries, if based on existing open-source projects:  Existing license
-%\end{itemize}
-
-%“Access to data” refers to data made accessible without explicit request from the interested party. Examples of this might be data posted on a public website or made available to a public database. Describe your plans, if any, for providing such general access to data, including websites maintained by your research group, and direct contributions to public databases (e.g., IRIS for seismological data, Cambridge Crystallographic Data Centre, Inorganic Crystal Structure Database, the Protein Data Bank, Space Physics Data Center (SPDF), the National Space Science Data Center (NSSDC), Planetary Data System, etc.). Also note if you submit your data in the form of tables, graphs, computer code or other formats to the supplementary materials sections of peer-reviewed journals. Describe your practice or policies regarding the release of data for access, for example, whether data are posted before or after formal publication.
-
-%“Data sharing” refers to the release of data in response to a specific request from an interested party. Describe your policies for data sharing, including (if applicable) provisions for protection of intellectual property, national security, or other rights or requirements.
-
-
-\subsection{Policies for Re-Use, Re-Distribution}
-Scientists who use the code produced as a result of this work will be asked to cite the version they use using the appropriate Zenodo DOI.  All software will include citation instructions in the top-level README file.
-
 The goal of the proposed work is to increase the accessibility of science analysis to the entire community.  Therefore all products will be licensed to allow easy re-use for both non-commercial and commercial purposes:
 
 \begin{itemize}
@@ -178,17 +226,6 @@ The goal of the proposed work is to increase the accessibility of science analys
   \item All code will be licensed with an open-source license that allows re-use of the code for commercial purposes.  
   \item Articles written about the software use and development will be published as open access wherever possible; in every case preprints will be published either on the arXiv, figshare, and/or the Open Science Framework.
 \end{itemize}
-
-%Describe your policies regarding the use of data provided via general access or sharing. For example, if you plan to provide data and images on your website, will the website contain disclaimers, or conditions regarding the use of the data in other publications or products? Describe these disclaimers and/or terms of use.
-
-
-\subsection{Archiving of Data}
-All software and documentation will be archived on Zenodo.  Zenodo is a collaboration between CERN and OpenAIRE and has an operation plan for the next twenty years.
-
-Zenodo saves all data to two physically distinct disk servers.  For low-use data, they reserve the right to store the data to tape.
-
-%Describe how data will be archived and how preservation of access will be handled. For example, will hardcopy notebooks, instrument outputs, and physical samples be stored in a location where there are safeguards against fire or water damage? Is there a plan to transfer digitized information to new storage media or devised as technological standards or practices change? Will there be an easily accessible index that documents where all archived data are stored and how they can be accessed?  How long will data be retained. 
-
 
 \end{document}
 
