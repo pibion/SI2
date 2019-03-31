@@ -14,6 +14,9 @@
 %http://www.ddialliance.org/ metadata standards for social sciences
 %https://www.rd-alliance.org/groups/data-type-registries-wg.html research data alliance, not focused on physics AFAIK but definitely useful
 %https://access-data.trydiscourse.com/
+% XDR, external data format!!
+% https://tools.ietf.org/html/rfc1832.html#section-6
+% and there is a python library for it, xdrlib
 
 % Mom says all the cool kids are using smartsheets
 % Liquid Planner has a free plan for teachers?  https://app.liquidplanner.com/space/202855/projects
@@ -78,8 +81,80 @@ The timing of the proposed work is driven by the proposed, yearly workshops that
 
 Thus, the workshops - and software releases that include testing, documentation, and example analyses - are the primary milestones of the proposed work.
 
-The work for each yearly cycle can be broken down into the following categories:
+The work for each yearly cycle can be broken down into the following categories: development of basic computing skills learning material; development of the data-access library; planning and execution of the workshop; and a community-driven update of the roadmap.  See Table~\ref{tab:WBS} for details on who will perform this work.
 
+The minimum requirements of the work determine the work plan and are the following:
+
+\begin{enumerate}
+    \item If students or staff move on to other positions, their replacements should be able to get up to speed in a month or less.
+    \item Someone with no domain knowledge but reasonable persistence should be able to run the example analysis within a week.
+    \item Someone with no domain knowledge but reasonable persistence should be able to analyze their own data within a month.
+    \item A scientist who uses the access-data library to obtain a science result should know how to cite the software.
+    \item A scientist experiencing trouble using the software should be able to determine how to get help quickly (within five minutes of searching).
+    \item A scientist who wishes to improve the code should be able to quickly determine how to contact the developers and how to change, test, and push the code.
+\end{enumerate}
+
+The scope of the proposed software is relatively modest: copy an existing framework and adapt it so that it stores data in awkward-array structures rather than slower, dictionary structures.  The development and testing of this code will take time - but reference code for similar work exists, there is robust community support, and there is a developer guide that gives specific instructions for developers who wish to extend the existing Kaitai Struct code in this way.  The proposed work is feasible because it connects two libraries that are both designed for this purpose.
+
+The majority of the proposed work is in making this software easy to use for scientists, and making it easy for the community to participate in the direction and development of the software.  This requires robust documentation for both users and developers.  Users will require installation instructions, instructions for using the library, and guidance on how to adapt the examples for their own analysis needs.  Developers will need additional documentation: instructions for changing the code and testing the code, and instructions and guidance on contributing their changes to the project.
+
+To meet the minimum requirements, the workplan involves creating of initial documentation and an automated testing suite by the Professional Research Associate and example analysis created by the Master's student.
+
+Undergraduates will begin either by working on new scientific computation skills or improving or adding to material of already-developed scientific computation skills.  Students who join the lab currently have two first projects to chose from: working through an introductory lab on water simulation, or working through an example analysis of gamma-spectroscopy data.  The students try to perform their work using existing documentation; the PI provides guidance when this is inadequate.  This provides an opportunity for students to design improvements and learn the basics of contributing to a code repository.  In addition to providing valuable training for the students, this process identifies gaps in the documentation that are often invisible to experts.
+
+This initial work is expected to result in improvements and additions to web-accessible tutorial materials.  In addition, this training will provide a foundation that will allow the students to attempt the following actions:
+
+\begin{itemize}
+    \item Successfully follow a simple example analysis using the data-access library.
+    \item Successfully follow a tutorial to make and share a change to the library documentation.
+    \item Successfully follow a tutorial to make, test, and share a change to the library source code.
+\end{itemize}
+
+\begin{tabularx}{\textwidth}{XXX}
+Work & Who & Notes \\
+\toprule
+Roadmap \& workplan development
+& PI, PRA, Master's student
+& \\
+
+Basic skills materials 
+& Undergrads
+&  \\
+
+Data-access library development
+& 
+& \\
+code dev
+& Professional Research Assistant
+& this includes testing, user documentation, and dev documentation\\
+contributing
+& Professional Research Assistant
+& this includes automated testing and contribution guidelines and instructions \\
+example analyses
+& Master's student
+& \\
+documentation testing
+& Undergraduates, Master's student
+& documentation testing may feed back into additional skill documetation \\
+
+Workshop
+& 
+& \\
+Recruiting
+& PI
+& \\
+Organization
+& Professional Research Assistant, Undergraduates
+& \\
+Pre-workshop analysis coordination
+& PI, Master's student, PRA
+& \\
+
+Community-driven update of roadmap
+& PI, PRA, Community
+& \\
+\label{tab:WBS}
+\end{tabularx}
 
 \begin{figure}[htb]
     \begin{center}
@@ -88,6 +163,102 @@ The work for each yearly cycle can be broken down into the following categories:
     \caption{Schedule for the proposed work.}
     \label{fig:ops-schedule}
 \end{figure}
+
+\textbf{Architecture of the software:}
+The architecture of the Kaitai Struct compiler that targets an awkward-array data structure will follow that of the existing Katai Struct software.  Implementing a Kaitai Struct compiler for a new language requires
+
+\begin{enumerate}
+    \item Writing a ``runtime library'' that provides a standard stream interface in the target language.  For example, one of the functions every language needs to have defined is a method that returns the size of the file or string stream.  By writing a ``size'' function for the language of interest that follows the Katai Struct API, the code generation becomes simpler.
+    \item Writing a ``compiler'' that translates Kaitai Struct concepts, implemented in Scala, into the target language.
+    \item Writing a test runner for the new language. 
+\end{enumerate}
+
+The proposed work targets the python environment, and there is already a Kaitai Struct python compiler.  The ``compiler'' for the python implementation, however, stores data in native-python data structures that provide inconveniently slow access to standard queries on large, gigabyte-scale data sets.  
+
+However, the changes that need to be implemented to instead store the data in the faster awkward-array data structure are restricted to the compiler code.  The runtime library provides a convenient interface for reading data from a file or stream - this code only cares about the file system interface and does not need to change.  The python test interface will need to be updated as the access syntax for the data will change slightly.
+
+Although there is opportunity for improving the speed of the data load, this development will instead focus on adhering to the existing format and style of Kaitai Struct.  The goal is to make the existing Kaitai Struct community useful to scientists who work with gigabyte-scale data sets; waiting for a few minutes for the data to load is not ideal but is typical of many locally-built solutions.  We can address the more-critical issue of rapid data queries while staying well within the existing framework of Kaitai Struct and intend to do so for the initial implementation of the software.
+
+If we find that data-load times are a significant issue for the nuclear physics community then we will consider more substantial changes to the Kaitai Struct compiler and runtime libary.
+
+\begin{lstlisting}
+def size(self):
+    # Python has no internal File object API function to get
+    # current file / StringIO size, thus we use the following
+    # trick.
+    io = self._io
+    # Remember our current position
+    cur_pos = io.tell()
+    # Seek to the end of the File object
+    io.seek(0, SEEK_END)
+    # Remember position, which is equal to the full length
+    full_size = io.tell()
+    # Seek back to the current position
+    io.seek(cur_pos)
+return full_size
+\end{lstlisting}
+
+\begin{lstlisting}
+uint64_t kaitai::kstream::size() {
+    std::iostream::pos_type cur_pos = m_io->tellg();
+    m_io->seekg(0, std::ios::end);
+    std::iostream::pos_type len = m_io->tellg();
+    m_io->seekg(cur_pos);
+    return len;
+}
+\end{lstlisting}
+
+\textbf{Architecture of the user documentation:} User documentation should make it possible for users with little to no domain knowledge to use the data-access library for science.  Documentation for the use of the library will be stored as text files in the repository with the code.  The files will be written in markdown syntax to improve their readability; this will also render them nicely on cloud-based repository hosts such as github and gitlab.  The following documentation will be provided:
+
+\begin{enumerate}
+    \item How to get help with questions or issues about the library.
+    \item How to install the library and its dependencies.
+    \item An overview explaining what the user will need to provide (data and a description of the data) and what the library will provide (software to read that data).
+    \item A tutorial walking through the use-case of a scientist looking at simple data with a custom format.
+    \item Links to additional resources detailing more complex data formats and more complex analyses.
+    \item Citation guidelines.  
+\end{enumerate}
+
+
+\textbf{Architecture of the developer documentation.}  Documentation intended to facilitate development of the code will be stored in the repository alongside the code.  Text files referenced in the top-level README file will detail, for every repository,
+
+\begin{enumerate}
+    \item How to install, develop, and test the code for individuals who wish to make changes.  
+    \item How to contribute changes back to the project.  This will provide instructions on the version control practices used by the repository maintainers and instructions for implementing the tests required for changes to be considered for merging with the main code base.
+\end{enumerate}
+
+\textbf{Architecture of the basic scientific computing skills documentation:}  Documentation of basic computational skills and concepts will have several possible forms: (1) Text and images, (2) tutorial videos, (3) jupyter notebooks, (4) printable images that illustrate a focused concept, and (5) links to recommended resources such as Software Carpentry tutorials.
+
+All materials will be licensed with  a permissive, open-source license such as CC-BY or MIT.  The source for all the materials will be publicly available through a public host such as github or gitlab and will be archived on a content-tracker such as the Open Science Framework or Figshare.  Videos will be released on YouTube and licensed CC-BY.
+
+All materials will be disseminated using a static site generated by Antora.  Antora is specifically designed for documentation and allows a user to specify a set of repositories containing text files formatted in the Asciidoc markdown language to build a single, searchable documentation site.  Because Antora generates a static site, free hosting services are readily available.  This solution allows my students to focus on creating material to explain core concepts and practice interacting with version control rather than spending time wrestling with web development.
+
+The topics students choose to document are largely student-led, with some guidance from the PI.  Spring 2019 marks the inception of this project, and the concepts chosen by students for illustration have focused on (1) tutorial-format guide for installing python and running a basic python-based analysis of gamma spectroscopy data, (2) instructions for using a docker container to simplify installation of a complex software environment, and (3) a poster explaining what an executable file is.
+
+Documentation that will be provided in this format alongside the scientific computing resources will include
+
+\begin{enumerate}
+    \item instructions on where to get help with the material and how to provide feedback and and file bug reports
+    \item instructions for those who wish to contribute to the documentation
+    \item instructions for the deployment of the documentation
+\end{enumerate}
+
+
+
+
+
+
+\subsubsection{Security}
+
+\subsubsection{Trustworthiness}
+
+\subsubsection{Provenance}
+
+\subsubsection{Reproducibility}
+
+\subsubsection{Usability}
+
+\subsubsection{Adaptability}
 
 \subsection{Deliverables}
 

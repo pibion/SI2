@@ -14,7 +14,9 @@
 %\linenumbers
 \usepackage{ifpdf} 
 \ifpdf % PDF-specific preamble
-\usepackage[pdftex,margin=1in]{geometry} % Use the showframe option to draw a ``margin'' box
+\usepackage[pdftex,margin=1in]{geometry} 
+\usepackage{tabularx}
+% Use the showframe option to draw a ``margin'' box
 %\usepackage{showframe}
 \usepackage[pdftex]{graphicx}
 \usepackage[pdftex]{xcolor} % color or xcolor?
@@ -41,6 +43,7 @@
 
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{listings}
 
 \usepackage{xspace} %\xspace saves the user from having to type \? or {} after most occurrences of a macro name in text.
 \usepackage{isotope} 
@@ -48,7 +51,9 @@
 
 %\usepackage{subfigure} % make it possible to include more than one captioned figure/table in a single float
 \usepackage{wrapfig}
-%\usepackage{booktabs} % for much better looking tables
+
+
+\usepackage{booktabs} % for much better looking tables
 %\usepackage{multirow}
 %\usepackage{array} % for better arrays (eg matrices) in maths
 
