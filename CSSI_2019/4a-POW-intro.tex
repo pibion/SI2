@@ -206,6 +206,7 @@ uint64_t kaitai::kstream::size() {
     m_io->seekg(cur_pos);
     return len;
 }
+\caption{The details of this code are not important.  What is significant is the name of this function, size(), and its behavior: find and report the size of the file, without changing where we are in the file.  The Katai Struct compiler for both C++ and python can use the ``size()'' function rather than including these language-specific stream commands, making the compiler code more readable.}
 \end{lstlisting}
 
 \textbf{Architecture of the user documentation:} User documentation should make it possible for users with little to no domain knowledge to use the data-access library for science.  Documentation for the use of the library will be stored as text files in the repository with the code.  The files will be written in markdown syntax to improve their readability; this will also render them nicely on cloud-based repository hosts such as github and gitlab.  The following documentation will be provided:
@@ -244,7 +245,17 @@ Documentation that will be provided in this format alongside the scientific comp
 \end{enumerate}
 
 
+\textbf{Engineering processes:}
+% design, development, documentation, testing, validation, and release of the software
+% and
+% description of the CI architecture and processes should explain how security, trustworthiness, provenance, reproducibility, and usability will be addressed by the project and integrated into the proposed system and the engineering process
 
+
+\textbf{Deployment and user outreach:}
+
+\textbf{Acceptance and evaluation:}
+
+\textbf{Adaptability:}
 
 
 
