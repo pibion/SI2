@@ -182,29 +182,29 @@ Although there is opportunity for improving the speed of the data load, this dev
 If we find that data-load times are a significant issue for the nuclear physics community then we will consider more substantial changes to the Kaitai Struct compiler and runtime libary.
 
 \begin{lstlisting}
-def size(self):
+def [*size(self)*]:
     # Python has no internal File object API function to get
     # current file / StringIO size, thus we use the following
     # trick.
     io = self._io
     # Remember our current position
-    cur_pos = io.tell()
+    [*cur_pos = *]io.tell()
     # Seek to the end of the File object
     io.seek(0, SEEK_END)
     # Remember position, which is equal to the full length
-    full_size = io.tell()
+    [*full_size = *]io.tell()
     # Seek back to the current position
-    io.seek(cur_pos)
-return full_size
+    [*io.seek(cur_pos)*]
+[*return full_size*]
 \end{lstlisting}
 
 \begin{lstlisting}
-uint64_t kaitai::kstream::size() {
-    std::iostream::pos_type cur_pos = m_io->tellg();
+uint64_t kaitai::kstream::[*size()*] {
+    std::iostream::pos_type [*cur_pos = *]m_io->tellg();
     m_io->seekg(0, std::ios::end);
-    std::iostream::pos_type len = m_io->tellg();
-    m_io->seekg(cur_pos);
-    return len;
+    std::iostream::pos_type [*len = *]m_io->tellg();
+    [*m_io->seekg(cur_pos)*];
+    [*return len*];
 }
 \caption{The details of this code are not important.  What is significant is the name of this function, size(), and its behavior: find and report the size of the file, without changing where we are in the file.  The Katai Struct compiler for both C++ and python can use the ``size()'' function rather than including these language-specific stream commands, making the compiler code more readable.}
 \end{lstlisting}
@@ -249,32 +249,117 @@ Documentation that will be provided in this format alongside the scientific comp
 % design, development, documentation, testing, validation, and release of the software
 % and
 % description of the CI architecture and processes should explain how security, trustworthiness, provenance, reproducibility, and usability will be addressed by the project and integrated into the proposed system and the engineering process
+A primary goal of the proposed work is to build software that can be supported and maintained by the community.  A primary risk of the proposed work is staff turnover and associated loss of knowledge and onboarding time.
 
+The software design, development, documentation, and testing work together to make it easy for the community to contribute to the software development - a goal that mitigates turnover risk as well.
 
-\textbf{Deployment and user outreach:}
+The design process of the software will start with project documentation that describes (1) use cases, (2) requirements, (3) assumptions, (4) key decisions, and (5) definitions.  Such documentation is particularly useful for programmers who lack experience in experimental nuclear physics data analysis and makes it easier for skilled experts to contribute to the project.  This documentation also serves as a way to focus community discussions into defining a minimum useful scope for the software.
 
-\textbf{Acceptance and evaluation:}
+The development of all software in the PI's lab is done using version control software (git) and a central ``repository server'' that everyone interacts with.  Cloud-based servers such as github and gitlab are used because they are easy to use, provide robust backups, and also serve as a platform for dissemination and collaboration.
 
-\textbf{Adaptability:}
+The PI's approach to version control and software releases prioritizes (1) easy-to-get, working code and (2) rapid updates.  This is implemented by building end-to-end tests and configuring automatic test running triggered by any changes to the repository.  Rather than insisting on a specific release cycle, developers are encouraged to put their changes on the public, master branch if their code is non-breaking.  Code on the public, master branch MUST pass all tests.  Semantic versioning will be used to alert users to breaking changes.
 
+Work that breaks tests MUST be maintained on a separate ``branch'' that is publicly available but that will only be available to users by explicit action.  Instructions for developing code on such a branch will be included in the contributions documentation.
 
+The key to this type of development is building simple end-to-end tests, implementing an automated testing framework, and investing heavily in documentation and testing of that documentation up front.  This development strategy works well for the proposed project because the software goal is already well-defined and the initial plan for implementation - leverage the existing Kaitai Struct framework as much as possible - is clear.  In addition, this development strategy is well-supported by community solutions and the organization of the PI's lab:
 
-\subsubsection{Security}
+\begin{itemize}
+    \item end-to-end testing of python code - and even tutorial notebooks in jupyterlab format - enjoy a thriving ecosystem in Python.
+    \item many automated testing frameworks are designed specifically to support developers using cloud-based repository hosts such as github and gitlab; many are freely available to open-source projects.
+    \item novices are always on hand to test documentation.  The PI maintains a group of approximately six students, many of whom have minimal experience with scientific computing.  Giving them goals such as: work through this example analysis and obtain a similar plot exposes conceptual gaps and problems with the documentation while providing excellent training for the student.  In addition, students have responded well to the opportunity to make a substantive contribution to the lab.
+\end{itemize}
+
+In summary, the proposed code development will be strongly tied to documentation, automated testing, and documentation testing.
+
+%\subsubsection{Security}
 
 \subsubsection{Trustworthiness}
+End-to-end tests of the software will include tests where the outcome is known.
 
 \subsubsection{Provenance}
+All releases will be archived with their own DOIs on Zenodo.  Guidance to cite the version of the software used will be included in the top-level README of all releases and posted on all related websites.
 
 \subsubsection{Reproducibility}
+End-to-end tests of the software will completely define all inputs, including a reference data set, and compare the output to reference products such as histograms.  The PI acknowledges that this is in no way a complete test of reproducibility but feels that it will be a useful starting point.  
+
+Instructions for system setup will be included in the documentation.  Full or partial system specifications are required for automatic test running and will be versioned together with the rest of the code.  The most popular of these, Docker, will be used.  More complete system specifications as provided by Nix and Guix will be considered if need arises for more complete reproducibility.
 
 \subsubsection{Usability}
+For the proposed software, usability consists of several scenarios:
+
+\begin{tabularx}{\textwidth}{XX}
+    Can a scientist easily use this code to do data analysis on a custom-format data set? & \\
+    \toprule
+
+    Is the scientist aware that this software exists?  Can the scientist find the software easily even if all they recall is a vague description?
+    & Publications citing DOIs hosted on Zenodo with published preprints; well-indexed project website; open development on github, gitlab; indexed on python library repositories where appropriate \\
+    Can the scientist install the software on their analysis computer easily, with or without root access?
+    & Installation documentation; testing of installation documentation by novices; review of systems that need installation support at workshops \\
+    Does the software apply itself well to this particular analysis need?  Can the scientist see how to use the software in their analysis?
+    & Example analyses; testing of example analyses by novices; creation of a ``now you try'' document to test effectiveness. \\
+    Does the scientist know where to get help or discuss issues with the software?
+    & All documentation and code will contain a header directing users to the project forum and repository issue tracking. \\
+
+
+Can an interested individual contribute to the development of the software easily? & \\
+\toprule
+
+    Is there a clear description of the requirements and purpose of the software so that developers can decide if they'd like to participate?
+    & Requirements documentation and a description of use cases will precede all programming work and will be versioned with the rest of the code.\\
+    Is it clear where to get help or discuss the code?
+    & All documentation will link to the forum and the repository issue tracker.  The forum will be configured for web crawlers to maximize its discoverability.\\
+    Are there clear and complete instructions on testing the software locally?
+    & Local and remote testing infrastructure is as high in priority as the initial development of the code; documentation will be written as part of the first efforts.  Students will test these local development instructions.  Instructions may reference the scientific computing documentation.\\
+    Are there clear and complete contribution instructions?
+    & Contribution instructions will be developed with high priority once there is an initial passing test, even before there is functioning code.  Students will test these contribution instructions.  Instructions may reference the scientific computing documentation.\\
+\end{tabularx}
+
 
 \subsubsection{Adaptability}
+The proposed software intends to support scientific analysis of gigabyte-scale data for the coming decade.
 
-\subsection{Deliverables}
+The benefits of the proposed software, compared to the current, group-driven methods, are increased access to scientific analysis through ease of use, quality documentation, and community support.  And improved return on invested maintenance time, since effort on a common set of tools can benefit many scientists.
+
+Another advantage of the proposed software is that it leverages existing, well-supported projects to deliver science-ready software.  Adaptations to changing data needs and opportunities can potentially come from efforts outside nuclear physics.
+
+There is always the possibility that these dependencies could be abandoned.  Archives of all dependent software will be made as a safeguard against this.  Other risk mitigation the PI will pursue is significant investment in automated testing and documentation, particularly interface documentation.
+
+\subsection{Deployment and user outreach:}
+A key component of the user outreach will consist of annual workshops designed to promote hands-on use of the software and close collaboration with the software developers.  To maximize the effectiveness of these workshops,
+
+\begin{itemize}
+    \item Participants will be contacted in advance to begin early coordination of the analysis they're interested in doing with the data-access library
+    \item Communication before and after the workshop will be encouraged through the maintenance of an open forum
+    \item Prototype software will be released along with installation documentation, an example analysis, and contribution documentation prior to the workshop and tested by novices
+    \item Discussion of the community roadmap will be integrated into the workshop and a new release of the roadmap will follow each workshop
+    \item The conference will be registered on the Open Science Framework, providing an archived record of material prepared by participants.
+\end{itemize}
+
+Deployment of this software will use common open-source channels such as github, gitlab, and python package indexes such as PyPI and Conda.  Github and Gitlab both provide static page serving for projects.
+
+Project communication will use the built-in issue tracking provided by repository hosts and open forum software such as Discourse.  Live-chat is not an anticipated need, but if it becomes clear this would be useful then the PI will consider using freely-available chat services such as Slack, Zulip, or Gitter.
+
+Deployment of the software will also happen through academic channels such as preprint servers, project releases on the Open Science Framework, and/or Figshare.
 
 
-\subsection{Metrics}
+
+\subsection{Acceptance and evaluation:}
+
+Community adoption of this software is central to the success and broader impact of this project.
+
+The simplest evaluation metrics of community adoption and use will be (1) citations of software in peer-reviewed scientific papers and (2) the number of contributions to the code from developers outside the PI's group.
+
+Additional metrics that may provide useful information could include: (a) number of downloads from the Zenodo or gitlab site and (b) quantity of interactions on the issue tracker and forum.
+
+The PI intends to use interviews to understand how the software meets (or not) the needs of the community.  The yearly workshops will provide an ideal setting for such discussions.  In addition, a standing feedback survey will be linked from the project page to capture responses from the people who have the time and willingness to share.
+
+This feedback will directly inform decisions about priorities and have an official outlet in the release of an annual roadmap.  Discussion and contribution to the roadmap will be open to the community and will begin at the yearly workshop.
 
 
-\subsection{Sustained and sustainable impacts}
+\section{Deliverables}
+
+
+\section{Metrics}
+
+
+\section{Sustained and sustainable impacts}

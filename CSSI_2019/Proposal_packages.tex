@@ -40,10 +40,15 @@
 %----------------------------------------------------------------------
 
 %%% Mathematical symbols, figures, floats, etc ...
+\usepackage[T1]{fontenc}
+\usepackage[lighttt]{lmodern}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{listings}
+\lstset{moredelim=[is][\bfseries\color{black}]{[*}{*]},
+		basicstyle=\ttfamily\color{lightgray},
+		columns=fullflexible}
 
 \usepackage{xspace} %\xspace saves the user from having to type \? or {} after most occurrences of a macro name in text.
 \usepackage{isotope} 
