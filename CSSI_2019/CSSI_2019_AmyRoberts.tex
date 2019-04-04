@@ -6,13 +6,14 @@
 
 \begin{document}
 \onecolumn
-
+\pagenumbering{Alph}
 \input{CoverPage_EOP}
 \clearpage
 
+\pagenumbering{roman}
 \input{0-OnePageSummary}
 \clearpage
-\lhead{}
+%\lhead{}
 
 \tableofcontents
 \thispagestyle{empty}
@@ -32,6 +33,8 @@
 
 
 \input{PreviousResults}
+
+\newpage
 %\clearpage
 \pagenumbering{arabic}
 \addcontentsline{toc}{section}{\bf References}

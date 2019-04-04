@@ -28,9 +28,7 @@
 \subsection{Science-driven}
 % How will the project outcomes fill well-recognized science and engineering needs of the research community, and advance research capability within a significant area or areas of science and engineering? What are the broader impacts of the project, such as benefits to science and engineering communities beyond initial targets, underrepresented communities, and education and workforce development? The project outcomes should address well-recognized science outcomes.
 
-This project serves the immediate needs of researchers in the dark matter community and the experimental nuclear physics community by providing a common toolset for analyzing data in any format.
-
-The PI expects that
+This project serves the immediate needs of researchers in the dark matter community and the experimental nuclear physics community by providing a common toolset for analyzing data in any format.  The PI expects that
 
 \begin{itemize}
     \item Multiple research projects across the NSF directorate will be more productive because they can use existing, documented tools rather than building their own.  The PI intends to estimate this impact with citations from scientific papers.
@@ -42,13 +40,13 @@ The PI expects that
 \subsection{Innovation}
 % What innovative and transformational capabilities will the project bring to its target communities, and how will the project integrate innovation and discovery into the project activities, such as through empirical research embedded as an integral component of the project activities? Such research might encompass reproducibility, provenance, effectiveness, usability, and adoption of the components, adaptability to new technologies and to changing requirements, and the development of lifecycle processes used in the project.
 
-A common limitation of data-analysis software that is entirely home-grown is that it does not scale as data grows and changes - a human has to update or rewrite the code if the requirements change substantially.
+%A common limitation of data-analysis software that is entirely home-grown is that it does not scale as data grows and changes - a human has to update or rewrite the code if the requirements change substantially.
 
-This library makes heavy use of existing libraries.  The benefit is that as those libraries improve and scale to larger data sets, this software inherits that improvement.  
+This library makes heavy use of existing libraries - this makes initial development easier and has the benefit  that as those libraries improve and scale to larger data sets, this software inherits that improvement.  
 
-In both cases, significant human effort is needed to adapt the software to changing data and needs.  But by leveraging well-supported, open-source libraries, the burden is shifted away from an individual scientist and towards an active community that is highly motivated to solve similar problems.  This library serves as sugar to allow scientists with many different data formats to take advantage of these popular libraries.
+By leveraging well-supported, open-source libraries, the burden of supporting new systems is not an individual problem but instead is a problem for an active community that may be highly-motivated to find a solution.  %This library serves as sugar to allow scientists with many different data formats to take advantage of these popular libraries.
 
-The danger to this approach is the same - if these libraries lose community support or focus on very different problems then this library will lose relevance over time.  To mitigate this risk, the PI is focusing on integrating with a library supported by the IRIS-HEP collaboration and with pandas, which enjoys extreme popularity in the data science community.
+The danger to this approach is the same - if these libraries lose community support or focus on very different problems then this library will lose relevance over time.  To mitigate this risk, the PI is focusing on integrating with well-supported, modularly-designed libraries.
 
 \subsection{Close collaboration among stakeholders}
 % How will the project activities engage CI experts, specialists, and scientists and engineers working in concert with the relevant domain scientists and engineers who are users of CI?
@@ -89,11 +87,7 @@ The architecture of the Kaitai Struct compiler that targets an awkward-array dat
 
 The proposed work targets the python environment, and there is already a Kaitai Struct python compiler.  The ``compiler'' for the python implementation, however, stores data in native-python data structures that provide inconveniently slow access to standard queries on large, gigabyte-scale data sets.  
 
-However, the changes that need to be implemented to instead store the data in the faster awkward-array data structure are restricted to the compiler code.  The runtime library provides a convenient interface for reading data from a file or stream - this code only cares about the file system interface and does not need to change.  The python test interface will need to be updated as the access syntax for the data will change slightly.
-
-Although there is opportunity for improving the speed of the data load, this development will instead focus on adhering to the existing format and style of Kaitai Struct.  The goal is to make the existing Kaitai Struct community useful to scientists who work with gigabyte-scale data sets; waiting for a few minutes for the data to load is not ideal but is typical of many locally-built solutions.  We can address the more-critical issue of rapid data queries while staying well within the existing framework of Kaitai Struct and intend to do so for the initial implementation of the software.
-
-If we find that data-load times are a significant issue for the nuclear physics community then we will consider more substantial changes to the Kaitai Struct compiler and runtime libary.
+The changes that need to be implemented to instead store the data in the faster awkward-array data will require modifying the existing compiler code and modifying the existing test code.  The existing code, although slow for science use, provides an excellent template for the proposed work.
 
 \begin{comment}
 \begin{lstlisting}
@@ -125,7 +119,7 @@ uint64_t kaitai::kstream::[*size()*] {
 \end{lstlisting}
 \end{comment}
 
-\textbf{Architecture of the user documentation:} User documentation should make it possible for users with little to no domain knowledge to use the data-access library for science.  Documentation for the use of the library will be stored as text files in the repository with the code.  The files will be written in markdown syntax to improve their readability; this will also render them nicely on cloud-based repository hosts such as github and gitlab.  The following documentation will be provided:
+\textbf{Architecture of the user documentation:} User documentation should make it possible for users with little to no domain knowledge to use the data-access library for science.  Documentation for the use of the library will be stored as text files in the repository with the code.  A documentation generator, Antora [cite], will be used to generate searchable documentation with minimal effort.  The following documentation will be provided:
 
 \begin{enumerate}
     \item How to get help with questions or issues about the library.
@@ -137,28 +131,22 @@ uint64_t kaitai::kstream::[*size()*] {
 \end{enumerate}
 
 
-\textbf{Architecture of the developer documentation.}  Documentation intended to facilitate development of the code will be stored in the repository alongside the code.  Text files referenced in the top-level README file will detail, for every repository,
+\textbf{Architecture of the developer documentation.}  Documentation intended to facilitate development of the code will also be stored as text files alongside alongside the code.  Every repository will document:
 
 \begin{enumerate}
     \item How to install, develop, and test the code for individuals who wish to make changes.  
     \item How to contribute changes back to the project.  This will provide instructions on the version control practices used by the repository maintainers and instructions for implementing the tests required for changes to be considered for merging with the main code base.
 \end{enumerate}
 
-\textbf{Architecture of the basic scientific computing skills documentation:}  Documentation of basic computational skills and concepts will have several possible forms: (1) Text and images, (2) tutorial videos, (3) jupyter notebooks, (4) printable images that illustrate a focused concept, and (5) links to recommended resources such as Software Carpentry tutorials.
+\textbf{Architecture of the basic scientific computing skills documentation:}  Documentation of basic computational skills and concepts will have several possible forms: (1) Text and images, (2) tutorial videos, (3) jupyter notebooks, (4) posters that illustrate a focused concept, and (5) links to recommended resources such as Software Carpentry tutorials.
 
-All materials will be licensed with  a permissive, open-source license such as CC-BY or MIT.  The source for all the materials will be publicly available through a public host such as github or gitlab and will be archived on a content-tracker such as the Open Science Framework or Figshare.  Videos will be released on YouTube and licensed CC-BY.
+All materials will be licensed with  a permissive, open-source license such as CC-BY or MIT.  The source for all the materials will be publicly available through a public host such as github or gitlab and will be archived on a content-tracker such as the Open Science Framework or Figshare.
 
 All materials will be disseminated using a static site generated by Antora.  Antora is specifically designed for documentation and allows a user to specify a set of repositories containing text files formatted in the Asciidoc markdown language to build a single, searchable documentation site.  Because Antora generates a static site, free hosting services are readily available.  This solution allows my students to focus on creating material to explain core concepts and practice interacting with version control rather than spending time wrestling with web development.
 
-The topics students choose to document are largely student-led, with some guidance from the PI.  Spring 2019 marks the inception of this project, and the concepts chosen by students for illustration have focused on (1) tutorial-format guide for installing python and running a basic python-based analysis of gamma spectroscopy data, (2) instructions for using a docker container to simplify installation of a complex software environment, and (3) a poster explaining what an executable file is.
+%The topics students choose to document are largely student-led, with some guidance from the PI.  Spring 2019 marks the inception of this project, and the concepts chosen by students for illustration have focused on (1) tutorial-format guide for installing python and running a basic python-based analysis of gamma spectroscopy data, (2) instructions for using a docker container to simplify installation of a complex software environment, and (3) a poster explaining what an executable file is.
 
-Documentation that will be provided in this format alongside the scientific computing resources will include
-
-\begin{enumerate}
-    \item instructions on where to get help with the material and how to provide feedback and and file bug reports
-    \item instructions for those who wish to contribute to the documentation
-    \item instructions for the deployment of the documentation
-\end{enumerate}
+Like all the other software products, the basic-skills materials  will include documentation that directs users to the forum for questions or issues and  that details how users can contribute. 
 
 
 \textbf{Engineering processes:}
@@ -173,19 +161,19 @@ The design process of the software will start with project documentation that de
 
 The development of all software in the PI's lab is done using version control software (git) and a central ``repository server'' that everyone interacts with.  Cloud-based servers such as github and gitlab are used because they are easy to use, provide robust backups, and also serve as a platform for dissemination and collaboration.
 
-The PI's approach to version control and software releases prioritizes (1) easy-to-get, working code and (2) rapid updates.  This is implemented by building end-to-end tests and configuring automatic test running triggered by any changes to the repository.  Rather than insisting on a specific release cycle, developers are encouraged to put their changes on the public, master branch if their code is non-breaking.  Code on the public, master branch MUST pass all tests.  Semantic versioning will be used to alert users to breaking changes.
+The PI prioritizes (1) easy-to-get, working code and (2) rapid updates.  This is implemented by building end-to-end tests and configuring automatic test running triggered by any changes to the repository.  Because automated tests will be developed at the beginning of the project, developers can be encouraged to put their changes on the public, master branch.  Semantic versioning will be used to alert users to breaking changes.
 
-Work that breaks tests MUST be maintained on a separate ``branch'' that is publicly available but that will only be available to users by explicit action.  Instructions for developing code on such a branch will be included in the contributions documentation.
+%Work that breaks tests MUST be maintained on a separate ``branch'' that is publicly available but that will only be available to users by explicit action.  Instructions for developing code on such a branch will be included in the contributions documentation.
 
-The key to this type of development is building simple end-to-end tests, implementing an automated testing framework, and investing heavily in documentation and testing of that documentation up front.  This development strategy works well for the proposed project because the software goal is already well-defined and the initial plan for implementation - leverage the existing Kaitai Struct framework as much as possible - is clear.  In addition, this development strategy is well-supported by community solutions and the organization of the PI's lab:
+Simple end-to-end tests,  an automated testing framework, and high-quality documentation are key to stable development within the PI's lab and to encouraging community contributions.  This development strategy works well for the proposed project because the software goal is already well-defined and the initial plan for implementation - leverage the existing Kaitai Struct framework as much as possible - is clear.  In addition, this development strategy is well-supported by community solutions and the organization of the PI's lab:
 
 \begin{itemize}
     \item end-to-end testing of python code - and even tutorial notebooks in jupyterlab format - enjoy a thriving ecosystem in Python.
     \item many automated testing frameworks are designed specifically to support developers using cloud-based repository hosts such as github and gitlab; many are freely available to open-source projects.
-    \item novices are always on hand to test documentation.  The PI maintains a group of approximately six students, many of whom have minimal experience with scientific computing.  Giving them goals such as: work through this example analysis and obtain a similar plot exposes conceptual gaps and problems with the documentation while providing excellent training for the student.  In addition, students have responded well to the opportunity to make a substantive contribution to the lab.
+    \item novices are always on hand to test documentation.  The PI maintains a group of approximately six students, many of whom have minimal experience with scientific computing.
 \end{itemize}
 
-In summary, the proposed code development will be strongly tied to documentation, automated testing, and documentation testing.
+%In summary, the proposed code development will be strongly tied to documentation, automated testing, and documentation testing.
 
 %\subsubsection{Security}
 
@@ -196,15 +184,15 @@ End-to-end tests of the software will include tests where the outcome is known.
 All releases will be archived with their own DOIs on Zenodo.  Guidance to cite the version of the software used will be included in the top-level README of all releases and posted on all related websites.
 
 \subsubsection*{Reproducibility}
-End-to-end tests of the software will completely define all inputs, including a reference data set, and compare the output to reference products such as histograms.  The PI acknowledges that this is in no way a complete test of reproducibility but feels that it will be a useful starting point.  
+End-to-end tests of the software will completely define all inputs, including a reference data set, and compare the output to reference products such as histograms.  While this is not a complete test of reproducibility, it is a useful starting point and will serve end users and developers well.  
 
-Instructions for system setup will be included in the documentation.  Full or partial system specifications are required for automatic test running and will be versioned together with the rest of the code.  The most popular of these, Docker, will be used.  More complete system specifications as provided by Nix and Guix will be considered if need arises for more complete reproducibility.
+Instructions for system setup will be included in the documentation.  Full or partial system specifications using Docker are required for automatic test running and will be versioned together with the rest of the code.  More complete system specifications as provided by Nix and Guix will be considered if need arises for more complete reproducibility.
 
 \subsubsection*{Usability}
 For the proposed software, usability consists of several scenarios:
 
 \begin{tabularx}{\textwidth}{XX}
-    Can a scientist easily use this code to do data analysis on a custom-format data set? & \\
+\multicolumn{2}{l}{Can a scientist easily use this code to do data analysis on a custom-format data set?}\\
     \toprule
 
     Is the scientist aware that this software exists?  Can the scientist find the software easily even if all they recall is a vague description?
@@ -216,8 +204,11 @@ For the proposed software, usability consists of several scenarios:
     Does the scientist know where to get help or discuss issues with the software?
     & All documentation and code will contain a header directing users to the project forum and repository issue tracking. \\
 
+\bottomrule
+\end{tabularx}
 
-Can an interested individual contribute to the development of the software easily? & \\
+\begin{tabularx}{\textwidth}{XX}
+    \multicolumn{2}{l}{Can an interested individual contribute to the development of the software easily?}\\
 \toprule
 
     Is there a clear description of the requirements and purpose of the software so that developers can decide if they'd like to participate?
@@ -228,19 +219,18 @@ Can an interested individual contribute to the development of the software easil
     & Local and remote testing infrastructure is as high in priority as the initial development of the code; documentation will be written as part of the first efforts.  Students will test these local development instructions.  Instructions may reference the scientific computing documentation.\\
     Are there clear and complete contribution instructions?
     & Contribution instructions will be developed with high priority once there is an initial passing test, even before there is functioning code.  Students will test these contribution instructions.  Instructions may reference the scientific computing documentation.\\
+    \bottomrule
 \end{tabularx}
 
 
 \subsubsection*{Adaptability}
 The proposed software intends to support scientific analysis of gigabyte-scale data for the coming decade.
 
-The benefits of the proposed software, compared to the current, group-driven methods, are increased access to scientific analysis through ease of use, quality documentation, and community support.  And improved return on invested maintenance time, since effort on a common set of tools can benefit many scientists.
-
-Another advantage of the proposed software is that it leverages existing, well-supported projects to deliver science-ready software.  Adaptations to changing data needs and opportunities can potentially come from efforts outside nuclear physics.
+The proposed software could potentially scale as these data needs increase in speed in size because  it leverages existing, well-supported projects to deliver science-ready software.  Any adaptations to changing data needs and opportunities made by the underlying libraries can potentially transfer to the proposed software with minimal effort.
 
 There is always the possibility that these dependencies could be abandoned.  Archives of all dependent software will be made as a safeguard against this.  Other risk mitigation the PI will pursue is significant investment in automated testing and documentation, particularly interface documentation.
 
-\subsection{Deployment and user outreach:}
+\subsection{Deployment and user outreach}
 A key component of the user outreach will consist of annual workshops designed to promote hands-on use of the software and close collaboration with the software developers.  To maximize the effectiveness of these workshops,
 
 \begin{itemize}
@@ -259,68 +249,48 @@ Deployment of the software will also happen through academic channels such as pr
 
 
 
-\subsection{Acceptance and evaluation:}
+\subsection{Acceptance and evaluation}
 
 Community adoption of this software is central to the success and broader impact of this project.
 
-The simplest evaluation metrics of community adoption and use will be (1) citations of software in peer-reviewed scientific papers and (2) the number of contributions to the code from developers outside the PI's group.
+The simplest metrics of community use will be (1) citations of software in peer-reviewed scientific papers and (2) the number of contributions to the code from developers outside the PI's group.
 
-Additional metrics that may provide useful information could include: (a) number of downloads from the Zenodo or gitlab site and (b) quantity of interactions on the issue tracker and forum.
-
-The PI intends to use interviews to understand how the software meets (or not) the needs of the community.  The yearly workshops will provide an ideal setting for such discussions.  In addition, a standing feedback survey will be linked from the project page to capture responses from the people who have the time and willingness to share.
-
-This feedback will directly inform decisions about priorities and have an official outlet in the release of an annual roadmap.  Discussion and contribution to the roadmap will be open to the community and will begin at the yearly workshop.
+The primary evaluation the PI intends to use are interviews to understand how the software meets (or not) the needs of individual scientists.  This feedback will directly inform decisions about priorities and have an official outlet in the release of an annual roadmap.  
 
 
 \subsection{Deliverables}
 % Does the proposed project clearly articulate the services and capabilities to be delivered, and how they are to be delivered? NSF encourages exploration of various delivery mechanisms, including but not limited to, those leveraging eXtreme Science and Engineering Discovery Environment (XSEDE), leadership-class computing resources, OAC Software Institutes, Big Data Regional Innovation Hubs, individual organizational resources, and well-known public and private cloud services.
+The deliverables of the proposed work are (1) a data-access library that works well for gigabyte-scale data of any format, (2) documentation that allows novices to use the sofware and scientist-developers to contribute to the software, and (3) annual workshops that bring the science and developer communities together.
+
+The software and related documentation will all be developed openly on gitlab.  All documentation will be repeatedly tested by undergraduate students in the PI's lab.
+
+Software releases will be granted a DOI through Zenodo; all publications will be released on preprint servers.  Additional deployment methods will be considered, such as packaging the software for commonly-used python installers like pip and conda.  Depending on community needs, general-purpose installers like Spack [cite] and container environments like Docker [cite] or Nix [cite] may be published with the software.  In addition, the PI will work with the Science Gateways Community Institute to identify additional ways to deliver these products effectively to the community.
+
+The yearly workshops will use the Open Science Framework's ``Meetings'' feature to ensure accessibility of materials prepared for the conference.  In addition, the PI will maintain a public, online forum for community discussion, pre-workshop planning, and roadmap planning.
+
 
 \subsection{Metrics}
 % Does the proposed project clearly articulate quantifiable metrics for development and delivery of the services and capabilities to be delivered by the project, and for the anticipated community adoption and usage? Are quantitative metrics with targets identified for each year of the award? These should be simple but should also clearly show what the project will accomplish each year, the impact on science, and the breadth of the user community.
 The simplest evaluation metrics of community adoption and use will be (1) citations of software in peer-reviewed scientific papers and (2) the number of contributions to the code from developers outside the PI's group.
 
-Additional metrics that may provide useful information could include: (a) number of downloads from the Zenodo or gitlab site, (b) quantity of interactions on the issue tracker and forum, and (c) materials provided by data-sharing platforms that educate scientists on data-description languages.
-
-Another informal metric of community support is how many scientists apply to the yearly workshop who are not actively solicited by the group and individual interviews with scientists using the software.
-
-\subsubsection*{Year 1}
-An initial release of the improved software and the XIA library is made.  Both have basic testing coverage, are tested automatically upon commit, and have initial guidelines for contribution.  An initial release of the skills documentation has been made.
+\textbf{In Year 1}  the PI expects to meet the following metrics of community involvement:
+%\subsubsection*{Year 1}
 \begin{itemize}
-  \item A whitepaper is published describing data description languages and giving use-cases
-  \item No citations of the software library are expected from peer-reviewed science results in year 1.
-  %\item The Open Science Framework and Figshare are contacted.  We find out if they're interested and if so, get a contact person.
   \item Between 15 and 20 scientists register for the Data Access workshop.  These scientists are expected to predominantly come from the nuclear physics community.  The PI expects all attendees to register after specific invitation.
-  \item Between 2 and 5 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
-  \item An initial release of the improved software and the XIA library is made.  Both have basic testing coverage, are tested automatically upon commit, and have initial guidelines for contribution.
-  \item Inexperienced students who try to follow the analysis tutorial are able to find answers to some of their questions but most are expected to be unable to complete the tutorial without expert assistance
-  \item Interviews with scientists attending the workshop show that out of ten scientists: approximately two find the software useful as-is for their analysis work; approximately five would find the software useful but do not plan to use it because of solvable issues; and approximately three do not plan to use the software either because it is not useful to them or because their issues with the software cannot be easily addressed.
-\end{itemize}
-
-\subsubsection*{Year 2}
-The highest-priority improvements as identified by the community roadmap are released.  The contribution guidelines and instructions are well-tested.   The most common failings of the skills documentation have been addressed. 
-
-\begin{itemize}
-  \item At least one peer-reviewed science result cites the data-access library.
-  \item Between 15 and 20 scientists register for the Data Access workshop.  Some diversity of discipline is expected, although most are expected to predominantly come from the nuclear physics community.  The PI expects one or two attendees to find out and register for the conference from someone outside the group and for most to register after specific invitation.
-  \item Between 3 and 7 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
-  \item  There has been at least one request for an improvement or feature from the community that has been either fixed by my team or another contributor.
-  \item  Inexperienced students who try to follow the analysis tutorial get stuck on these issues less frequently.  Most are able to complete the tutorial without expert assistance but are unable to make significant progress on the ``now you try'' analysis tutorial without expert assistance.
-  \item Interviews with scientists attending the workshop show that out of ten scientists: approximately four find the software useful as-is for their analysis work; approximately four would find the software useful but do not plan to use it because of solvable issues; and approximately two do not plan to use the software either because it is not useful to them or because their issues with the software cannot be easily addressed.
-\end{itemize}
-
-\subsubsection*{Year 3}
-The highest-priority improvements identified on the road map for the core library are released.  The contribution guidelines and instructions are well-tested.  The basic-skills documentation has resources or recommends resources that address most of the questions that arise when inexperienced students try to follow the analysis tutorial.  
-
-\begin{itemize}
-  \item At least five peer-reviewed science results cite the data-access library.
-  \item Between 15 and 25 scientists register for the Data Access workshop.  Some diversity of discipline is expected, although most are expected to predominantly come from the nuclear physics community.  The PI expects at least three attendees to find out and register for the conference from someone outside the group and for most to register after specific invitation.
   \item Between 5 and 10 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
-  %\item The highest-priority helper code is close to stable.  The contribution guidelines and instructions are well-tested.  There has been at least one request for an improvement or feature from the community that has been either fixed by my team or another contributor.
-  \item There has been at least five requests for an improvement or feature from the community that has been either fixed by my team or another contributor.
-  \item Inexperienced students can independently find answers to most of their questions when following the analysis tutorial.  Most students still need expert help on the ``try your own'' analysis tutorial but find it easier to formulate their questions
-  \item Interviews with scientists attending the workshop show that out of ten scientists: approximately six find the software useful as-is for their analysis work; approximately two find the software useful as-is but would very much like to see one or several non-trivial issues addressed; and approximately two do not plan to use the software either because it is not useful to them or because their issues with the software cannot be easily addressed.
+  \item An initial release of the improved software and the XIA library is made.  Both have basic testing coverage, are tested automatically upon commit, and have initial guidelines for contribution.
+  \item An initial release of the skills documentation has been made.  Inexperienced students who try to follow the analysis tutorial are able to find answers to some of their questions but most are expected to be unable to complete the tutorial without expert assistance
+  \item A roadmap for the data-access  library is published post the workshop
 \end{itemize}
 
+\textbf{In Year 2}
+the PI expects to meet similar goals, but with more community support.  The PI expects one or two attendees to find out and register for the conference from someone outside the group and for most to register after specific invitation.  The PI expects more researchers to pre-register their analysis on the Open Science Framework.  It is expected that the releases of the software and documentation will improve the community-identified pain points significantly, and that there will be continued involvement in roadmap discussions during the workshop.
+
+%\subsubsection*{Year 3}
+\textbf{In Year 3}
+the PI expects to see broader community support.  Most notably, it is expected that the data-access software will be cited in 2 to 5 peer-reviewed papers that present scientific results.
+
+The PI expects that issues with the software and documentation will be relatively minor and that the ecosystem, now well-developed, will promote approximately half the scientists to pre-register their analysis before the workshop.  The PI expects that the roadmap discussion will involve multiple viable plans for the sustainability and continued maintenance of the software. 
 
 \subsection{Sustained and sustainable impacts}
 %The Project Description should address how the project outcomes and its activities will have long-term impacts, and how these will be sustained beyond the lifetime of the award, as appropriate. Manuals and tutorials for using the developed CI should be delivered to the community. Software or data cyberinfrastructure services must identify the intended license to be used for the released CI, and the justification for the choice of this license. PIs who have been previously funded under previous CI awards should show quantifiable evidence of the use, impact and sustainability of the previously funded work (and include a citation to the published CI in their biographical sketches as one of their relevant products, if appropriate).
@@ -330,15 +300,13 @@ The goal of the proposed work is to significantly increase the accessibility of 
 The proposed work will not eliminate the need for developing custom software within institutions and groups - but the project will provide a common toolset that will work for the majority of gigabyte-scale, event-based analysis despite the lack of a uniform data format.  The success of this project is expected to
 
 \begin{itemize}
-    \item Reduce redundant time spent on writing custom data-access software
-    \item Reduce experts' time spent fighting with existing software during analysis
+    \item Reduce redundant time spent on writing and wrangling custom data-access software
     \item Significantly increase the involvement of students in the science-analysis phase of research
     \item Improve the reproducibility of science results 
-    \item Allow software development to occur in an environment where credit for this often-invisible work is possible
 \end{itemize}
 
-The success of this project depends on significant community involvement; the PI believes that the flexible nature of the proposed software, its immediate need for many in the community, and the community-building work of the grant can achieve this goal.
+The success of this project depends on significant community involvement; the PI believes that the flexible nature of the proposed software, its immediate need for many in the community, and the community-building work of the grant can achieve these goals.
 
-The plan for long-term sustainability of this project is twofold.  (1) The scope of the proposed software is small and the PI expects this software to be in a mature state by the end of these funds.  Therefore the project is expected to require less effort from the core development team.  (2) It is expected that the work proposed will build a broad community of users and developers who will continue to support the software because it is directly useful to their science goals.
+The plan for long-term sustainability of this project is twofold.  (1) By keeping the scope of the proposed software small, the PI expects this software to be in a mature, usable state by the end of these funds.   (2) It is expected that the work proposed will build a community of users and developers who will continue to support the software because it is directly useful to their science goals.
 
-In addition to hoping that the community developed during the course of this funding will be able to maintain the software at a usable level, the PI will investigate possible support from organizations like NumFOCUS as well as the Open Science Framework and Figshare. 
+To ensure community development during the course of this funding, the PI will work with the Science Gateways Community Institute to identify ways to strengthen community involvement.

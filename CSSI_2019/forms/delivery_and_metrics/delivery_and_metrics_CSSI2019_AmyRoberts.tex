@@ -4,6 +4,8 @@
 \usepackage[hang,flushmargin]{footmisc} 
 \usepackage{tabularx}
 \usepackage{booktabs,caption}
+\usepackage{enumitem}
+\setlist{itemsep=0mm}
 
 \usepackage{color}
 \textwidth 6.5in
@@ -22,7 +24,7 @@
 \makeatother
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{1em}
+\setlength{\parskip}{0.4em}
 
 \setaftersubsecskip{0.4em}
 
@@ -61,45 +63,35 @@
 PI: Amy Roberts
 %% two page limit
 
-\subsection{Deliverables}
-The long-term goal of this work is to increase the accessibility of science analysis for both active researchers and science students.  There are three deliverables associated with this work:
-
+%\subsection{Deliverables}
+The long-term goal of this work is to increase the accessibility of science analysis for both active researchers and science students.  There are three primary products associated with this work:
+\vspace{-1mm}
 \begin{enumerate}
-  \item Foster the awareness and adoption of existing data-description languages 
-  \item Improve existing data-access tools based on the Katai Struct description language to be a viable tool for gigabyte-scale data analysis
-  \item Build an active community of users and developers for standards-based science software
+  \item Community data-access software that allows scientists to analyze binary data in any format. 
+  \item Documentation that includes installation instructions, example analyses, and learning materials that cover the basic computing skills needed to use the software.
+  \item Workshops that bring together scientists and developers.
 \end{enumerate}
 
-\subsubsection*{Year 1}
+\textbf{In Year 1}  the PI expects to meet the following metrics of community involvement:
+%\subsubsection*{Year 1}
 \begin{itemize}
-  \item A whitepaper is published describing data description languages and giving use-cases
-  \item The Open Science Framework and Figshare are contacted.  We find out if they're interested and if so, get a contact person.
   \item Between 15 and 20 scientists register for the Data Access workshop.  These scientists are expected to predominantly come from the nuclear physics community.  The PI expects all attendees to register after specific invitation.
   \item Between 5 and 10 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
   \item An initial release of the improved software and the XIA library is made.  Both have basic testing coverage, are tested automatically upon commit, and have initial guidelines for contribution.
   \item An initial release of the skills documentation has been made.  Inexperienced students who try to follow the analysis tutorial are able to find answers to some of their questions but most are expected to be unable to complete the tutorial without expert assistance
-  \item A roadmap for improvements to the core library and plans for additional, useful libraries is published and updated post the workshop
+  \item A roadmap for the data-access  library is published post the workshop
 \end{itemize}
 
-\subsubsection*{Year 2}
-\begin{itemize}
-  \item Between 15 and 20 scientists register for the Data Access workshop.  Some diversity of discipline is expected, although most are expected to predominantly come from the nuclear physics community.  The PI expects one or two attendees to find out and register for the conference from someone outside the group and for most to register after specific invitation.
-  \item Between 5 and 10 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
-  \item An initial release of the highest-priority helper code is made.  It has basic testing coverage, are tested automatically upon commit, and have initial guidelines for contribution.
-  \item The highest-priority improvements for the core library are released.  The contribution guidelines and instructions are well-tested.  There has been at least one request for an improvement or feature from the community that has been either fixed by my team or another contributor.
-  \item The most common failings of the skills documentation have been addressed.  Inexperienced students who try to follow the analysis tutorial get stuck on these issues less frequently.  Most are expected to be unable to complete the tutorial without expert assistance
-  \item The roadmap discussion has more participants than in year 1
-\end{itemize}
+\textbf{In Year 2}
+the PI expects to meet similar goals, but with more community support.  The PI expects one or two attendees to find out and register for the conference from someone outside the group and for most to register after specific invitation.  The PI expects more researchers to pre-register their analysis on the Open Science Framework.  It is expected that the releases of the software and documentation will improve the community-identified pain points significantly, and that there will be continued involvement in roadmap discussions during the workshop.
 
-\subsubsection*{Year 3}
-\begin{itemize}
-  \item Between 15 and 25 scientists register for the Data Access workshop.  Some diversity of discipline is expected, although most are expected to predominantly come from the nuclear physics community.  The PI expects at least three attendees to find out and register for the conference from someone outside the group and for most to register after specific invitation.
-  \item Between 5 and 10 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
-  \item The highest-priority helper code is close to stable.  The contribution guidelines and instructions are well-tested.  There has been at least one request for an improvement or feature from the community that has been either fixed by my team or another contributor.
-  \item The highest-priority improvements identified on the road map for the core library are released.  The contribution guidelines and instructions are well-tested.  There has been at least one request for an improvement or feature from the community that has been either fixed by my team or another contributor.
-  \item The basic-skills documentation has resources or recommends resources that address most of the questions that arise when inexperienced students try to follow the analysis tutorial.  Most students need some help but all are able to make a plot based on data
-  \item The roadmap discussion has more participants than in year 2
-\end{itemize}
+%\subsubsection*{Year 3}
+\textbf{In Year 3}
+the PI expects to see broader community support.  Most notably, it is expected that the data-access software will be cited in 2 to 5 peer-reviewed papers that present scientific results.
+
+The PI expects that issues with the software and documentation will be relatively minor and that the ecosystem, now well-developed, will promote approximately half the scientists to pre-register their analysis before the workshop.  The PI expects that the roadmap discussion will involve multiple viable plans for the sustainability and continued maintenance of the software. 
+
+The PI feels that permissive open-source licenses align best with the goal of broad adoption.  Because this work will only be sustainable and impactful with the broadest possible community adoption, permissive open-source licenses will be preferred wherever possible.  The PI does not anticipate spending NSF resources on closed-source software.
 
 \begin{minipage}{\linewidth}
   \centering
@@ -111,35 +103,14 @@ The long-term goal of this work is to increase the accessibility of science anal
       Deliverable 
       & Mechanism
       & Metric\\
-      \midrule
       \addlinespace[1ex]
-      \multicolumn{3}{l}{{{\bfseries Foster the awareness and adoption of existing data-description languages}}}\\ 
-      A paper describing data-description standards that gives use cases for Kaitai Struct and DFDL
-      & Open Access Journal, Conference presentation
-      & Citations\\
-      
-      \addlinespace[1ex]
-      Development of community standards
-      & Research Data Alliance
-      & Creation of a working group, whitepaper \\
-
-      \addlinespace[1ex]
-      Work with scientific data-sharing platforms and make them aware of data-description standards
-      & Figshare, Open Science Framework
-      & Support materials added to help scientists add description files to their projects\\
-
       \midrule
       \addlinespace[1ex]
       \multicolumn{3}{>{\hsize=\dimexpr 3\hsize+3\tabcolsep+\arrayrulewidth}X}{{{\bfseries Improve existing data-access tools based on the Katai Struct description language to be a viable tool for gigabyte-scale data analysis}}}\\ 
-
+      \midrule
       Add Katai Struct target for awkward-array
       & Github, Gitlab, Zenodo
       & citations of software by science-result papers\\
-
-      \addlinespace[1ex]
-      Create or improve existing tools that use the Katai Struct format for use in scientific analysis
-      & Github, Gitlab, Zenodo
-      & increasing downloads\\
 
       \addlinespace[1ex]
       Build a library for XIA data based on the common-access code
@@ -154,6 +125,7 @@ The long-term goal of this work is to increase the accessibility of science anal
       \midrule
       \addlinespace[1ex]
       \multicolumn{3}{>{\hsize=\dimexpr 3\hsize+3\tabcolsep+\arrayrulewidth}X}{{{\bfseries Build an active community of users and developers for standards-based science software}}}\\ 
+      \midrule
 
       Hold a yearly workshop for community learning and development
       & Meeting materials and selected recordings (??) will be archived on the Open Science Framework
@@ -184,48 +156,11 @@ The long-term goal of this work is to increase the accessibility of science anal
 
 
 
-The proposed work will result in several software and documentation products, specifically
+%Permissive open-source licenses (MIT, Apache, CC-BY 4.0) allow others to re-use the software but does not require that they grant the same license to users of their product.  This makes it easier for companies to use the software since they're not required to share the source code.
 
-\begin{itemize}
-    \item Software based on kaitai-struct that interfaces with the data structures developed by IRIS-HEP that are optimized for science data analysis.  This includes end-user and developer documentation.
-    \item An additional release of the XIA python-based analysis library that uses the above code for easier analysis of large data sets.  This includes end-user and developer documentation.
-    %\item A prototype release of an analysis library for the Super Cryogenic Dark Matter Search data
-    \item Releases of ``helper'' libraries that are useful to the scientific community, such as the Kaitai Struct visualizer that reads and nicely displays binary data but needs improvements to work well with gigabyte-scale files.  This includes end-user and developer documentation.
-    \item A project website that summarizes and links to the above software and that provides educational resources for fundamental concepts in scientific computing.
-\end{itemize}
+%Copyleft open-source licenses (GPL, BSD) allow others to re-use the software but requires that they make the software available under the same or similar license terms.  Copyleft licenses prioritize keeping source code freely available.
 
-Small, example data files may be prepared for inclusion with the software as test cases.
 
-\subsection{Metrics}
-
-Small data files meant to allow testing of the software will be stored in their original, custom binary formats.  The descriptions of these formats will be stored in ASCII text files following the Katai Struct data description standard.
-
-The point of the software developed under this work is to provide easy access to data stored in non-standard formats; documentation for the use of this software will be heavily tested.
-
-\subsection{Access to Data and Data Sharing Practices and Policies}
-The software created by this project will be publicly available for download from a cloud-based repository host such as github or gitlab.  Additionally, all software products will be registered, archived, and available for download on Zenodo.
-
-Software products will be publicly available throughout their development; releases will be used to guide users to stable versions.  All releases of the software will all be archived and available on Zenodo.
-
-Papers related to the software products will generally be preceded by a software release; the availability of the software products is otherwise independent from publications.
-
-Individuals and organizations who request the software will be directed to download the code through the public channels.
-
-%The licenses on the software will be as permissible as possible to encourage maximum community adoption.  All code created by the PI's group will be licensed under a permissive open-source license.  In the case of software built with another collaboration the license will need to be negotiated.
-
-Permissive open-source licenses (MIT, Apache, CC-BY 4.0) allow others to re-use the software but does not require that they grant the same license to users of their product.  This makes it easier for companies to use the software since they're not required to share the source code.
-
-Copyleft open-source licenses (GPL, BSD) allow others to re-use the software but requires that they make the software available under the same or similar license terms.  Copyleft licenses prioritize keeping source code freely available.
-
-The PI feels that permissive open-source licenses align best with the goal of broad adoption.  Because this work will only be sustainable and impactful with the broadest possible community adoption, permissive open-source licenses will be preferred wherever possible.  The PI does not anticipate spending NSF resources on closed-source software.
-
-The goal of the proposed work is to increase the accessibility of science analysis to the entire community.  Therefore all products will be licensed to allow easy re-use for both non-commercial and commercial purposes:
-
-\begin{itemize}
-  \item All written content on the project website and documentation and any images will be licensed under CC-BY 4.0. 
-  \item All code will be licensed with an open-source license that allows re-use of the code for commercial purposes.  
-  \item Articles written about the software use and development will be published as open access wherever possible; in every case preprints will be published either on the arXiv, figshare, and/or the Open Science Framework.
-\end{itemize}
 
 \end{document}
 
