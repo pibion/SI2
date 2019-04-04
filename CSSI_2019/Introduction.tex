@@ -41,6 +41,40 @@ Releases of the software will be granted a DOI through Zenodo; all publications 
 
 Community development will be fostered through yearly workshops, heavy prioritization of documentation development and testing, and the support of an online forum for community discussion.
 
+\subsection{Broader Impacts}
+\label{sec:broad}
+
+The fundamental goal of the proposed work is to make data easily accessible to individuals who want to answer science questions.
+
+%This work is immediately useful to the PI's own collaboration and - if the work is successful - useful to practicing scientists who can more-easily extract information from their datasets.
+
+The immediate target audience for this work are active scientists, early-career researchers, and undergraduate students who are participating in research that require access of data for which there is not a good program.  This software will reduce the time the community spends on software development.  
+
+The intent of this work is also to make access to science more equitable.  
+\begin{itemize}
+    \item High quality documentation makes the software easier to use for scientists with all levels of computing backgrounds
+    \item Contribution documentation and tutorials increase the pool of contributors
+    \item An online resource that provides findable materials on basic concepts in scientific computing makes it possible for novices to use the software
+\end{itemize}
+
+These aspects of the work increase science access in every case to individuals without existing background in computing.  They also increase science access to access to limited lab or institutional resources: 
+
+\begin{itemize}
+    \item Researches at undergraduate-only institutions often struggle to train undergraduates to work in a custom computing environment unless they have funding for a postdoc
+    \item Lab staff and a pool of experienced graduate students and postdocs can help with undergraduate and graduate student training, but these resources are not available at many institutions.
+    \item Even at institutions with significant resources for training and mentorship, access to these reasons is not always equitable.  
+\end{itemize}
+
+Large numbers of students are getting their education at community colleges and four year institutions.  Complex, poorly-documented software infrastructure that gates scientific work is an unnecessary burden on faculty at these institutions and poses a higher barrier to students because they are less likely to have access to informal computing support structure than their peers at research institutions.
+
+The proposed work will create the kernel of an ecosystem that is usable, well-documented for both novices and experts, and enjoys the support of a community that is accessible online.  The PI believes that this infrastructure is a minimum requirement for equitable access to science analysis.
+
+
+
+\textbf{Undergraduate Education}
+The Physics Department at CU~Denver maintains an undergraduate-only program committed to providing students with hands-on research experience at this urban campus. The Department operates in close collaboration with the Physics Department at Metropolitan State University of Denver, and students from both institutions participate in the CU~Denver group’s activities, broadening the reach of the research program beyond a single institution. Currently, there are seven undergraduates in the PI's group majoring in Physics, Chemistry,  Mechanical Engineering, and Computer Science.  
+
+
 \section{Intellectual Merit}
 %  The Project Description should provide a clear statement of the work to be undertaken and must include the objectives for the period of the proposed work and expected significance; the relationship of this work to the present state of knowledge in the field, as well as to work in progress by the PI under other support.
 
@@ -48,7 +82,7 @@ The long-term goal of this work is to significantly increase access to science d
 
 One way to solve this problem is to improve existing software that provides access to data based on a user-provided description of that data.  Scientists can then gain access to analysis tools that are supported by a broader community by providing a description of their data in a standard format.  The work the PI proposes consists of (1) software development, (2) extensive documentation development, and (3) yearly workshops focused on bringing together developers and scientists to work on science analysis.  The PI proposes to integrate this work so that every year there is a release of usable software and documentation that can recieve extensive testing at the yearly workshop.  The yearly workshops will be an opportunity for helping scientists use the tools for their analyses and will also offer an opportunity for the community to determine the roadmap for the upcoming year.
 
-The proposed work is feasible becuase it builds off existing infrastructure.  Multiple data-description language standards exist and have robust communities that provide support for describing data with their language and tools that allow access to data [cite].  In addition, work done by DIANA/HEP has created flexible libraries that provide high-energy physicists tools that are compatible with the python scientific ecosystem [cite].  The PI proposes to combine Kaitai Struct with the DIANA/HEP awkward-array library - this will bring the speed and convenience the awkward-array library enjoys with gigabyte-scale data sets to any scientist who describes their data per the Kaitai Struct rules.  Both Kaitai Struct and awkward-array are specifically designed to be extensible and have extensive documentation for developers who wish to interface with their software.  
+The proposed work is feasible becuase it builds off existing infrastructure.  Multiple data-description language standards exist and have robust communities that provide support for describing data with their language and tools that allow access to data \cite{kaitai, kaitai-spec, dfdl, dfdl-spec}.  In addition, work done by DIANA/HEP has created flexible libraries that provide high-energy physicists tools that are compatible with the python scientific ecosystem \cite{diana-hep, iris-hep}.  The PI proposes to combine Kaitai Struct with the DIANA/HEP awkward-array library - this will bring the speed and convenience the awkward-array library enjoys with gigabyte-scale data sets to any scientist who describes their data per the Kaitai Struct rules.  Both Kaitai Struct and awkward-array are specifically designed to be extensible and have extensive documentation for developers who wish to interface with their software.  
 
 Leveraging the considerable existing infrastructure makes it feasible to develop a science-ready analysis tool compatible with any data format within a year.  This helps community engagement with this project, as within the three years of this grant three workshops could be held that bring scientists together with developers to work on science analysis.  This provides invaluable testing and an opportunity to involve the community in the continued development of the tool.  The intended result is a community analysis tool that is usable, aligns well with the needs of the community, and enjoys broad adoption.
 
@@ -77,7 +111,7 @@ The proposed work would deliver software that could improve the analysis infrast
 
 The proposed work provides potential benefit to SuperCDMS by prototyping an analysis environment.  The PI's involvement in SuperCDMS significantly benefits the proposed work because she has access to gigabyte-scale data sets and event-based analyses that are at the high end of requirements for many experimental nuclear physics analyses.  Thus developing prototype SuperCDMS analysis code is a nice proving ground for the target user and provides a nice complement to the smaller-data XIA analysis proposed as the other primary test analysis.
 
-The PI also enjoys an active research program using SuperCDMS data to study the behavior of low-energy deposition in solids.  The PI struggles, however, to involve undergraduate students in this research - and it can be even more difficult to work with Master's students.  The training required for students to be able to look at data can take several semesters.  The PI sees building a variety of training materials as essential to increasing undergraduate access to dark matter science.  And well-documented analysis software would immediately benefit students if that same documentation helped them with SuperCDMS data analysis.  In addition, students who spend time developing and improving software libraries for community software will be benefitting an entire community while also doing work that has visibility for potential employers.
+The PI also enjoys an active research program using SuperCDMS data to study the behavior of low-energy deposition in solids.  The training required for students to be able to look at data can take several semesters.  The PI sees building a variety of training materials as essential to increasing undergraduate access to dark matter science.  And well-documented analysis software would immediately benefit students if that same documentation helped them with SuperCDMS data analysis.  In addition, students who spend time developing and improving software libraries for community software will be doing work that has visibility for potential employers.
 
 
 %\textbf{S has a data set that would be valuable to include in an analysis} that combines different types of carbon scattering data.  Because the data was taken with a polarized beam, it would provide a valuable constraint to her global fit.  She has the Fortran code used to write and read the data but it won't compile on her machine.  She talks to a friend from grad school about the problem, who explains Fortran bit-shifting syntax to her and points her to the Data Access Project.  She gives the problem to an undergraduate for a summer project and between her occasional help, the documentation, and the forum the student has a simple analysis of the data all set up.  S wants to plug the data into the global fit immediately,  But since S is busy with an experiment for the next month, the undergraduate gets to take a stab at the fit.

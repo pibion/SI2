@@ -24,7 +24,8 @@
 % documentation is often overlooked but people need it the most
 % https://opensourcesurvey.org/2017/
 
-\section{Science-driven}
+\section{Solicitation-specific review criteria}
+\subsection{Science-driven}
 % How will the project outcomes fill well-recognized science and engineering needs of the research community, and advance research capability within a significant area or areas of science and engineering? What are the broader impacts of the project, such as benefits to science and engineering communities beyond initial targets, underrepresented communities, and education and workforce development? The project outcomes should address well-recognized science outcomes.
 
 This project serves the immediate needs of researchers in the dark matter community and the experimental nuclear physics community by providing a common toolset for analyzing data in any format.
@@ -56,9 +57,8 @@ The PI proposes to engage both cyberinfrastructure experts and the experimental 
 
 The PI has working relationships with scientists in the SuperCDMS collaboration and the XIA corporation, both of which are interested in exploring the proposed software as solutions to analysis needs.
 
-In addition, the IRIS-HEP collaboration is interested in this work as it would extend their awkward-array library to a broader audience.  Awkward array was developed by Jim as part of DIANA/HEP (http://diana-hep.org,
-OAC-1450377) and that effort will continue with IRIS-HEP
-(http://iris-hep.org, OAC-1836650).  Collaborating with IRIS-HEP gives us access to experienced cyberinfrastructure developers who have focused on developing software suitable for terabyte-scale data.
+In addition, the IRIS-HEP collaboration is interested in this work as it would extend their awkward-array library to a broader audience.  Awkward array was developed as part of DIANA/HEP \cite{diana-hep} and that effort will continue with IRIS-HEP \cite{iris-hep}
+.  Collaborating with IRIS-HEP gives us access to experienced cyberinfrastructure developers who have focused on developing software suitable for terabyte-scale data.
 
 
 \subsection{Building on existing, recognized capabilities}
@@ -77,92 +77,6 @@ The proposed work builds on existing capabilities and communities in several way
 \subsection{Project plans, and system and process architecture}
 % For an "Elements" proposal, the Project Description should include a high-quality management plan. The proposal should include user interactions and a community-driven approach, and provide a timeline including a proof-of-concept demonstration of the key components. Software or data cyberinfrastructure services should be sufficiently described and follow industry best practices, including the architecture of the CI and the engineering process to be used for the design, development, documentation, testing, validation, and release of the software, its deployment and associated outreach to the end user community, and an acceptance and evaluation plan that involves end users. The description of the CI architecture and processes should explain how security, trustworthiness, provenance, reproducibility, and usability will be addressed by the project and integrated into the proposed system and the engineering process, and how adaptability to new technologies and changing requirements will be addressed by the project and built into the proposed system, as appropriate.
 
-The timing of the proposed work is driven by the proposed, yearly workshops that focus on (1) teaching scientists how to use the tools to access their data, (2) working with scientists to perform their analyses in the python environment, (3) identifying improvements needed for the software to be easy to learn and useful in analysis, and (4) bringing developers into close contact with the science community using their tools.  Each workshop will result in an updated roadmap for the software.
-
-Thus, the workshops - and software releases that include testing, documentation, and example analyses - are the primary milestones of the proposed work.
-
-The work for each yearly cycle can be broken down into the following categories: development of basic computing skills learning material; development of the data-access library; planning and execution of the workshop; and a community-driven update of the roadmap.  See Table~\ref{tab:WBS} for details on who will perform this work.
-
-The minimum requirements of the work determine the work plan and are the following:
-
-\begin{enumerate}
-    \item If students or staff move on to other positions, their replacements should be able to get up to speed in a month or less.
-    \item Someone with no domain knowledge but reasonable persistence should be able to run the example analysis within a week.
-    \item Someone with no domain knowledge but reasonable persistence should be able to analyze their own data within a month.
-    \item A scientist who uses the access-data library to obtain a science result should know how to cite the software.
-    \item A scientist experiencing trouble using the software should be able to determine how to get help quickly (within five minutes of searching).
-    \item A scientist who wishes to improve the code should be able to quickly determine how to contact the developers and how to change, test, and push the code.
-\end{enumerate}
-
-The scope of the proposed software is relatively modest: copy an existing framework and adapt it so that it stores data in awkward-array structures rather than slower, dictionary structures.  The development and testing of this code will take time - but reference code for similar work exists, there is robust community support, and there is a developer guide that gives specific instructions for developers who wish to extend the existing Kaitai Struct code in this way.  The proposed work is feasible because it connects two libraries that are both designed for this purpose.
-
-The majority of the proposed work is in making this software easy to use for scientists, and making it easy for the community to participate in the direction and development of the software.  This requires robust documentation for both users and developers.  Users will require installation instructions, instructions for using the library, and guidance on how to adapt the examples for their own analysis needs.  Developers will need additional documentation: instructions for changing the code and testing the code, and instructions and guidance on contributing their changes to the project.
-
-To meet the minimum requirements, the workplan involves creating of initial documentation and an automated testing suite by the Professional Research Associate and example analysis created by the Master's student.
-
-Undergraduates will begin either by working on new scientific computation skills or improving or adding to material of already-developed scientific computation skills.  Students who join the lab currently have two first projects to chose from: working through an introductory lab on water simulation, or working through an example analysis of gamma-spectroscopy data.  The students try to perform their work using existing documentation; the PI provides guidance when this is inadequate.  This provides an opportunity for students to design improvements and learn the basics of contributing to a code repository.  In addition to providing valuable training for the students, this process identifies gaps in the documentation that are often invisible to experts.
-
-This initial work is expected to result in improvements and additions to web-accessible tutorial materials.  In addition, this training will provide a foundation that will allow the students to attempt the following actions:
-
-\begin{itemize}
-    \item Successfully follow a simple example analysis using the data-access library.
-    \item Successfully follow a tutorial to make and share a change to the library documentation.
-    \item Successfully follow a tutorial to make, test, and share a change to the library source code.
-\end{itemize}
-
-\begin{tabularx}{\textwidth}{XXX}
-Work & Who & Notes \\
-\toprule
-Roadmap \& workplan development
-& PI, PRA, Master's student
-& \\
-
-Basic skills materials 
-& Undergrads
-&  \\
-
-Data-access library development
-& 
-& \\
-code dev
-& Professional Research Assistant
-& this includes testing, user documentation, and dev documentation\\
-contributing
-& Professional Research Assistant
-& this includes automated testing and contribution guidelines and instructions \\
-example analyses
-& Master's student
-& \\
-documentation testing
-& Undergraduates, Master's student
-& documentation testing may feed back into additional skill documetation \\
-
-Workshop
-& 
-& \\
-Recruiting
-& PI
-& \\
-Organization
-& Professional Research Assistant, Undergraduates
-& \\
-Pre-workshop analysis coordination
-& PI, Master's student, PRA
-& \\
-
-Community-driven update of roadmap
-& PI, PRA, Community
-& \\
-\label{tab:WBS}
-\end{tabularx}
-
-\begin{figure}[htb]
-    \begin{center}
-      \includegraphics[width=\textwidth]{Figures/schedule1}
-    \end{center}
-    \caption{Schedule for the proposed work.}
-    \label{fig:ops-schedule}
-\end{figure}
 
 \textbf{Architecture of the software:}
 The architecture of the Kaitai Struct compiler that targets an awkward-array data structure will follow that of the existing Katai Struct software.  Implementing a Kaitai Struct compiler for a new language requires
@@ -181,6 +95,7 @@ Although there is opportunity for improving the speed of the data load, this dev
 
 If we find that data-load times are a significant issue for the nuclear physics community then we will consider more substantial changes to the Kaitai Struct compiler and runtime libary.
 
+\begin{comment}
 \begin{lstlisting}
 def [*size(self)*]:
     # Python has no internal File object API function to get
@@ -208,6 +123,7 @@ uint64_t kaitai::kstream::[*size()*] {
 }
 \caption{The details of this code are not important.  What is significant is the name of this function, size(), and its behavior: find and report the size of the file, without changing where we are in the file.  The Katai Struct compiler for both C++ and python can use the ``size()'' function rather than including these language-specific stream commands, making the compiler code more readable.}
 \end{lstlisting}
+\end{comment}
 
 \textbf{Architecture of the user documentation:} User documentation should make it possible for users with little to no domain knowledge to use the data-access library for science.  Documentation for the use of the library will be stored as text files in the repository with the code.  The files will be written in markdown syntax to improve their readability; this will also render them nicely on cloud-based repository hosts such as github and gitlab.  The following documentation will be provided:
 
@@ -273,18 +189,18 @@ In summary, the proposed code development will be strongly tied to documentation
 
 %\subsubsection{Security}
 
-\subsubsection{Trustworthiness}
+\subsubsection*{Trustworthiness}
 End-to-end tests of the software will include tests where the outcome is known.
 
-\subsubsection{Provenance}
+\subsubsection*{Provenance}
 All releases will be archived with their own DOIs on Zenodo.  Guidance to cite the version of the software used will be included in the top-level README of all releases and posted on all related websites.
 
-\subsubsection{Reproducibility}
+\subsubsection*{Reproducibility}
 End-to-end tests of the software will completely define all inputs, including a reference data set, and compare the output to reference products such as histograms.  The PI acknowledges that this is in no way a complete test of reproducibility but feels that it will be a useful starting point.  
 
 Instructions for system setup will be included in the documentation.  Full or partial system specifications are required for automatic test running and will be versioned together with the rest of the code.  The most popular of these, Docker, will be used.  More complete system specifications as provided by Nix and Guix will be considered if need arises for more complete reproducibility.
 
-\subsubsection{Usability}
+\subsubsection*{Usability}
 For the proposed software, usability consists of several scenarios:
 
 \begin{tabularx}{\textwidth}{XX}
@@ -315,7 +231,7 @@ Can an interested individual contribute to the development of the software easil
 \end{tabularx}
 
 
-\subsubsection{Adaptability}
+\subsubsection*{Adaptability}
 The proposed software intends to support scientific analysis of gigabyte-scale data for the coming decade.
 
 The benefits of the proposed software, compared to the current, group-driven methods, are increased access to scientific analysis through ease of use, quality documentation, and community support.  And improved return on invested maintenance time, since effort on a common set of tools can benefit many scientists.
@@ -356,10 +272,10 @@ The PI intends to use interviews to understand how the software meets (or not) t
 This feedback will directly inform decisions about priorities and have an official outlet in the release of an annual roadmap.  Discussion and contribution to the roadmap will be open to the community and will begin at the yearly workshop.
 
 
-\section{Deliverables}
+\subsection{Deliverables}
 % Does the proposed project clearly articulate the services and capabilities to be delivered, and how they are to be delivered? NSF encourages exploration of various delivery mechanisms, including but not limited to, those leveraging eXtreme Science and Engineering Discovery Environment (XSEDE), leadership-class computing resources, OAC Software Institutes, Big Data Regional Innovation Hubs, individual organizational resources, and well-known public and private cloud services.
 
-\section{Metrics}
+\subsection{Metrics}
 % Does the proposed project clearly articulate quantifiable metrics for development and delivery of the services and capabilities to be delivered by the project, and for the anticipated community adoption and usage? Are quantitative metrics with targets identified for each year of the award? These should be simple but should also clearly show what the project will accomplish each year, the impact on science, and the breadth of the user community.
 The simplest evaluation metrics of community adoption and use will be (1) citations of software in peer-reviewed scientific papers and (2) the number of contributions to the code from developers outside the PI's group.
 
@@ -406,7 +322,7 @@ The highest-priority improvements identified on the road map for the core librar
 \end{itemize}
 
 
-\section{Sustained and sustainable impacts}
+\subsection{Sustained and sustainable impacts}
 %The Project Description should address how the project outcomes and its activities will have long-term impacts, and how these will be sustained beyond the lifetime of the award, as appropriate. Manuals and tutorials for using the developed CI should be delivered to the community. Software or data cyberinfrastructure services must identify the intended license to be used for the released CI, and the justification for the choice of this license. PIs who have been previously funded under previous CI awards should show quantifiable evidence of the use, impact and sustainability of the previously funded work (and include a citation to the published CI in their biographical sketches as one of their relevant products, if appropriate).
 
 The goal of the proposed work is to significantly increase the accessibility of scientific data analysis on custom-format binary data.
