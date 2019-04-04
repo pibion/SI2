@@ -1,52 +1,90 @@
 % !TEX root = NSF_SuperCDMS_SNOLAB_OPS.tex
 
-\section{Introduction}\label{sec:overview}
-
-\subsection{The Problem}
-The PI proposes improvement and community building for a common set of tools to make it easier for scientists to access their data.
-
-In nuclear physics, in neuroscience, in remote sensing applications, custom data formats are commonplace both for existing and newly-recording datasets.  This fractures the software ecosystem.  Even though the nuclear physics community performs largely similar analyses on largely similar datasets, groups typically develop their software locally.  Poor documentation of these isolated code bases can have real, negative impact on science progress. 
- 
+\section{Overview}
 %The Data Access Project seeks to build a common set of tools to make it easier for scientists to access custom-format, binary data.
+The PI proposes to improve existing tools that support analysis for any format of data through a data-description language. The existing tools work well for kilobyte-scale data sets but are inconveniently slow for gigabyte-scale data.
+%for a common set of tools to make it easier for scientists to access their data.  Why would a physicist devote time to this kind of service work?
+
+The PI also proposes work intended to develop a community of users and contributors for this general-purpose data-access software.  This includes investing in user and developer documentation, building example analyses, and implementing integration tests to make it easier for the community to trust and contribute to the software.  The PI also proposes yearly workshops designed to bring scientists and developers together to work on analysis.
+%Even though the nuclear physics community performs largely similar analyses on largely similar datasets, groups typically develop their software locally.  Poor documentation of these isolated code bases can have real, negative impact on science progress. 
+
 
 %In many science applications, data is stored in a binary format to make its size manageable - and custom, binary data formats are commonplace both for existing and newly-recording datasets.  This fractures the software ecosystem:  even if a community performs largely similar analyses on largely similar datasets, the custom format leads groups to develop their own, local software. 
-
-%The Data Access Project seeks to increase awareness and adoption of existing data-description languages and to build tools that - given a format description - provide easy access to the information in a data set.
-
-\textbf{S has a data set that would be valuable to include in an analysis} that combines different types of carbon scattering data.  Because the data was taken with a polarized beam, it would provide a valuable constraint to her global fit.  But she can't include it because the only code that can read the data won't compile on her machine.  She's not familiar enough with Fortran to fix it, the original author died a few years ago, and the beamline has been decommissioned.  She could still write a paper, but the results aren't all that interesting without this data. 
+\subsection{User Stories}
+\textbf{S has a data set that would be valuable to include in an analysis} that combines different types of carbon scattering data.  Because the data was taken with a polarized beam, it would provide a valuable constraint to her global fit.  But she can't include it because the only code that can read the data won't compile on her machine.  She's not familiar enough with Fortran to fix it and the original author died a few years ago.  She could still write a paper, but the results aren't all that interesting without this data. 
  
 \textbf{P would like to add an additional detector to his setup} -- this would allow him to set a stronger limit on a reaction rate that effects how stars create heavy elements.  A colleague lent him a digitizer to instrument his extra detector, but the analysis code he has is for CAEN instruments and the loaner digitizer is from XIA.  After burning a weekend trying and failing to adapt his code to handle the XIA data, he decides to try the experiment without the extra detector.  He might get a useful constraint on the integrated cross section, and maybe if the funding for his postdoc comes through they'll have time to sort out the code.
  
-\textbf{All Q wants to do is look at the data from a detector used to search for dark matter.}  He got one of the files onto his computer, but when he tried to open it in Word it looked like a bunch of garbage symbols.  Three frustrating days later, he now knows the data is ``binary'' and he's downloaded ``source code''  
-that should allow him to look at the data.  When none of the commands in the readme file make sense, he asks his professor for help, who tells him to talk to the postdoc, who apparently doesn't respond to emails.  It takes almost an entire summer, but Q does eventually figure out how to compile the code, run the code, and look at a single event.   
+\textbf{All Q wants to do is look at the data from a detector used to search for dark matter.}  He got one of the files onto his computer, but when he opened it in Word it looked like a bunch of garbage symbols.  Three frustrating days later, he now knows the data is ``binary'' and he's downloaded ``source code''  
+that should allow him to look at the data.  When none of the commands in the readme file make sense, he asks his professor for help, who tells him to talk to the postdoc, who apparently doesn't respond to email.  It takes almost an entire summer, but Q does eventually figure out how to compile the code, run the code, and look at a single event.   
 
-\subsection{Building a Solution}
-One way to solve this problem is to define a standard way to describe a data format.  This allows development of tools that provide access to that data based on its description.  Scientists can then keep their custom-format data and – by providing a description of that data – gain access to analysis tools that are supported by a broader community.  The work I propose here works towards this solution in two ways:
+Each of these stories features a scientist trying to access data in different, binary formats.  And in each case, software that provides access to their data already exists - but the usability of that software is poor enough to create a significant barrier to science.  In each of these cases, the problems the researchers face are solvable, for someone expert in scientific software.  But such experts are relatively rare, and many scientists have to solve their data-access problems themselves.
 
-The long-term goal of this work is to build and create community buy-in for a set of tools for the nuclear physics community to access binary data.  The intent is to address one piece of a common software need in the community that is repeatedly solved in isolation and that costs the entire community unnecessary time and limits access to data and science. In pursuit of this goal, this proposal has four objectives:  
-(1) Define a data-description language that allows scientists to describe any binary data format.
-(2) Improve existing software that automatically builds a convenient data-access library for any user-described data so that it works well with gigabyte-scale datasets.
-(3) Build community and support adoption of these community tools.
-(4) Increase access to analysis of original scientific data sets for undergraduate students, graduate students and postdocs, early career researchers, and scientists whose labs do not have access to dedicated software support. 
-These objectives will be met as follows:
+\subsection{Deliverables}
+The PI proposes to improve the scientific-software ecosystem to lower the barrier to access custom, binary-format data by developing tools that provide access to that data based on a user-provided description.  Scientists with custom-format data could then - by providing a description of that data - gain access to analysis tools that are supported by a broader community.  
 
-{\it (1) Defining a data-description standard:} The PI will use two already-existing standards that both have broad user support, DFDL and Kaitai-Struct.  Kaitai-Struct will be used and where necessary further defined as the software created around this standard is better-suited to the needs of data analysis.
+The goal of the proposed work is to significantly increase the accessibility of scientific data analysis on custom-format binary data.  To accomplish this goal, the proposed work will produce the following deliverables:
 
-{\it (2) Improving standards-based analysis software:} Scientists who wish to generate a convenient library that allows them to read custom-format data can already do so using the existing Kaitai software.  However, this software has poor performance in python for files larger than a gigabyte and this significantly limits the usefulness of this software to the nuclear physics community, particularly as data acquisition systems move to storing digitized pulses rather than pre-processed data.  The PI proposes to create another Kaitai target that allows scientists to auto-generate a library that targets the awkward-array interface built and maintained by the IRIS-HEP collaboration.  This data structure is designed to give rapid data-analysis access to the high energy physics community and is routinely tested on data sets that exceed several hundred gigabytes.
+\textbf{Data-access software} that provides convenient and quick access to gigabyte-scale datasets in any binary format.  This software will require the user to provide a description of the format.
 
-{\it (3) Building community:} The PI proposes to hold yearly workshops to bring together developers and scientists for training, user feedback, and software development.  In addition, the PI has requested funds for graduate and undergraduate stipends and travel awards to foster community participation.
+\textbf{User documentation and examples} that allow scientists to easily use the data-access software for their own analyses.
 
-{\it (4) Increasing Access:} Many students who have the interest and ability to participate in science analysis are blocked by a lack of training in scientific computing.  The often-complex scientific computing ecosystem is poorly represented in most physics curriculum and even computer science courses do not usually prepare students for the variety of systems they need to navigate to do typical data analysis.  The PI requests funding for undergraduate students to develop and test documentation and training materials for fundamental scientific computing concepts and skills in addition to testing the documentation for the standards-based analysis tools.
+\textbf{Training materials for foundational computing skills} to ensure that individuals with little to no background in scientific computing can successfully work through an analysis tutorial and make progress towards their own analysis.
+
+\textbf{Contribution documentation, tests, and interface documentation} that makes it easy for the community to contribute to the project development and documentation.
+
+\textbf{A fledgling community} focused on creating, documenting, and supporting common tools that are useful for the entire community.
+
+The software and related documentation will all be developed openly on gitlab.  Installation instructions for both end-users and developers will be included and heavily tested and will include instructions for users without administration privileges so that scientists working on computing clusters are supported.
+
+Releases of the software will be granted a DOI through Zenodo; all publications will be released on preprint servers.
+
+Community development will be fostered through yearly workshops, heavy prioritization of documentation development and testing, and the support of an online forum for community discussion.
+
+\section{Intellectual Merit}
+%  The Project Description should provide a clear statement of the work to be undertaken and must include the objectives for the period of the proposed work and expected significance; the relationship of this work to the present state of knowledge in the field, as well as to work in progress by the PI under other support.
+
+The long-term goal of this work is to significantly increase access to science data in the nuclear physics community and other communities that work with gigabyte-scale, custom-format, binary data sets.  
+
+One way to solve this problem is to improve existing software that provides access to data based on a user-provided description of that data.  Scientists can then gain access to analysis tools that are supported by a broader community by providing a description of their data in a standard format.  The work the PI proposes consists of (1) software development, (2) extensive documentation development, and (3) yearly workshops focused on bringing together developers and scientists to work on science analysis.  The PI proposes to integrate this work so that every year there is a release of usable software and documentation that can recieve extensive testing at the yearly workshop.  The yearly workshops will be an opportunity for helping scientists use the tools for their analyses and will also offer an opportunity for the community to determine the roadmap for the upcoming year.
+
+The proposed work is feasible becuase it builds off existing infrastructure.  Multiple data-description language standards exist and have robust communities that provide support for describing data with their language and tools that allow access to data [cite].  In addition, work done by DIANA/HEP has created flexible libraries that provide high-energy physicists tools that are compatible with the python scientific ecosystem [cite].  The PI proposes to combine Kaitai Struct with the DIANA/HEP awkward-array library - this will bring the speed and convenience the awkward-array library enjoys with gigabyte-scale data sets to any scientist who describes their data per the Kaitai Struct rules.  Both Kaitai Struct and awkward-array are specifically designed to be extensible and have extensive documentation for developers who wish to interface with their software.  
+
+Leveraging the considerable existing infrastructure makes it feasible to develop a science-ready analysis tool compatible with any data format within a year.  This helps community engagement with this project, as within the three years of this grant three workshops could be held that bring scientists together with developers to work on science analysis.  This provides invaluable testing and an opportunity to involve the community in the continued development of the tool.  The intended result is a community analysis tool that is usable, aligns well with the needs of the community, and enjoys broad adoption.
+
+\subsection{Impact}
+The example analyses will initially focus on current collaborators: XIA and SuperCDMS.  Therefore the proposed work is expected to directly improve the time-to-analysis and accessibility for users of these data sets.
+
+More broadly, the PI expects the following impacts on the communities that work with gigabyte-scale data sets:
+
+\begin{itemize}
+    \item Reduce redundant time spent on writing and wrangling custom data-access software.
+    \item Significantly increase the involvement of students in the science-analysis phase of research.
+    \item Improve the reproducibility of science results. 
+    \item Increase the equity of access to scientific data analysis.
+\end{itemize}
+
+These impacts rely not just on the initial software product, but also on the usability of the documentation and the breadth of community adoption.  The PI has therefore included work on documentation, stipends for students to test and improve the documentation, end-to-end testing, and community workshops in the plan of work.
 
 \subsection{Long-term research goals}
+The PI is a member of the Super Cryogenic Dark Matter Search (SuperCDMS) and serves as the data quality technical coordinator for the upcoming experiment at SNOLAB.
+
+The PI, working together with the SuperCDMS anaysis coordinator and team leaders, has identified that a critical piece of the data quality monitoring will be the ability for beginning graduate students and postdocs to do preliminary science analysis of the data within a week of its collection.  This requirement demands a substantial improvement in the analysis infrastructure.
+
+The PI's group has, together with the computing infrastructure team at the Stanford Linear Accelerator, implemented a web-based analysis environment.  This provides access to the SuperCDMS data and software with unprecedented ease - and there is interest in improving the existing analysis tools to make data analysis easier and better-documented for new collaboration members. 
+
+The proposed work would deliver software that could improve the analysis infrastructure and move SuperCDMS towards software that is supported by a broader community.  Right now the complexity of the software is a significant limiting factor in SuperCDMS' ability to release data sets that might be of interest to high school and undergraduates; moving to community-supported software infrastructure is a necesesary prerequisite to sharing our data more broadly.
+
+The proposed work provides potential benefit to SuperCDMS by prototyping an analysis environment.  The PI's involvement in SuperCDMS significantly benefits the proposed work because she has access to gigabyte-scale data sets and event-based analyses that are at the high end of requirements for many experimental nuclear physics analyses.  Thus developing prototype SuperCDMS analysis code is a nice proving ground for the target user and provides a nice complement to the smaller-data XIA analysis proposed as the other primary test analysis.
+
+The PI also enjoys an active research program using SuperCDMS data to study the behavior of low-energy deposition in solids.  The PI struggles, however, to involve undergraduate students in this research - and it can be even more difficult to work with Master's students.  The training required for students to be able to look at data can take several semesters.  The PI sees building a variety of training materials as essential to increasing undergraduate access to dark matter science.  And well-documented analysis software would immediately benefit students if that same documentation helped them with SuperCDMS data analysis.  In addition, students who spend time developing and improving software libraries for community software will be benefitting an entire community while also doing work that has visibility for potential employers.
 
 
-\subsection{The Team}
+%\textbf{S has a data set that would be valuable to include in an analysis} that combines different types of carbon scattering data.  Because the data was taken with a polarized beam, it would provide a valuable constraint to her global fit.  She has the Fortran code used to write and read the data but it won't compile on her machine.  She talks to a friend from grad school about the problem, who explains Fortran bit-shifting syntax to her and points her to the Data Access Project.  She gives the problem to an undergraduate for a summer project and between her occasional help, the documentation, and the forum the student has a simple analysis of the data all set up.  S wants to plug the data into the global fit immediately,  But since S is busy with an experiment for the next month, the undergraduate gets to take a stab at the fit.
+ 
+%\textbf{P would like to add an additional detector to his setup} -- this would allow him to set a stronger limit on a reaction rate that effects how stars create heavy elements.  A colleague lent him a digitizer to instrument his extra detector, but the analysis code he has is for CAEN instruments and the loaner digitizer is from XIA.  P looks on the XIA site for software and finds a library that promises to give him access to the XIA code with a C++ library.  That's perfect, because his existing analysis code for the CAEN data is in C++.  He runs into some issues but gets forum support and is able to cobble something together.  It's a little awkward but it works.  If he gets funding for a postdoc, maybe he'll send his postdoc to the workshop next year and see if there's a better way to handle the data.  Right now, though, there's a paper to write.
+ 
+%\textbf{All Q wants to do is look at the data from a detector used to search for dark matter.}  He got one of the files onto his computer, but when he tried to open it in Word it looked like a bunch of garbage symbols.  Three frustrating days later, he now knows the data is ``binary'' and his professor has sent him a link to a website that says it's a tutorial on data analysis.  It takes a month, but Q gets all the way through the tutorial and has now realized that the data he's just analyzed is not actually the dark matter data.  When Q ``logs on'' to the computer where the real data lives he feels stupid happy that the same commands he used in the tutorial work on this data, too.  Q spends a week making pretty graphs of all the different quantities and then he prepares himself for another round of questions.  Now that he can look at the data, what is it he's looking for?  
 
-\comment{This paragraph needs to be added after we do decide on the sections} This project description is organized as follows. 
-Sections~\ref{sec:introduction}--\ref{sec:snolab} summarize the science and hardware of the \scs experiment. 
-Section~\ref{sec:nexuscute} describes the underground facilities to be used in the pre-operations portion of this proposal.
-Section~\ref{sec:operations} describes the plan of work of this effort, and Section~\ref{sec:schedule} describes the schedule.
-Section~\ref{sec:management} gives an overview of the management for this proposed grant, and Section~\ref{sec:broad} describes the broader impacts of the work.
-Finally, Section~\ref{sec:prev-res} summarizes the results from previous support.
+
 

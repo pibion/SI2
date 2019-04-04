@@ -21,10 +21,10 @@
 % Mom says all the cool kids are using smartsheets
 % Liquid Planner has a free plan for teachers?  https://app.liquidplanner.com/space/202855/projects
 
+% documentation is often overlooked but people need it the most
+% https://opensourcesurvey.org/2017/
 
-\subsection{Introduction}
-
-\subsection{Science-driven}
+\section{Science-driven}
 % How will the project outcomes fill well-recognized science and engineering needs of the research community, and advance research capability within a significant area or areas of science and engineering? What are the broader impacts of the project, such as benefits to science and engineering communities beyond initial targets, underrepresented communities, and education and workforce development? The project outcomes should address well-recognized science outcomes.
 
 This project serves the immediate needs of researchers in the dark matter community and the experimental nuclear physics community by providing a common toolset for analyzing data in any format.
@@ -357,9 +357,72 @@ This feedback will directly inform decisions about priorities and have an offici
 
 
 \section{Deliverables}
-
+% Does the proposed project clearly articulate the services and capabilities to be delivered, and how they are to be delivered? NSF encourages exploration of various delivery mechanisms, including but not limited to, those leveraging eXtreme Science and Engineering Discovery Environment (XSEDE), leadership-class computing resources, OAC Software Institutes, Big Data Regional Innovation Hubs, individual organizational resources, and well-known public and private cloud services.
 
 \section{Metrics}
+% Does the proposed project clearly articulate quantifiable metrics for development and delivery of the services and capabilities to be delivered by the project, and for the anticipated community adoption and usage? Are quantitative metrics with targets identified for each year of the award? These should be simple but should also clearly show what the project will accomplish each year, the impact on science, and the breadth of the user community.
+The simplest evaluation metrics of community adoption and use will be (1) citations of software in peer-reviewed scientific papers and (2) the number of contributions to the code from developers outside the PI's group.
+
+Additional metrics that may provide useful information could include: (a) number of downloads from the Zenodo or gitlab site, (b) quantity of interactions on the issue tracker and forum, and (c) materials provided by data-sharing platforms that educate scientists on data-description languages.
+
+Another informal metric of community support is how many scientists apply to the yearly workshop who are not actively solicited by the group and individual interviews with scientists using the software.
+
+\subsubsection*{Year 1}
+An initial release of the improved software and the XIA library is made.  Both have basic testing coverage, are tested automatically upon commit, and have initial guidelines for contribution.  An initial release of the skills documentation has been made.
+\begin{itemize}
+  \item A whitepaper is published describing data description languages and giving use-cases
+  \item No citations of the software library are expected from peer-reviewed science results in year 1.
+  %\item The Open Science Framework and Figshare are contacted.  We find out if they're interested and if so, get a contact person.
+  \item Between 15 and 20 scientists register for the Data Access workshop.  These scientists are expected to predominantly come from the nuclear physics community.  The PI expects all attendees to register after specific invitation.
+  \item Between 2 and 5 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
+  \item An initial release of the improved software and the XIA library is made.  Both have basic testing coverage, are tested automatically upon commit, and have initial guidelines for contribution.
+  \item Inexperienced students who try to follow the analysis tutorial are able to find answers to some of their questions but most are expected to be unable to complete the tutorial without expert assistance
+  \item Interviews with scientists attending the workshop show that out of ten scientists: approximately two find the software useful as-is for their analysis work; approximately five would find the software useful but do not plan to use it because of solvable issues; and approximately three do not plan to use the software either because it is not useful to them or because their issues with the software cannot be easily addressed.
+\end{itemize}
+
+\subsubsection*{Year 2}
+The highest-priority improvements as identified by the community roadmap are released.  The contribution guidelines and instructions are well-tested.   The most common failings of the skills documentation have been addressed. 
+
+\begin{itemize}
+  \item At least one peer-reviewed science result cites the data-access library.
+  \item Between 15 and 20 scientists register for the Data Access workshop.  Some diversity of discipline is expected, although most are expected to predominantly come from the nuclear physics community.  The PI expects one or two attendees to find out and register for the conference from someone outside the group and for most to register after specific invitation.
+  \item Between 3 and 7 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
+  \item  There has been at least one request for an improvement or feature from the community that has been either fixed by my team or another contributor.
+  \item  Inexperienced students who try to follow the analysis tutorial get stuck on these issues less frequently.  Most are able to complete the tutorial without expert assistance but are unable to make significant progress on the ``now you try'' analysis tutorial without expert assistance.
+  \item Interviews with scientists attending the workshop show that out of ten scientists: approximately four find the software useful as-is for their analysis work; approximately four would find the software useful but do not plan to use it because of solvable issues; and approximately two do not plan to use the software either because it is not useful to them or because their issues with the software cannot be easily addressed.
+\end{itemize}
+
+\subsubsection*{Year 3}
+The highest-priority improvements identified on the road map for the core library are released.  The contribution guidelines and instructions are well-tested.  The basic-skills documentation has resources or recommends resources that address most of the questions that arise when inexperienced students try to follow the analysis tutorial.  
+
+\begin{itemize}
+  \item At least five peer-reviewed science results cite the data-access library.
+  \item Between 15 and 25 scientists register for the Data Access workshop.  Some diversity of discipline is expected, although most are expected to predominantly come from the nuclear physics community.  The PI expects at least three attendees to find out and register for the conference from someone outside the group and for most to register after specific invitation.
+  \item Between 5 and 10 scientists register projects with the Open Science Framework or similar platform to work on analysis of their data collaboratively
+  %\item The highest-priority helper code is close to stable.  The contribution guidelines and instructions are well-tested.  There has been at least one request for an improvement or feature from the community that has been either fixed by my team or another contributor.
+  \item There has been at least five requests for an improvement or feature from the community that has been either fixed by my team or another contributor.
+  \item Inexperienced students can independently find answers to most of their questions when following the analysis tutorial.  Most students still need expert help on the ``try your own'' analysis tutorial but find it easier to formulate their questions
+  \item Interviews with scientists attending the workshop show that out of ten scientists: approximately six find the software useful as-is for their analysis work; approximately two find the software useful as-is but would very much like to see one or several non-trivial issues addressed; and approximately two do not plan to use the software either because it is not useful to them or because their issues with the software cannot be easily addressed.
+\end{itemize}
 
 
 \section{Sustained and sustainable impacts}
+%The Project Description should address how the project outcomes and its activities will have long-term impacts, and how these will be sustained beyond the lifetime of the award, as appropriate. Manuals and tutorials for using the developed CI should be delivered to the community. Software or data cyberinfrastructure services must identify the intended license to be used for the released CI, and the justification for the choice of this license. PIs who have been previously funded under previous CI awards should show quantifiable evidence of the use, impact and sustainability of the previously funded work (and include a citation to the published CI in their biographical sketches as one of their relevant products, if appropriate).
+
+The goal of the proposed work is to significantly increase the accessibility of scientific data analysis on custom-format binary data.
+
+The proposed work will not eliminate the need for developing custom software within institutions and groups - but the project will provide a common toolset that will work for the majority of gigabyte-scale, event-based analysis despite the lack of a uniform data format.  The success of this project is expected to
+
+\begin{itemize}
+    \item Reduce redundant time spent on writing custom data-access software
+    \item Reduce experts' time spent fighting with existing software during analysis
+    \item Significantly increase the involvement of students in the science-analysis phase of research
+    \item Improve the reproducibility of science results 
+    \item Allow software development to occur in an environment where credit for this often-invisible work is possible
+\end{itemize}
+
+The success of this project depends on significant community involvement; the PI believes that the flexible nature of the proposed software, its immediate need for many in the community, and the community-building work of the grant can achieve this goal.
+
+The plan for long-term sustainability of this project is twofold.  (1) The scope of the proposed software is small and the PI expects this software to be in a mature state by the end of these funds.  Therefore the project is expected to require less effort from the core development team.  (2) It is expected that the work proposed will build a broad community of users and developers who will continue to support the software because it is directly useful to their science goals.
+
+In addition to hoping that the community developed during the course of this funding will be able to maintain the software at a usable level, the PI will investigate possible support from organizations like NumFOCUS as well as the Open Science Framework and Figshare. 
