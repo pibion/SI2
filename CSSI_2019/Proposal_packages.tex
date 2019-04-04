@@ -31,7 +31,9 @@
 
 \usepackage[dvips]{geometry}
 \usepackage[dvips]{color}
-\usepackage[dvips,backref]{hyperref}
+\usepackage[dvips,backref,pdfpagelabels]{hyperref}
+%\usepackage[pdfpagelabels]{hyperref}
+\hypersetup{pageanchor=false}
 \fi
 
 \usepackage[final]{pdfpages} %%% Allows you to include pdf files
@@ -62,6 +64,8 @@
 \usepackage{booktabs} % for much better looking tables
 %\usepackage{multirow}
 %\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
 
 %----------------------------------------------------------------------
 %----------------------------------------------------------------------

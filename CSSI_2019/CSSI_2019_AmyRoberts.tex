@@ -1,3 +1,4 @@
+
 \documentclass[11pt,onecolumn]{article} % one column
 
 \input{Proposal_packages}
@@ -14,7 +15,8 @@
 \lhead{}
 
 \tableofcontents
-\clearpage
+\thispagestyle{empty}
+\newpage
 
 \setcounter{tocdepth}{2}
 \pagenumbering{arabic}
@@ -26,19 +28,11 @@
 \input{4-plan_of_work}
 
 \input{4a-POW-intro}
-\clearpage
-
-%\input{schedule}
 %\clearpage
 
-%\input{management}
-%\clearpage
-
-%\input{broaderImpacts}
-%\clearpage
 
 \input{PreviousResults}
-\clearpage
+%\clearpage
 \pagenumbering{arabic}
 \addcontentsline{toc}{section}{\bf References}
 \bibliographystyle{unsrt}
