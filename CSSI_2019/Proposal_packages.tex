@@ -44,9 +44,24 @@
 %%% Mathematical symbols, figures, floats, etc ...
 \usepackage[T1]{fontenc}
 \usepackage[lighttt]{lmodern}
-
+%\usepackage[table]{xcolor} %clashes with something?
 \usepackage{amssymb}
 \usepackage{amsmath}
+
+\DeclareFontFamily{U}{mathb}{}
+\DeclareFontShape{U}{mathb}{m}{n}{
+  <-5.5> mathb5
+  <5.5-6.5> mathb6
+  <6.5-7.5> mathb7
+  <7.5-8.5> mathb8
+  <8.5-9.5> mathb9
+  <9.5-11.5> mathb10
+  <11.5-> mathbb12
+}{}
+\DeclareRobustCommand{\sqcdot}{%
+  \mathbin{\text{\usefont{U}{mathb}{m}{n}\symbol{"0D}}}%
+}
+
 \usepackage{listings}
 \lstset{moredelim=[is][\bfseries\color{black}]{[*}{*]},
 		basicstyle=\ttfamily\color{lightgray},
@@ -80,6 +95,13 @@
 
 \usepackage{setspace}
 \setstretch{1.0}
+
+%%%% Bibliography
+\usepackage[style=numeric,
+			maxnames=200,
+			doi=false,
+			sorting=none]{biblatex}
+\addbibresource{supercdms_references.bib}
 
 
 %%%%%%Call currvita to define the cv environment

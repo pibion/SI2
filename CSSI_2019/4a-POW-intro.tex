@@ -33,7 +33,7 @@ This project serves the immediate needs of researchers in the dark matter commun
 \begin{itemize}
     \item Multiple research projects across the NSF directorate will be more productive because they can use existing, documented tools rather than building their own.  The PI intends to estimate this impact with citations from scientific papers.
     \item Increased involvement of undergraduate researchers in science analysis due to improved documentation and an extended support network.  The PI intends to measure this through undergraduate involvement in her own lab, community surveys, and tracking community forum data.
-    \item Several example analyses will be publicly released, with accompanying documentation and support information for pre-requisite computing skills.  The intent is for these educational materials to be accessible to someone with no domain knowledge.  The PI believes these training materials will be an equitable training resource.
+    \item Several example analyses will be publicly released, with accompanying documentation and support information for pre-requisite computing skills.  %The intent is for these educational materials to be accessible to someone with no domain knowledge.  The PI believes these training materials will be an equitable training resource.
 \end{itemize}
 
 
@@ -56,7 +56,7 @@ The PI proposes to engage both cyberinfrastructure experts and the experimental 
 The PI has working relationships with scientists in the SuperCDMS collaboration and the XIA corporation, both of which are interested in exploring the proposed software as solutions to analysis needs.
 
 In addition, the IRIS-HEP collaboration is interested in this work as it would extend their awkward-array library to a broader audience.  Awkward array was developed as part of DIANA/HEP \cite{diana-hep} and that effort will continue with IRIS-HEP \cite{iris-hep}
-.  Collaborating with IRIS-HEP gives us access to experienced cyberinfrastructure developers who have focused on developing software suitable for terabyte-scale data.
+.  Collaborating with IRIS-HEP allows us to build on libraries created by experienced cyberinfrastructure developers who have focused on developing software suitable for terabyte-scale data.
 
 
 \subsection{Building on existing, recognized capabilities}
@@ -68,7 +68,7 @@ The proposed work builds on existing capabilities and communities in several way
     \item \textbf{The PI proposes to use already-existing data description languages.}  The languages Katai Struct and the Data Format Description Langauage both have active communities and tools that work with data when provided a description.  Kaitai Struct is the target for the proposed work because (1) it is more human-readable than than the XML-based DFDL, and (2) Katai Struct generates code libraries that allow users to load their data into the programming environment of their choice; DFDL currently works by providing an XML or JSON equivalent of the binary data.  While this is a powerful approach because any language with an XML or JSON parser can now read the data, it also produces a secondary data file that is an order of magnitude larger than most binary files.  This makes DFDL, in its current state, unusable for scientists with gigabyte-scale data sets as it would make the required storage space for analysis prohibitively expensive.
     \item \textbf{The PI proposes to use already-existing infrastructure for the data-analysis library.}  Scientists who would like to avoid writing custom software to read their binary data can already use the Kaitai Struct compiler to generate libraries to read their data in python, C++, and a multitude of other languages.  The advantage is that there is substantial support documentation and an active community available for troubleshooting.  The disadvantage is that the current Kaitai Struct python compiler stores the data in a structure that does not provide adequate speed performance for gigabyte-scale data sets.  By improving the existing Katai Struct compiler software, we can build a science-ready analysis library and scientists can benefit from the existing community support and documentation.   
     \item \textbf{Use a supported and optimized data structure}  for the improvements to the Kaitai Struct compiler.  The ``awkward-array'' library was developed by DIANA/HEP and is now supported by IRIS-HEP and is part of a set of libraries designed to provide flexible data-analysis tools for the high-energy physics community.  The awkward-array data structure is optimized for fast queries on an event-based data set and as such is ideal for the majority of nuclear physics data.  By choosing this data structure as the target, we bring the optimized and convenient analysis environment of awkward-array to any scientist who describes their data with the Katai Struct language.
-    \item \textbf{Provide analysis tools for the python environment and training materials that take advantage of the python ecosystem.}  Python is a popular analysis environment in the field of big-data and has enjoyed significant adoption in the scientific community; enough so that python support is compiled in the dominant high-energy physics software, ROOT, by default.  By providing a python library for data analysis, scientists can make use of a full ecosystem that supports data analysis: numpy for convenient array manipulation; scipy for fitting; matplotlib for producing publication-quality figures; and even numba for easy compilation of code that needs to run fast.  This entire environment is easily installed - even for users without administration privileges - through the Anaconda Python distribution.  There are many free and paid programming environments that are availble, notably the Jupyter environment.  Code written in this environment is particularly nice as a tutorial because it is rendered nicely on github, gitlab, and interactive notebooks can be opened in one click through binder.  By providing a small set of introductory documentation, scientists can benefit from the effort the python community has put in to lower the barrier for use.
+    \item \textbf{Provide analysis tools for the python environment and training materials that take advantage of the python ecosystem.}  Python has enjoyed significant adoption in the scientific community; enough so that python support is compiled into the dominant high-energy physics software, ROOT, by default.  By providing a python library for data analysis, scientists can make use of a full ecosystem that supports data analysis: numpy for convenient array manipulation \cite{numpy}; scipy for fitting \cite{scipy}; matplotlib for producing publication-quality figures \cite{matplotlib}; and even numba for easy compilation of code that needs to run fast \cite{numba}.  Users can install the Anaconda Python distribution on any system, without elevated privelages.  The python community has invested significant effort into lowering the barrier to use and this project inherits this ecosystem.  %There are many , notably the Jupyter environment.  Code written in this environment is particularly nice as a tutorial because it is rendered nicely on github, gitlab, and interactive notebooks can be opened in one click through the binder webservice \cite{binder}.  
     
 \end{itemize}
 
@@ -138,11 +138,11 @@ uint64_t kaitai::kstream::[*size()*] {
     \item How to contribute changes back to the project.  This will provide instructions on the version control practices used by the repository maintainers and instructions for implementing the tests required for changes to be considered for merging with the main code base.
 \end{enumerate}
 
-\textbf{Architecture of the basic scientific computing skills documentation:}  Documentation of basic computational skills and concepts will have several possible forms: (1) Text and images, (2) tutorial videos, (3) jupyter notebooks, (4) posters that illustrate a focused concept, and (5) links to recommended resources such as Software Carpentry tutorials.
+\textbf{Architecture of the basic scientific computing skills documentation:}  Documentation of basic computational skills and concepts will have several possible forms: (1) text and images, (2) tutorial videos, (3) jupyter notebooks, (4) posters that illustrate a focused concept, and (5) links to recommended resources such as Software Carpentry \cite{software-carpentry} tutorials.
 
 All materials will be licensed with  a permissive, open-source license such as CC-BY or MIT.  The source for all the materials will be publicly available through a public host such as github or gitlab and will be archived on a content-tracker such as the Open Science Framework or Figshare.
 
-All materials will be disseminated using a static site generated by Antora.  Antora is specifically designed for documentation and allows a user to specify a set of repositories containing text files formatted in the Asciidoc markdown language to build a single, searchable documentation site.  Because Antora generates a static site, free hosting services are readily available.  This solution allows my students to focus on creating material to explain core concepts and practice interacting with version control rather than spending time wrestling with web development.
+All materials will be disseminated using a static site generated by Antora \cite{antora}.  Antora is specifically designed for documentation and allows a user to specify a set of repositories containing text files formatted in the Asciidoc markdown language to build a single, searchable documentation site.  Because Antora generates a static site, free hosting services are readily available.  This solution allows my students to focus on creating material to explain core concepts and practice interacting with version control rather than spending time wrestling with web development.
 
 %The topics students choose to document are largely student-led, with some guidance from the PI.  Spring 2019 marks the inception of this project, and the concepts chosen by students for illustration have focused on (1) tutorial-format guide for installing python and running a basic python-based analysis of gamma spectroscopy data, (2) instructions for using a docker container to simplify installation of a complex software environment, and (3) a poster explaining what an executable file is.
 
@@ -178,7 +178,7 @@ Simple end-to-end tests,  an automated testing framework, and high-quality docum
 %\subsubsection{Security}
 
 \subsubsection*{Trustworthiness}
-End-to-end tests of the software will include tests where the outcome is known.
+End-to-end tests will be released with all the software released as part of the proposed work.
 
 \subsubsection*{Provenance}
 All releases will be archived with their own DOIs on Zenodo.  Guidance to cite the version of the software used will be included in the top-level README of all releases and posted on all related websites.
@@ -189,36 +189,43 @@ End-to-end tests of the software will completely define all inputs, including a 
 Instructions for system setup will be included in the documentation.  Full or partial system specifications using Docker are required for automatic test running and will be versioned together with the rest of the code.  More complete system specifications as provided by Nix and Guix will be considered if need arises for more complete reproducibility.
 
 \subsubsection*{Usability}
-For the proposed software, usability consists of several scenarios:
+The proposed software must be usable for (1) end users and (2) developers.  The requirements and planned implementation for each is given below:
 
 \begin{tabularx}{\textwidth}{XX}
-\multicolumn{2}{l}{Can a scientist easily use this code to do data analysis on a custom-format data set?}\\
     \toprule
+\multicolumn{2}{l}{\textbf{Can a scientist use this code to do data analysis on a custom-format data set?}}\\
+    \toprule
+    \textsc{requirements} & \textsc{implementation} \\
+    \midrule
 
-    Is the scientist aware that this software exists?  Can the scientist find the software easily even if all they recall is a vague description?
+    $\sqcdot$ Is the scientist aware that this software exists?  Can the scientist find the software easily even if all they recall is a vague description?
     & Publications citing DOIs hosted on Zenodo with published preprints; well-indexed project website; open development on github, gitlab; indexed on python library repositories where appropriate \\
-    Can the scientist install the software on their analysis computer easily, with or without root access?
+    \addlinespace[1mm]
+    $\sqcdot$ Can the scientist install the software on their analysis computer easily, with or without root access?
     & Installation documentation; testing of installation documentation by novices; review of systems that need installation support at workshops \\
-    Does the software apply itself well to this particular analysis need?  Can the scientist see how to use the software in their analysis?
+    \addlinespace[1mm]
+    $\sqcdot$ Does the software apply itself well to this particular analysis need?  Can the scientist see how to use the software in their analysis?
     & Example analyses; testing of example analyses by novices; creation of a ``now you try'' document to test effectiveness. \\
-    Does the scientist know where to get help or discuss issues with the software?
+    \addlinespace[1mm]
+    $\sqcdot$ Does the scientist know where to get help or discuss issues with the software?
     & All documentation and code will contain a header directing users to the project forum and repository issue tracking. \\
-
-\bottomrule
-\end{tabularx}
-
-\begin{tabularx}{\textwidth}{XX}
-    \multicolumn{2}{l}{Can an interested individual contribute to the development of the software easily?}\\
-\toprule
-
-    Is there a clear description of the requirements and purpose of the software so that developers can decide if they'd like to participate?
+    \addlinespace[1mm]
+    \toprule
+    \multicolumn{2}{l}{\textbf{Can an interested individual contribute to the development of the software?}}\\
+    \toprule
+    \textsc{requirements} & \textsc{implementation} \\
+    \midrule
+    $\sqcdot$ Is there a clear description of the requirements and purpose of the software so that developers can decide if they'd like to participate?
     & Requirements documentation and a description of use cases will precede all programming work and will be versioned with the rest of the code.\\
-    Is it clear where to get help or discuss the code?
+    \addlinespace[1mm]
+    $\sqcdot$ Is it clear where to get help or discuss the code?
     & All documentation will link to the forum and the repository issue tracker.  The forum will be configured for web crawlers to maximize its discoverability.\\
-    Are there clear and complete instructions on testing the software locally?
-    & Local and remote testing infrastructure is as high in priority as the initial development of the code; documentation will be written as part of the first efforts.  Students will test these local development instructions.  Instructions may reference the scientific computing documentation.\\
-    Are there clear and complete contribution instructions?
-    & Contribution instructions will be developed with high priority once there is an initial passing test, even before there is functioning code.  Students will test these contribution instructions.  Instructions may reference the scientific computing documentation.\\
+    \addlinespace[1mm]
+    $\sqcdot$ Are there clear and complete instructions on testing the software locally?
+    & Local and remote testing infrastructure and documentation will be written as part of the first efforts.  Students will test these local development instructions.  Students will update the basic computing skills documentation as needed.\\
+    \addlinespace[1mm]
+    $\sqcdot$ Are there clear and complete contribution instructions?
+    & Contribution instructions will be developed as part of the initial effort.  Students will test these contribution instructions.  Students will update the basic computing skills documentation as needed.\\
     \bottomrule
 \end{tabularx}
 
